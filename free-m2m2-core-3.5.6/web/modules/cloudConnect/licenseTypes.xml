@@ -1,0 +1,16 @@
+<licenseTypes>
+    <licenseType id="paid" status="normal">
+    	<description>No restrictions.</description>
+    	<price>995</price>
+    </licenseType>
+    <licenseType id="paidCore" status="normal">
+    	<description>No restrictions on client and up to 3 simultaneous connections on server.</description>
+    	<price>0</price>
+    </licenseType>
+    <coreType id="Free">
+    	<licenseType id="unrestricted" status="grant-only">
+    		<description>No restrictions</description>
+    		<price>0</price>
+    	</licenseType>
+    </coreType>
+</licenseTypes>

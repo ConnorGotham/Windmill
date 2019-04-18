@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="modbus-pp" key="modbus.dox.pp" filename="modbus-pp.htm">
+    <relation id="modbus-ip"/>
+    <relation id="modbus-serial"/>
+    <relation id="modbus-write"/>
+  </item>
+  
+  <item id="modbus-ip" key="modbus.dox.ip" filename="modbus-ip.htm">
+    <relation id="modbus-pp"/>
+    <relation id="modbus-serial"/>
+  </item>
+  
+  <item id="modbus-serial" key="modbus.dox.serial" filename="modbus-serial.htm">
+    <relation id="modbus-pp"/>
+    <relation id="modbus-ip"/>
+  </item>
+
+  <item id="modbus-write" key="modbus.dox.write" filename="modbus-writeTool.htm">
+    <relation id="modbus-pp"/>
+  </item>
+
+  <item id="modbusIpPublishing" key="dox.modbusIpPublishing" filename="modbusIpPublishing.htm">
+  </item>
+</doxManifest>

@@ -1,0 +1,80 @@
+<p><b>Control Core Proxy Data Source Help</b></p>
+<p>The Control Core Bridge provides a bridge between a iSquared Control Core (http://www.isquared.ca) application running on a TCP/IP Network and an RS-485 serial connection connected to the Mango host.
+This data source receives a TCP/IP packet with a Modbus message as its payload (with special header defined below) then computes adds the CRC and passes it through to the Serial port.  The data sources expects a 
+standard Modbus response on the Serial port, checks and strips the CRC and passes the message (with special header) back out on the TCP/IP Network.
+There are no points for this type of source as it is a passthrough and no data is kept locally to Mango.  There are however a few types of Alarms that are reported, these are discussed below.
+</p>
+
+
+<p><h2><b>Settings</b></h2>
+
+<ul>
+    <li>The <b>Name</b> is a user defined label for the data source.</li>
+    <li>The <b>Export ID</b> is a unique value used when exporting/importing the datasource between Mango Instances</li>
+    <li>The <b>Purge</b> settings define how the data stored by this source is periodically deleted.</li>
+    <li>The <b>Port</b> is the Serial Port that is connected to an RS485 serial link locally on the Mango host.</li>
+    <li>The Serial Port <b>Bit Rate</b> for ControlCore devices should always be 19,200</li>
+    <li>The Serial Port<b>Flow control in</b> is always None for ControlCore devices.</li>
+    <li>The Serial Port<b>Flow control out</b> is always None for ControlCore devices.</li>
+    <li>The Serial Port<b>Data bits</b> is always 8 for ControlCore devices.</li>
+    <li>The Serial Port<b>Stop bits</b> is always 1 for ControlCore devices.</li>
+    <li>The Serial Port<b>Parity</b> is always None for ControlCore devices.</li>
+    <li>The <b>485 Read Timeout</b> is the maximum time to wait between received bytes in the Serial message. (See Serial Port Read Timing)</li>
+    <li>The <b>485 Response Timeout</b> is the maximum time to wait for any response on the Serial Port. (See Serial Port Read Timing)</li>
+    <li>The <b>Socket Timeout</b> is the ?????? Not used?</li>
+    <li>The <b>Allowed Clients</b> is the number of ControlCore clients that can simultaneously use the bridge.</li>
+    <li>The <b>Recieving Port Number</b> is the TCP/IP port number on the Mango Host that will be made available for incomming connections.</li>
+    
+
+</ul>
+
+</p>
+
+<p><h2>Alarms</h2>
+<ul>
+    <li><b>Data source exceptions</b> are any general errors with the data source.</li>
+    <li><b>Server exceptions</b> are any errors while managing the incoming TCP/IP connections.</li>
+    <li><b>Client exceptions</b> are any errors while managing the 2 way communication between the TCP/IP Port and the Serial Port.</li>
+</ul>
+
+
+</p>
+
+<p><h2>Serial Port Read Timing</h2>
+After a message is sent out on the Serial Port, the data source will wait a maximum of <b>485 Response Timeout</b> milliseconds before giving up and returning a Timeout message. 
+Once one byte has been recieved the data source considers itself to be recieving a message and will wait <b>485 Read Timeout</b> milliseconds before giving up and assuming the entire incomming message has been read.
+
+</p>
+
+<p><h2>Special Header</h2>
+
+The Special Header has the following structure:
+
+<table>
+<tr><th>Section</th><th>Length (Bytes)</th><th>Request Value</th><th>Response Value</th></tr>
+<tr><td>Head</td><td>4</td><td>0x76E6D291</td><td>0x76E6D291</td></tr>
+<tr><td>ID</td><td>4</td><td>Request ID</td><td>Request ID + 0d1000</td></tr>
+<tr><td>Size</td><td>4</td><td>Remaining Number of Bytes in Package</td><td>Remaining Number of Bytes in Package</td></tr>
+</table>
+
+
+<b>Error Responses</b>
+A failure response message indicates that something is wrong with the communication path to the Modbus 485 network.  All failure response messages have the following format. [Slave Address][function code][error code]  As with all Modbus error responses the function code will have its high order bit set to 1.  The error codes are described below and should not overlap any currently used error codes.
+
+
+<table>
+<tr><th>Error</th><th>Description</th><th>Code</th></tr>
+<tr><td>Response Timeout</td><td>No Response Recieved on the Serial Line</td><td>9</td></tr>
+<tr><td>Serial Port In Use</td><td>Serial Port on Mango Host is in Use. The Slave ID in this case is 0 and the Function Code is 0x80.
+</td><td>10</td></tr>
+<tr><td>Invalid CRC</td><td>CRC Recieved on 485 Line was incorrect.</td><td>11</td></tr>
+<tr><td>Invalid MODBUS Message</td><td>Incomming TCP/IP Payload had poorly formed MODBUS message. (The only requirement is to have more than 2 bytes) The Slave ID in this case is 0 and the Function Code is 0x80.
+</td><td>12</td></tr>
+<tr><td>Invalid Header</td><td>This message is returned when the module receives a bad Special Header in the TCP/IP payload. The Slave ID in this case is 0 and the Function Code is 0x80.
+</td><td>13</td></tr>
+
+</table>
+
+
+</p>
+

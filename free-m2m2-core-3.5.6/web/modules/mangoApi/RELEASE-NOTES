@@ -1,0 +1,256 @@
+*Version 3.5.2*
+* Fix for v2 endpoints using HTTP PATCH where some models were not getting de-serialized correctly
+
+*Version 3.5.1*
+* Fix bug in failing to download json thread dump as file from /v1/threads
+* Users that have edit permission for a JSON store item now have access to read
+* Fix permission check for creating new JSON store items
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Adding ExportCode and ExportCodes models for use in REST api to provide code/id/i18n key and translated description
+* Adding PATCH framework to simplify partial update logic for V2 models, used in new PATCH endpoints
+* Expose tags in realtime endpoint results
+* Fix bug where PUT endpoints were returning the old XID in the location header if the xid was changed (v2/data-points, v2/publishers, v1/data-sources)
+* Allowing null values to be returned in ValueMonitor model
+* Added endpoints for user filestore CRUD
+* Fix for class cast error due to annotated point value classes in cache
+* Adding v2 point value statistics endpoint at /v2/point-values/statistics/{xids}
+* Use XIDs in publisher points lists
+* Add admin only endpoints in v2 demo rest controller to generate exceptions for testing
+* Restrict json-data POST endpoint to only let users with the global Create JSON Data permission to create new entries
+* Bugfix for /v2/script endpoints to properly return script log/print output
+* Fix bug so GET /v1/translations does not fail and returns all translations
+* Add validation to require a data type when posting values to /v2/point-values endpoint
+* Fixing bug where Importing invalid system settings wouldn't return the propert validation failed message
+* Add /v2/point-values/{xid}/attributes PUT endpoint to modify runtime attributes of a data point
+* Add /v2/realtime endpoint for enhanced querying on real time data point information
+* Fix file store APIs to create files in correct directories
+* Fixes for using Spring v5
+* Register WebSockets as Spring beans
+* DAO notification WebSockets listen for DAO events
+* Use MediaTypes from Core, remove class in API module
+* Provide temporary resource container of ImportStatusProvider as Spring bean
+* Better login error response codes and messages
+* Give translations returned from translations controller a model class
+* Add last upgrade time header (X-Mango-Last-Upgrade) to login controller (/rest/v2/login)
+* Add set and merge tag functions using RQL query (POST and PUT on /rest/v2/data-point-tags/points)
+* Add an easy way to delete all event detectors for a point (DELETE /rest/v2/event-detectors/data-point/{xid})
+* Add v2 JSON data WebSocket with ability to subscribe to specific XIDs
+
+*Version 3.4.4*
+* Fixed cast exception for upgrade state
+* Remove un-necessary jsonClassType parameter from GET system-settings/{key} endpoint
+
+*Version 3.4.3*
+* Fixed NPE from no data point set in event detector permissions checking
+
+*Version 3.4.2*
+* Add HTTP message converters for generic CSV format
+* Add methods for getting data points and tags as CSV
+* Add guid to mango-info endpoint
+
+*Version 3.4.1*
+* Fixed DeviceNameController to consider setPermission and data source edit permission in getting list
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Adding download option to /v1/modules/update-license-payload
+* Adding /v1//upload-upgrades to POST zip file with Mango upgrades (download Upgrade Bundle from store)
+* Adding /v1/events/module-defined-query/{query type} to expose custom queries defined by modules
+* Adding /v1/events/explain-module-defined-queries to explain all defined queries
+* Fixing /v1/logging/by-filename/{filename} Query to match new log file format
+* Adding StartsAndRuntime data to All Rollup for Multistate points
+* Adding ability to use DEFAULT rollups on /v2/point-values rollup endpoints even when the default rollup is NONE
+* Optionally supply a device name to apply to data points when copying a data source on /v1/data-sources/copy/{xid}
+
+*Version 3.3.8*
+* Added 'reliquish' endpoint to reliquish the value of BACnet data points /v1/runtime-manager/relinquish/{xid}
+
+*Version 3.3.7*
+* Set background context user for bulk data point edit tasks
+
+*Version 3.3.6*
+* Fix potential deadlock issue due to websocket code upgrading a read lock to a write lock
+
+*Version 3.3.5*
+* Endpoint to log web client errors
+
+*Version 3.3.4*
+* Stopgap for new core ON_CHANGE_INTERVAL logging type model support, clean in 3.4
+* Bugfix for non-numeric rollups point value v2 endpoints
+* Bugfix for rendering values in csv format point value v2
+* Adding support for limits in point value v2 Rollup endpoints
+* Adding name, deviceName and dataSourceName columns to point value v2 csv format
+* Bugfix for converting time with timezones in point value v1 endpoints
+* Making all fields orderable and optional for point value v2 endpoints
+* Improve efficiency of Log Query Endpoints
+* Fix for system settings not being saved
+
+*Version 3.3.3*
+* Option to merge tags when doing data point update using V2 REST controller
+* Always check for user before sending websocket messages
+
+*Version 3.3.2*
+* Modified /users/permissions-groups endpoints to only return groups that a user has access to
+* Add bulk data point and data point tag editing endpoints
+* Add new temporary resource framework and websocket
+* Add new bulk request/response models
+
+*Version 3.3.1*
+* Removed scheme, host and port from image urls to improve use over proxy
+* Remove path property from v2 data point model
+* Fix release notes
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+* Removed JsonEmport rest v1 controller (/rest/v1/json-emport) and replaced with /rest/v2/json-emport
+* Adding high performance user-events endpoint at rest/v2/user-events to access all un-acknowleged cached events for a user
+* Adding acknowledged userId, username and timestamp to Events when returned from api via REST and Websockets
+* Adding optional dateTimeFormat parameter to PointValue rest requests to format date output as string or number of millis
+* Add data point v2 end point /rest/v2/data-points which supports querying using tags in RQL and partial updates to data points
+* Add /rest/v2/data-point-tags end points for data point tags
+* Add a new /rest/v2/point-values endpoint with more options and formats. Ability to perform wide/bookend queries for easy charting.
+* Add /rest/v2/auth-tokens endpoint for creating/revoking user authentication tokens
+* Add /rest/v2/password-reset endpoint for creating password reset tokens and sending password reset emails
+* Add option to lock a user's password to the user rest controller
+* Return validation messages when saving system settings and validation error occurs
+* Use translatable messages in rest exceptions, user's locale now honored in REST error messages
+* Allow setting path for a file when uploading files to file store
+* Various bugfixes
+
+*Version 3.2.4*
+* Fix decoding of path in JSON data REST controller
+
+*Version 3.2.3*
+* Fix JSON store so partial get/update/delete works
+* Fix issue with data point restart
+* Fix validation of event detectors so name is not required
+* Changing json generators for zero sample stat periods #1118
+* Feedback for dependency delete #1066
+
+*Version 3.2.2*
+* Return full version strings and dependency versions for upgrades in /rest/v1/modules/upgrades-available
+* Add /rest/v2/event-types end point for returning all event types including system events
+* Fixes for script validation
+* Fix always setting data point text renderer to plain
+* Add data source enable/disable/restart
+* Use XID instead of ID for all event detector end points
+
+*Version 3.2.1*
+* Removed point counts from the v2/server/system-info endpoint
+* Added v2/server/point-history-counts to get all point counts
+* Returning log file meta data on v1/logging/files
+* Fixing up v1/logging/by-filename endpoint to only allow querying on Log4J ma.log files
+* Adding v1/logging/view endpoint to view and download logfiles
+* Adding v1/work-items/queue-counts to return counts for each type of work item on all 3 priority levels
+* Adding lockOwner, lockOwnerId and LockInfo to the Thread output from v1/threads
+* View all Audit Event types at v1/audit/list-event-types
+* New end point for enabling/disabling/restarting data points at v1/data-points/enable-disable/{xid}
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+* Adding script utils endpoint test and run scripts
+* Better error handling on modules endpoint
+* Temporary resource expiration time is now accurate
+* Generate XID for new data points if one is not supplied
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+* Adding event detector endpoints @ rest/v2/event-detectors
+* Adding publisher endpoints @ rest/v2/publishers
+* Adding system action endpoints @ rest/v2/actions to fire off various system tasks
+* Adding virtual serial port endpoints @ rest/v2/virtual-serial-ports
+* Adding file store endpoints to save and retrieve files @ rest/v2/file-store
+* Adding server information endpoints rest/v2/server/system-info
+* Fixing API restart to restart instead of shutdown.
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* New REST v2 infrastructure to add new endpoints
+* Fully implementing ALL Rollup Type to return all rollups at once
+* Only allow users to save JSON Data that they have permissions for
+* Enhanced Event RQL Queries
+* Adding /rest/v2/exception endpoint to return map of latest exceptions for the user
+* Adding /rest/v2/login endpoints to login and switch user
+* Modify /rest/v1/login endpoints for new Spring Security (some endpoints now removed)
+* Allow GET/DELETE of User Comments by XID
+* Adding /rest/v1/audit RQL Endpoints to allow viewing the Audit trail
+* Adding support for Serotonin JSON Output via Content-Type "application/sero-json"
+* Adding Configuration Import/Export Endpoints and Websocket
+* Must have edit permission for a data source after it is saved to save it
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.8.x
+* Add REST end points for getting point values for multiple points in one request
+* Removed mangoApiHeaders.properties file as it is now merged with the env.properties
+* The custom headers filter no longer exists so Mango will fail to start if you have that filter defined in the override-web.xml
+* Adding image support to all point-value end points and web sockets
+* Added timezone parameter to point-value REST end-points
+
+*Version 1.1.8*
+* Add REST endpoints for getting device names
+* Correct behavior of JSON store endpoint so only data from supplied path is returned
+
+*Version 1.1.7*
+* Basic support for Image data types
+* Endpoint for setting multiple points values PUT /point-values
+* Get point hierarchy by path, including wildcards etc
+
+*Version 1.1.6*
+* Adding beta DELETE data-points/{xid}
+* Adding beta POST data-points/
+* Adding beta PUT data-sources/{xid}
+* Adding beta DELETE data-sources/{xid}
+* Adding beta POST data-sources/
+* Adding beta RQL GET data-sources/
+
+*Version 1.1.5*
+* Performance improvements for Point Hierarchy rest endpoint
+* Adding NoSQL Data Storage endpoint at /json-data
+
+*Version 1.1.4*
+* Adding Allowed Origins for CORS Websocket use
+* Performance improvements to WebSocket synchronization for Events and Point Values
+
+*Version 1.1.3*
+* Bugfix for setting point values now requires Data Point Set permissions
+* Bugfix in EventsRestController where Events Query was broken for non-admin users
+
+*Version 1.1.2*
+* Better validation for saving data points via CSV
+* Fixing bug in toggle user mute endpoint
+* Adding force-refresh endpoint to new /runtime-manager/ endpoint
+
+*Version 1.1.1*
+* Changing cost of module to $0.00
+* Fixing bug where event detectors and point folder were not being transferred when a data point is being updated
+* Fixing bug where UserModel was missing the Phone Number
+* Fixing bug where Switching User didn't end up changing the user.
+* Adding additional validation to Background Processing Endpoint
+* Upgraded to work with core version 2.7.x
+
+*Version 1.1.0*
+* Adding RQL endpoints
+* Adding CORS Filter configuration and help in system settings
+* Upgraded to work with core version 2.6.x
+
+*Version 1.0.5*
+* Fixed blocking on web sockets
+* Terminate point event listener when subscription is empty
+
+*Version 1.0.4*
+* Added XID to realtime data web sockets
+* Added basic CORS filter, enabled by editing the web.xml file of Mango Core.  See the classes/mangoApiHeaders.properties file in this module.
+* Return system timezone with user timezone which may be blank
+
+*Version 1.0.3
+* Released with core 2.5.2
+* Added GET method for Login/Logout controllers
+
+*Version 1.0.2
+* General bugfixes and improvements
+
+*Version 1.0.0*
+* Initial Release
+* Added Point Value Statistics API at: /rest/v1/pointValues/{xid}/statistics

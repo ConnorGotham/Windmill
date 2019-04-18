@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <!-- Meta Data Source -->
+  <item id="metaDS" key="dox.metaDS" filename="metaDS.htm">
+    <relation id="metaPP"/>
+  </item>
+
+  <item id="metaGenerateHistory" key="dox.metaGenerateHistory" filename="metaGenerateHistory.htm">
+    <relation id="metaPP"/>
+  </item>
+  
+  <item id="metaPP" key="dox.metaPP" filename="metaPP.htm">
+    <relation id="metaDS"/>
+    <relation id="metaGenerateHistory"/>
+    <relation id="mangoJavaScript"/>
+    <relation id="scriptPermissions"/>
+  </item>
+  
+  
+  <item id="metaMVEL" key="dox.metaMVEL" filename="metaMVEL.htm">
+  	<relation id="metaPP"/>
+  	<relation id="mangoJavaScript"/>
+  	<relation id="scriptPermissions"/>
+  </item>
+</doxManifest>

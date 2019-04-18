@@ -1,0 +1,62 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@page import="com.serotonin.m2m2.modbus.vo.ModbusIpDataSourceVO"%>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+
+<script type="text/javascript">
+  function scanImpl() {
+      ModbusEditDwr.modbusIpScan(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("transportType"), $get("host"), 
+              $get("port"), $get("encapsulated"), scanCB);
+  }
+  
+  function locatorTestImpl(locator) {
+	  ModbusEditDwr.testModbusIpLocator(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("transportType"), $get("host"), 
+              $get("port"), $get("encapsulated"), locator, locatorTestCB);
+  }
+  
+  function dataTestImpl(slaveId, range, offset, length) {
+	  ModbusEditDwr.testModbusIpData(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("transportType"), $get("host"), 
+              $get("port"), $get("encapsulated"), slaveId, range, offset, length, dataTestCB);
+  }
+
+  function dataWriteImpl(slaveId, range, offset, modbusDataType, value) {
+      ModbusEditDwr.writeModbusIpData(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("transportType"), $get("host"), 
+              $get("port"), $get("encapsulated"), slaveId, range, offset, modbusDataType, value, dataWriteCB);
+  }
+  
+  
+  function saveDataSourceImpl(basic) {
+	  ModbusEditDwr.saveModbusIpDataSource(basic, $get("updatePeriods"),
+              $get("updatePeriodType"), $get("quantize"), $get("timeout"), $get("retries"), $get("multipleWritesOnly"),
+              $get("contiguousBatches"), $get("createSlaveMonitorPoints"), $get("maxReadBitCount"), 
+              $get("maxReadRegisterCount"), $get("maxWriteRegisterCount"), $get("logIO"), $get("ioLogFileSizeMBytes"), $get("maxHistoricalIOLogs"),
+              $get("discardDataDelay"), $get("transportType"), $get("host"), $get("port"), $get("encapsulated"), saveDataSourceCB);
+  }
+</script>
+
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.modbusIp.transportType"/></td>
+  <td class="formField">
+    <sst:select id="transportType" value="${dataSource.transportType}">
+      <sst:option value="<%= ModbusIpDataSourceVO.TransportType.TCP.toString() %>"><fmt:message key="dsEdit.modbusIp.transportType.tcp"/></sst:option>
+      <sst:option value="<%= ModbusIpDataSourceVO.TransportType.TCP_KEEP_ALIVE.toString() %>"><fmt:message key="dsEdit.modbusIp.transportType.tcpKA"/></sst:option>
+      <sst:option value="<%= ModbusIpDataSourceVO.TransportType.UDP.toString() %>"><fmt:message key="dsEdit.modbusIp.transportType.udp"/></sst:option>
+    </sst:select>
+  </td>
+</tr>
+
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.modbusIp.host"/></td>
+  <td class="formField"><input id="host" type="text" value="${dataSource.host}"/></td>
+</tr>
+
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.modbusIp.port"/></td>
+  <td class="formField"><input id="port" type="text" value="${dataSource.port}"/></td>
+</tr>
+
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.modbusIp.encapsulated"/></td>
+  <td class="formField"><sst:checkbox id="encapsulated" selectedValue="${dataSource.encapsulated}"/></td>
+</tr>

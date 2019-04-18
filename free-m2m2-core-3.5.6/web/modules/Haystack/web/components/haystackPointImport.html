@@ -1,0 +1,186 @@
+<md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.activeTab">
+	<md-tab>
+		<md-tab-label>
+			<span ma-tr="haystack.ui.selectHaystackPoints"></span>
+		</md-tab-label>
+		<md-tab-body>
+			<div class="md-padding">
+				<div layout>
+					<md-input-container flex>
+						<label ma-tr="haystack.ui.filter"></label>
+						<input ng-model="$ctrl.filter" ng-change="$ctrl.doQuery()" ng-model-options="{debounce: 1000}">
+					</md-input-container>
+					
+					<md-input-container>
+						<label ma-tr="haystack.ui.limit"></label>
+						<input ng-model="$ctrl.limit" type="number" min="1" ng-change="$ctrl.doQuery()" ng-model-options="{debounce: 1000}">
+					</md-input-container>
+				</div>
+				
+				<md-checkbox ng-model="$ctrl.hideExistingPoints" ng-change="$ctrl.filterHaystackRows()">
+					<span ma-tr="haystack.ui.hideExistingPoints"></span>
+				</md-checkbox>
+				
+				<div layout>
+					<md-button class="md-raised" ng-href="{{$ctrl.downloadUrlJson}}">
+						<md-icon>file_download</md-icon>&nbsp;<span ma-tr="haystack.ui.downloadAs" ma-tr-args="['JSON']"></span>
+					</md-button>
+					<md-button class="md-raised" ng-href="{{$ctrl.downloadUrlCsv}}">
+						<md-icon>file_download</md-icon>&nbsp;<span ma-tr="haystack.ui.downloadAs" ma-tr-args="['CSV']"></span>
+					</md-button>
+					<md-button class="md-raised" ng-href="{{$ctrl.downloadUrlZinc}}">
+						<md-icon>file_download</md-icon>&nbsp;<span ma-tr="haystack.ui.downloadAs" ma-tr-args="['Zinc']"></span>
+					</md-button>
+				</div>
+				
+				<md-progress-linear ng-if="$ctrl.haystackQueryPromise" md-mode="indeterminate"></md-progress-linear>
+				
+				<md-table-container>
+				  <table md-table md-row-select="true" multiple="true" ng-model="$ctrl.selectedPoints">
+				    <thead md-head md-order="$ctrl.order">
+				      <tr md-row>
+				      	<th md-column ng-if="!$ctrl.hideExistingPoints" ma-tr="haystack.ui.existingXid"></th>
+				        <th md-column md-order-by="{{col.name}}" ng-repeat="col in $ctrl.results.cols track by col.name" ng-bind="col.name"></th>
+				      </tr>
+				    </thead>
+				    <tbody md-body>
+				      <tr class="ma-empty-results" ng-if="!$ctrl.filteredHaystackRows.length">
+				      	<td colspan="{{$ctrl.results.cols.length + 2}}">
+				      		<em ma-tr="haystack.ui.noRowsToDisplay"></em>
+				      	</td>
+				      </tr>
+				      <tr md-row md-select="point" md-on-select="$ctrl.generatePoints" md-on-deselect="$ctrl.generatePoints" md-select-id="id"
+				      		ng-repeat="point in $ctrl.filteredHaystackRows | orderBy:$ctrl.order track by point.id">
+				        <td md-cell ng-if="!$ctrl.hideExistingPoints" ng-bind="point.existingXid"></td>
+				        <td md-cell ng-repeat="col in $ctrl.results.cols track by col.name" ng-bind="point[col.name]"></td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</md-table-container>
+			</div>
+		</md-tab-body>
+	</md-tab>
+	<md-tab>
+		<md-tab-label>
+			<span ma-tr="haystack.ui.mapColumns"></span>
+		</md-tab-label>
+		<md-tab-body>
+			<div class="md-padding">
+				<div layout="column">
+					<div layout ng-repeat="(colName, colProps) in $ctrl.columns">
+						<md-input-container flex>
+							<label ma-tr="haystack.ui.columnFor.{{colName}}"></label>
+							<md-select ng-model="$ctrl.columns[colName].column" ng-change="$ctrl.generatePoints()">
+								<md-option ng-value="null" md-option-empty>
+									<em ma-tr="common.none"></em>
+								</md-option>
+								<md-option ng-repeat="col in $ctrl.results.cols track by col.name"
+									ng-value="col.name" ng-bind="col.name">
+								</md-option>
+							</md-select>
+						</md-input-container>
+						<md-input-container flex>
+							<label ma-tr="haystack.ui.regex"></label>
+							<input ng-model="$ctrl.columns[colName].regex" ng-trim="false" ng-change="$ctrl.generatePoints()">
+						</md-input-container>
+						<md-input-container flex>
+							<label ma-tr="haystack.ui.replace"></label>
+							<input ng-model="$ctrl.columns[colName].replace" ng-trim="false" ng-change="$ctrl.generatePoints()">
+						</md-input-container>
+						<md-input-container>
+							<label ma-tr="haystack.ui.previewOfFirstPoint"></label>
+							<input ng-model="$ctrl.mangoPoints[0][colName]" ng-trim="false" ng-disabled="true">
+						</md-input-container>
+					</div>
+				</div>
+			</div>
+		</md-tab-body>
+	</md-tab>
+	<md-tab md-on-select="!$ctrl.hasResults && $ctrl.checkExistingPoints()" ng-disabled="!$ctrl.mangoPoints.length">
+		<md-tab-label>
+			<span ma-tr="haystack.ui.createPoints"></span>
+		</md-tab-label>
+		<md-tab-body>
+			<div class="md-padding">
+				<div layout layout-wrap layout-align="start center">
+					<md-input-container flex flex-gt-sm="50" flex-gt-md="25">
+						<label ma-tr="haystack.ui.existingIdStrategy"></label>
+						<md-select ng-model="$ctrl.existingIdStrategy" ng-change="!$ctrl.hasResults && $ctrl.checkExistingPoints()" ng-disabled="$ctrl.createPointsPromise || $ctrl.hasResults">
+							<md-option value="SKIP" ma-tr="haystack.ui.skip"></md-option>
+							<md-option value="UPDATE_KEEP_XID" ma-tr="haystack.ui.updateKeepXid"></md-option>
+							<md-option value="UPDATE" ma-tr="haystack.ui.update"></md-option>
+						</md-select>
+					</md-input-container>
+					<md-button class="md-raised md-primary" ng-click="$ctrl.createPoints($event)" ng-disabled="$ctrl.createPointsPromise || !$ctrl.existingPointsChecked || $ctrl.hasResults">
+						<md-icon>forward</md-icon>&nbsp;<span ma-tr="haystack.ui.createPoints"></span>
+					</md-button>
+					<md-button class="md-raised md-warn" ng-click="$ctrl.cancelCreatePoints = true" ng-if="$ctrl.createPointsPromise">
+						<md-icon>cancel</md-icon>&nbsp;<span ma-tr="common.cancel"></span>
+					</md-button>
+					<md-button class="md-raised" ng-click="$ctrl.hasResults = null; $ctrl.checkExistingPoints()" ng-if="$ctrl.hasResults && !$ctrl.createPointsPromise">
+						<md-icon>undo</md-icon>&nbsp;<span ma-tr="haystack.ui.startOver"></span>
+					</md-button>
+				</div>
+
+				<md-progress-linear ng-if="$ctrl.createPointsPromise" md-mode="determinate" ng-value="$ctrl.progress / $ctrl.mangoPoints.length * 100"></md-progress-linear>
+
+				<md-table-container>
+				  <table md-table>
+				    <thead md-head md-order="$ctrl.pointOrder">
+				      <tr md-row>
+				        <th md-column md-order-by="haystackId" ma-tr="haystack.ui.haystackId"></th>
+				        <th md-column md-order-by="originalXid" ma-tr="haystack.ui.existingXid"></th>
+				        <th md-column md-order-by="xid" ma-tr="haystack.ui.newXid"></th>
+				        <th md-column md-order-by="deviceName" ma-tr="common.deviceName"></th>
+				        <th md-column md-order-by="name" ma-tr="common.name"></th>
+				        <th md-column md-order-by="dataType" ma-tr="dsEdit.pointDataType"></th>
+				        <th md-column md-order-by="settable" ma-tr="dsEdit.settable"></th>
+				        <th md-column md-order-by="unit" ma-tr="haystack.ui.unit"></th>
+				        <th md-column ma-tr="haystack.ui.importStatus"></th>
+				      </tr>
+				    </thead>
+				    <tbody md-body>
+				      <tr md-row ng-repeat="point in $ctrl.mangoPoints | orderBy:$ctrl.pointOrder track by point.haystackId">
+				        <td md-cell ng-bind="point.haystackId"></td>
+				        <td md-cell>
+				        	<span ng-if="point.originalXid" ng-bind="point.originalXid"></span>
+				        	<span ng-if="!point.originalXid">&mdash;</span>
+				        </td>
+				        <td md-cell>
+				        	<span ng-if="point.newXid" ng-bind="point.newXid"></span>
+				        	<span ng-if="!point.newXid && point.skip">&mdash;</span>
+				        	<em ng-if="!point.newXid && !point.skip" ma-tr="haystack.ui.generated"></em>
+				        </td>
+				        <td md-cell ng-bind="point.deviceName"></td>
+				        <td md-cell ng-bind="point.name"></td>
+				        <td md-cell ng-bind="point.dataType"></td>
+				        <td md-cell ng-bind="point.settable"></td>
+				        <td md-cell ng-bind="point.unit"></td>
+				        <td md-cell>
+				        	<span ng-if="point.status.error" md-colors="{color: 'warn'}" ng-bind="point.status.error"></span>
+				        	<span ng-if="point.status.created" ma-tr="haystack.ui.created"></span>
+				        	<span ng-if="point.status.updated" ma-tr="haystack.ui.updated"></span>
+				        	<span ng-if="point.status.skipped" ma-tr="haystack.ui.skipped"></span>
+				        </td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</md-table-container>
+			</div>
+		</md-tab-body>
+	</md-tab>
+	<md-tab ng-disabled="!$ctrl.hasResults || $ctrl.createPointsPromise"
+			md-on-select="$ctrl.resetHistoryImportTable = {}; $ctrl.createPointsForHistoryImport()">
+		<md-tab-label>
+			<span ma-tr="haystack.ui.importHistory"></span>
+		</md-tab-label>
+		<md-tab-body>
+			<div class="md-padding">
+				<ma-haystack-history-import data-source-xid="{{$ctrl.dataSourceXid}}"
+						selected-points="$ctrl.pointsForHistoryImport"
+						reset-table="$ctrl.resetHistoryImportTable">
+				</ma-haystack-history-import>
+			</div>
+		</md-tab-body>
+	</md-tab>
+</md-tabs>

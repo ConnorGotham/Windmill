@@ -1,0 +1,39 @@
+<!--
+    Copyright (C) 2017 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+<p>Configuration for Haystack points.</p>
+<ul>
+  <li>id - String ID of the tag to poll/watch</li>
+  <li>settable - NOT CURRENTLY IMPLEMENTED</li>
+</ul>
+
+<p>Data type coercion is supported for the following:</p>
+
+<p><b>Mango Alphanumeric</b>
+<ul>
+	<li>Haystack Boolean</li>
+	<li>Haystack Numeric</li>
+	<li>Haystack String</li>
+</ul>
+
+<p><b>Mango Binary</b>
+<ul>
+	<li>Haystack Boolean</li>
+	<li>Haystack Numeric (1,0)</li>
+	<li>Haystack String (true/anything else)</li>
+</ul>
+
+<p><b>Mango Multistate</b>
+<ul>
+	<li>Haystack Boolean (true=1, false=0)</li>
+	<li>Haystack Numeric (0,1,2,...)</li>
+	<li>Haystack String ("1","2",...)</li>
+</ul>
+
+<p><b>Mango Numeric</b>
+<ul>
+	<li>Haystack Boolean (true = 1.0, false = 0.0)</li>
+	<li>Haystack Numeric (0.0,1.0,...)</li>
+	<li>Haystack String ("1.0","2.0",...)</li>
+</ul>

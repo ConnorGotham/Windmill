@@ -1,0 +1,24 @@
+<!--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+<h1>RQL Queries for Logfiles</h1>
+<p>This terminal allows performing queries on the ma.log file.  The query syntax is RQL.  Always use a reasonable limit to avoid memory issues in the browser or Mango. 
+Wildcards are regex style .* for match all.  RQL requires that if using a limit command it must be the last command in the query.
+</p>
+<h2>Query-able Columns</h2>
+<ul>
+<li>level - Logging level</li>
+<li>classname - Java Class name</li>
+<li>method - Java method name</li>
+<li>time - Timestamp for log</li>
+<li>message - String logging message</li>
+</ul>
+
+
+<h2>Query Examples</h2>
+<ul>
+ <li>level=INFO&amp;limit(10)</li>
+ <li>(level=INFO|level=DEBUG)&amp;limit(10)</li>
+ <li>like(classname,.*m2m2.*)&amp;limit(10)</li>
+</ul>

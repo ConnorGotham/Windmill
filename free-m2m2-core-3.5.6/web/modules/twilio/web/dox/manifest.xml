@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2013 Infinite Automation Systems All rights reserved.
+    @author Phillip Dunlap
+-->
+
+<doxManifest>
+  <item id="twilioSenderPublishing" key="dox.twilioPub" filename="twilioPub.htm">
+  </item>
+</doxManifest>

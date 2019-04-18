@@ -1,0 +1,48 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<h1>Overview</h1>
+<p>
+  The BACnet I/P data source is used to gather data from BACnet I/P compatible devices accessible over an I/P network. 
+  Equipment can be in a local network or intranet, or could also be anywhere in the internet. This data source uses both 
+  polling and COV (Change Of Value) subscriptions for updating as applicable.
+</p>
+
+<h1>Configuration</h1>
+<p>
+  Every data source requires a <b>Name</b>, which can be any description. The <b>Update period</b> determines how often 
+  the BACnet equipment is polled for data. Polling is only used if a desired object does not support COV subscriptions. 
+  The device is automatically queried for its supported services to make this determination.
+</p>
+<p>
+  The <b>Local device</b> is the device that should be used for connecting to the local network. Local devices can be
+  defined in system settings. See <a href="http://infiniteautomation.com/wiki/doku.php?id=datasources:bacnet:configuring_local_devices" target="blank">here</a>
+  for additional details.
+</p>
+<p>
+  The <b>COV lease time</b> is the number of minutes that Mango will request to hold a COV lease. Mango will 
+  automatically attempt to refresh its COV subscriptions after half of the given time has elapsed. So, if the least time 
+  is 60 minutes, Mango will request the device honour the lease for 60 minutes, and will resubscribe after 30.
+</p>
+<p>
+  Where COV subscriptions are not available, polling at the given rate is used instead. Devices are polled individually. 
+  Devices that support ReadPropertyMultiple requests are sent this message, partitioned to contain no more than 200 
+  properties in a single request if necessary. Otherwise, individual ReadProperty requests are sent.
+</p>
+
+<h1>BACnet I/P discovery</h1>
+<p>
+  Devices on BACnet networks can be discovered automatically by broadcasting WhoIs messages. Devices are required to 
+  respond with an IAm message, which contains some basic information about the device. To test configuration settings 
+  and determine what devices are available for points, enter the <b>Port</b> number to which to broadcast and click the 
+  "Send WhoIs" button. (If the port number is not provided, the value from the configuration is used.) A single WhoIs 
+  message will be sent, and then the device will listen for IAm messages indefinitely. (Clicking "Cancel" will stop the 
+  listener.) As IAm messages are received, information about the devices will be displayed in the table below button. 
+  The information can be used for the creation of points.
+  
+  After discovery is complete it is possible to download a spreadsheet for all discovered devices, just point your browser to:
+  
+  http://your-mango-host/bacnet/data/all-discovered.xlsx
+  
+</p>

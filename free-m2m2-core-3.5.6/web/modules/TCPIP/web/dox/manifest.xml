@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems. All rights reserved.
+    @author Phillip Dunlap
+-->
+
+<doxManifest>
+  <item id="tcpipDS" key="tcpip.dox.tcpipDS" filename="tcpipDS.htm">
+    <relation id="tcpipPP"/>
+  </item>
+  
+  <item id="tcpipPP" key="tcpip.dox.tcpipPP" filename="tcpipPP.htm">
+    <relation id="tcpipDS"/>
+  </item>
+ 
+</doxManifest>

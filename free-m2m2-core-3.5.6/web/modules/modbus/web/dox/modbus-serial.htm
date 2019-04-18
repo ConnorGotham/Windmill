@@ -1,0 +1,67 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<h1>Overview</h1>
+<p>
+  The Modbus serial data source is used to gather data from a local modbus network, accessible via RS232 or RS485 
+  (requires adapter) communication. This is a polling data source.
+</p>
+
+<h1>Configuration</h1>
+<p>
+  Every data source requires a <b>Name</b>, which can be any description. The <b>Update period</b> determines how often 
+  the Modbus equipment is polled for data. Checking <b>Quantize</b> will cause the data source startup to be delayed
+  so that pollings occur at a "rounded" point in time (e.g. if polling is every 10 seconds, polls will occur on the 10th 
+  second, the 20th second, etc). Otherwise, polling will begin immediately. The <b>Timeout</b> and <b>Retries</b> fields 
+  determine the system behaviour in the case of a polling failure. The data source waits the given number of timeout 
+  milliseconds for a response from the network. If it is not received the request will be retried the given number of 
+  times.
+</p>
+<p>
+  The <b>Use multiple write commands only</b> checkbox can be used to specify that the modbus implementation should not 
+  attempt to use single value write commands. This is useful if your slave equipment implements only multiple write
+  commands.
+</p>
+<p>
+  The <b>Contiguous batches only</b> checkbox can be used to specify that the modbus implementation should not attempt
+  to optimize disparate value requests into a single request. Checking this field will cause the implementation to only
+  make requests for multiple values when those value form contiguous register space.
+</p>
+<p>
+  The <b>Create slave monitor points</b> checkbox indicates whether slave monitor points should automatically be 
+  created by the data source. A slave monitor point is a binary point that indicates the current status of a slave. If a
+  polling request to a slave fails due to timeout or error, the slave is considered off line. These points can then be 
+  used for control just like other points.
+</p>
+<p>
+  The <b>Max read bit count</b>, <b>Max read register count</b>, and <b>Max write register count</b> count fields 
+  control how large batch requests can be. The Modbus specification provides defaults for these values, but some 
+  hardware may impose different limits.
+</p>
+<p>
+  Serial communication is controlled with the <b>Baud rate</b>, <b>Flow control in</b>, <b>Flow control out</b>, 
+  <b>Data bits</b>, <b>Stop bits</b>, and <b>Parity</b> values. The <b>Echo</b> setting can be used with RS485 networks 
+  as appropriate.
+</p>
+<p>
+  The <b>Encoding</b> value determines how Modbus requests are formatted. Most production hardware uses RTU formatted 
+  messages. See the Modbus documentation for your equipment to determine how to set this field.
+</p>
+
+<p>
+  The option to <b>Override timing</b> is provided to allow more flexibility for variation in devices that have 
+  strict message frame timing requirements. <b>Message frame spacing</b> is the minimum time delay between messages and is set 
+  in nanoseconds.  <b>Character spacing</b> is the minimum time delay between bytes in the message and is set in nanoseconds. When 
+  not overriding the timing settings the timing settings are computed based on the serial port settings.  It is also possible to 
+  have Mango compute the Modbus specification timing settings based on the serial port settings by clicking the <b>Compute timing</b> button. 
+</p>
+
+
+<h1>Node scanning</h1>
+<p>
+  Networks can be scanned for slave nodes using the scan utility. This feature iterates from slave id 1 to 240, sending 
+  each a ReadExceptionStatus (function code 7). If a response is received (using the given timeout and retries 
+  settings), the node is considered available. Note that not all equipment supports this function code, so false 
+  negatives are possible.
+</p>

@@ -1,0 +1,30 @@
+<h3>Overview</h3>
+<p>The Data File Data Source is intended to poll a particular directory for files, and either adds the parsed points
+to itself as Mango data points or uses it to map the file's identifiers to other points within Mango. Currently, the 
+data source is ready to accept XML, CSV, Excel, or Binary documents after some custom coding, explained in the related links.</p>
+<h2>Configuration</h2>
+<ul><li>The <b>Poll class</b> presents a user to extend AbstractPollClass which will be called every poll. This could be used to generate
+or transport a file.</li>
+<li>The <b>Poll arguments</b> are passed to the poll class every run as a single string.</li>
+<li>The <b>Additional classpath</b> defines additional classpath locations during compilation and runtime. These are Java Classloader paths,
+  so you need to fully specify the filename. As a convenience, if an additional classpath item ends in an asterisk, *, then all files ending
+  in .jar are added from the directory defined by the path preceding the * as with "/path/to/lib/*"</li>
+<li><b>File Type</b> selects between XML, CSV, Excel, and Binary document types</li>
+<li>If <b>CreatePoints</b> is checked, the data source will create data points assigned to itself with the XID from the imported file.</li>
+<li><b>Data File Path</b> is the location the data source will search for import files. If the path is to a directory, the data source will 
+	attempt to import all files within the directory, but will not recursively search the directory tree.</li>
+<li>The <b>Template</b> is the name of the .class file in the directory associated with the file type. It does not need the .class appended!
+	These are the customized importers for particular data files.</li>
+<li><b>Sort values</b> will sort the imported points in ascending time order, such that events are properly caused for data in the sheet. If a sheet were in descending
+order, then only the first point in the document would generate events.</li>
+<li><b>Delete After Import</b> determines if the imported file ought be deleted or renamed after the import is complete.</li>
+<li>The <b>Imported Prefix</b> is what will be prepended to renamed files after import</li></ul>
+<h2>Creating Points</h2>
+<p>A few additional items will be sought in a parameter mapping for newly created points. Specifically, the importer will look for "xid", "deviceName", "name",
+and "identifier" entries. The first three map to the standard data point properties of the same names, while the identifier updates the newly created point locator
+to use that string as its in-document identifier. This circumvents issues surrounding a 40-character limit on xid lengths and identifying coarsely named points easily.</p>
+<p>If the xid received (whether by "xid" entry in the String-->String map or by the import point's identifier) is the string "generate" then the XID will be automatically 
+generated to be unique with a prefix of "DFDP_".</p>
+<h2>Usage</h2>
+<p>While developing a template, one must keep in mind that the data source needs to be restarted each time the underlying template class is compiled.
+This is because the class loader would have already loaded the described class in the data source runtime, so it must be restarted to reload the new class.</p>

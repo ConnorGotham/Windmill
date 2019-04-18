@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <!-- Scripting -->
+  <item id="scriptingDS" key="dox.scriptingDS" filename="scriptingDS.htm">
+    <relation id="scriptingPP"/>
+    <relation id="mangoJavaScript"/>
+    <relation id="scriptPermissions"/>
+  </item>
+  
+  <item id="scriptingPP" key="dox.scriptingPP" filename="scriptingPP.htm">
+    <relation id="scriptingDS"/>
+    <relation id="mangoJavaScript"/>
+    <relation id="scriptPermissions"/>
+  </item>
+</doxManifest>

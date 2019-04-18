@@ -1,0 +1,25 @@
+<!--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+<h1>Overview</h1>
+
+<p>The finished report list is a sortable list of all reports that have been run.  The table is color coded based on the state of the report.  Clicking a row in the table will select the report,
+to select multiple rows use the shift or control keys while clicking rows.</p>
+
+<p>The <b>Delete all failed</b> button will remove all failed reports from the system. The <b>Delete selected</b> 
+button will delete any selected reports.</p>
+  
+<ul>
+  <li><b>Export ID (XID)</b> - is the export id for the report</li>
+  <li><b>Report Name</b> - is the name of the report and will be the same as the Template Name</li>
+  <li><b>State</b> - will be one of Running, Finished, Failed, Email Failed, or Queued. If the state is a failed report then clicking on the TBD icon. </li>
+  <li><b>Owner</b> - the user who generated the report</li>
+  <li><b>Run time start</b> - the time at which the report was run</li>
+  <li><b>Duration</b> - the total time it took to run the report</li>
+  <li><b>Prevent purge</b> - a settable checkbox that when set will prevent the report from being purged.</li>
+  <li><b>Report read permission</b> - the permissions for users who can view the report</li>
+  <li><img src="modules/excelReports/web/images/download.png" height="16" width="16"/> - downloads the report</li>
+  <li><img src="modules/excelReports/web/images/eye_open.png" height="16" width="16"/> - views the report in HTML</li>
+  <li><img src="modules/excelReports/web/images/cancel.png" height="16" width="16"/> - deletes the report instance</li>
+</ul>

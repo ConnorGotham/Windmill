@@ -1,0 +1,58 @@
+<div layout layout-align="start center" layout-wrap>
+	<md-input-container flex="100" flex-gt-md="25">
+		<label ma-tr="haystack.ui.timezone"></label>
+		<md-select ng-model="$ctrl.timezone" ng-change="$ctrl.timezoneChanged()">
+			<md-option ng-repeat="zone in $ctrl.timezones" ng-value="zone" ng-bind="zone"></md-option>
+		</md-select>
+	</md-input-container>
+	
+	<md-input-container flex="100" flex-gt-md="25">
+		<label ma-tr="haystack.ui.fromDatePreset"></label>
+		<ma-date-range-picker preset="{{$ctrl.preset}}" refresh="$ctrl.refresh"
+			from="$ctrl.from" to="$ctrl.to" timezone="{{$ctrl.timezone}}"
+			on-change="$ctrl.preset = preset"></ma-date-range-picker>
+	</md-input-container>
+	
+	<md-input-container flex="100" flex-gt-md="25">
+		<label ma-tr="haystack.ui.fromDate"></label>
+		<ma-date-picker ng-model="$ctrl.from" timezone="{{$ctrl.timezone}}"></ma-date-picker>
+	</md-input-container>
+	
+	<md-input-container flex="100" flex-gt-md="25">
+		<label ma-tr="haystack.ui.toDate"></label>
+		<ma-date-picker ng-model="$ctrl.to" timezone="{{$ctrl.timezone}}"></ma-date-picker>
+	</md-input-container>
+</div>
+
+<md-button class="md-raised" ng-click="$ctrl.doImport($event)"
+		ng-disabled="!$ctrl.from || !$ctrl.to || !$ctrl.dataSourceXid || $ctrl.tmpResource || !$ctrl.selectedPoints.length">
+	<span ma-tr="haystack.ui.import"></span>
+</md-button>
+
+<em ma-tr="haystack.ui.xPointsSelected" ma-tr-args="[$ctrl.selectedPoints.length]"></em>
+
+<md-table-container>
+  <table md-table md-row-select="true" multiple="true" ng-model="$ctrl.selectedPoints" md-progress="$ctrl.queryPromise">
+    <thead md-head md-order="$ctrl.queryOptions.order" md-on-reorder="$ctrl.queryPoints">
+      <tr md-row>
+        <th md-column md-order-by="xid" ma-tr="common.xid"></th>
+        <th md-column md-order-by="name" ma-tr="common.name"></th>
+        <th md-column md-order-by="deviceName" ma-tr="common.deviceName"></th>
+        <th md-column ma-tr="haystack.ui.haystackId"></th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="point.xid" md-select-id="xid" md-auto-select
+      		ng-repeat="point in $ctrl.dsPoints track by point.xid">
+        <td md-cell ng-bind="point.xid"></td>
+        <td md-cell ng-bind="point.name"></td>
+        <td md-cell ng-bind="point.deviceName"></td>
+        <td md-cell ng-bind="point.pointLocator.id"></td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+<md-table-pagination md-limit="$ctrl.queryOptions.limit" md-limit-options="[5, 10, 20, 50, 100]"
+	md-page="$ctrl.queryOptions.page" md-total="{{$ctrl.total}}"
+	md-page-select md-on-paginate="$ctrl.queryPoints">
+</md-table-pagination>

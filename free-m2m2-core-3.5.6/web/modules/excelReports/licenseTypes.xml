@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<licenseTypes>
+		<licenseType id="free" status="normal">
+		<description>1 Report Template</description>
+        <features>
+            <report-templates>1</report-templates>
+        </features>
+		<price>0</price>
+	</licenseType>
+	<licenseType id="three-templates" status="deprecated">
+		<description>3 Report Templates</description>
+        <price>200</price>
+        <features>
+            <report-templates>3</report-templates>
+        </features>
+	</licenseType>
+    <licenseType id="paid" status="normal">
+        <description>No restrictions.</description>
+        <price>995</price>
+    </licenseType>
+    <licenseType id="paid-more" status="deprecated">
+        <description>No restrictions.</description>
+        <price>1500</price>
+    </licenseType>
+	<licenseType id="standalone" status="normal">
+        <description>No restrictions.</description>
+        <price>1500</price>
+    </licenseType>
+	
+	<coreType id="free">
+		<ref id="free"/>
+	</coreType>
+	
+	<coreType id="Free">
+		<ref id="free"/>
+		<ref id="standalone"/>
+	</coreType>
+	
+	<coreType id="Trial">
+		<ref id="free"/>
+		<ref id="standalone"/>
+	</coreType>
+	
+	<coreType id="variableSpecial">
+		<ref id="free"/>
+		<ref id="standalone"/>
+	</coreType>
+	
+	<coreType id="paid">
+		<ref id="free"/>
+		<ref id="standalone"/>
+	</coreType>
+	
+	<coreType id="MangoES">
+		<ref id="free"/>
+		<licenseType id="paid-MangoES-ExcelReports" status="normal">
+			<description>No restrictions.</description>
+			<price>200</price>
+		</licenseType>
+	</coreType>
+	
+	<coreType id="Gateway">
+		<ref id="free"/>
+		<ref id="standalone"/>
+	</coreType>
+	
+	<coreType id="Commercial">
+		<ref id="free"/>
+		<ref id="paid"/>
+	</coreType>
+	
+	<coreType id="Commercial-lite">
+		<ref id="free"/>
+		<ref id="paid"/>
+	</coreType>
+	
+	<coreType id="Enterprise">
+		<ref id="free"/>
+		<ref id="paid"/>
+	</coreType>
+	
+	<coreType id="brewersdashboard">
+		<licenseType id="paid" status="normal">
+			<description>No restrictions.</description>
+			<price>0</price>
+		</licenseType>
+	</coreType>
+</licenseTypes>

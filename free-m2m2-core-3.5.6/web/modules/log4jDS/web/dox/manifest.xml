@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="log4jDS" key="dox.log4jDS" filename="log4jDS.htm">
+    <relation id="log4jPP"/>
+  </item>
+  
+  <item id="log4jPP" key="dox.log4jPP" filename="log4jPP.htm">
+    <relation id="log4jDS"/>
+  </item>
+</doxManifest>

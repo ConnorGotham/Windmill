@@ -1,0 +1,507 @@
+INFO  2019-04-17T15:29:57,671 (com.serotonin.m2m2.Main.main:101) - Starting Mango 3.5.6 with Schema Version: 26 
+INFO  2019-04-17T15:29:59,110 (com.serotonin.m2m2.Main.openZipFiles:218) - Installing module cloudConnect 
+INFO  2019-04-17T15:29:59,909 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'asciiFile', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:29:59,940 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'BACnet', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:29:59,959 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'cloudConnect', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:29:59,968 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\free-m2m2-core-3.5.6\web\modules\cloudConnect\web\dox\manifest.xml 
+INFO  2019-04-17T15:29:59,978 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'controlcore', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:29:59,993 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dashboardDesigner', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:29:59,998 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\free-m2m2-core-3.5.6\web\modules\dashboardDesigner\web\dox\manifest.xml 
+INFO  2019-04-17T15:30:00,011 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dataFile', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,091 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dataImport', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,110 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'deviceConfig', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,116 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\free-m2m2-core-3.5.6\web\modules\deviceConfig\web\dox\manifest.xml 
+INFO  2019-04-17T15:30:00,129 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dnp3', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,144 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'egauge', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,160 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'envcands', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,173 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'excelReports', v3.5.3 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,210 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'graphicalViews', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,270 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'Haystack', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,297 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'http', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,333 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'jsonFileImport', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,355 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'log4jDS', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,377 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'log4JReset', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,387 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'loggingConsole', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,404 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'maintenanceEvents', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,423 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mangoApi', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,444 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mangoUI', v3.5.5 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,453 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\free-m2m2-core-3.5.6\web\modules\mangoUI\web\dox\manifest.xml 
+INFO  2019-04-17T15:30:00,566 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mbus', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,593 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'meta', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,613 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'modbus', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,637 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'onewire', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,654 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'opcda', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,662 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pakbus', v3.5.4 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,680 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pointLinks', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,724 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pop3', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,741 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'reports', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,772 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'scheduledEvents', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,799 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'scripting', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,812 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'serial', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,828 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'snmp', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,849 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sqlConsole', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,864 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sqlds', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,879 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'ssh', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,891 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sstGlobalScripts', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,906 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sstGraphics', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,972 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'TCPIP', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:00,985 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'templateConfig', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:01,003 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'twilio', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:01,031 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'virtualDS', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:01,047 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'vmstat', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:01,066 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'watchlists', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:01,119 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'internal', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-17T15:30:09,884 (com.serotonin.m2m2.Lifecycle.loadLic:604) - Checking license... 
+INFO  2019-04-17T15:30:09,884 (com.serotonin.m2m2.Lifecycle.loadLic:690) - License file not found 
+INFO  2019-04-17T15:30:10,315 (com.serotonin.m2m2.db.H2Proxy.initializeImpl:42) - Initializing H2 connection manager 
+INFO  2019-04-17T15:30:13,646 (com.serotonin.m2m2.db.upgrade.DBUpgrade.checkUpgrade:38) - Starting instance with core version 3.5.6, db 26 
+INFO  2019-04-17T15:30:19,752 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'runtimeContext' refreshed: org.springframework.context.annotation.AnnotationConfigApplicationContext@44032fde 
+INFO  2019-04-17T15:30:19,765 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextStarted:134) - Spring context 'runtimeContext' started: org.springframework.context.annotation.AnnotationConfigApplicationContext@44032fde 
+INFO  2019-04-17T15:30:20,485 (com.serotonin.m2m2.rt.DataSourceGroupInitializer.initialize:77) - Initializing 4 NORMAL priority data sources in 8 threads. 
+INFO  2019-04-17T15:30:20,707 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Test' initialized 
+INFO  2019-04-17T15:30:20,707 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Test' took 210.229432ms to start 
+INFO  2019-04-17T15:30:20,825 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Mango Internal' initialized 
+INFO  2019-04-17T15:30:20,825 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Mango Internal' took 328.420122ms to start 
+INFO  2019-04-17T15:30:21,112 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Test2' initialized 
+INFO  2019-04-17T15:30:21,112 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Test2' took 615.555177ms to start 
+INFO  2019-04-17T15:30:21,151 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Weather' initialized 
+INFO  2019-04-17T15:30:21,151 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Weather' took 654.631736ms to start 
+INFO  2019-04-17T15:30:21,199 (com.serotonin.m2m2.rt.DataSourceGroupInitializer.initialize:109) - Initialization of 4 NORMAL priority data sources took 713ms 
+INFO  2019-04-17T15:30:21,274 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initialize:156) - Starting 0 Publishers... 
+INFO  2019-04-17T15:30:21,274 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initialize:168) - 0 Publisher's started in 4ms 
+INFO  2019-04-17T15:30:24,679 (com.serotonin.m2m2.web.M2M2ContextListener.contextInitialized:32) - Mango Automation context starting 
+INFO  2019-04-17T15:30:24,681 (com.serotonin.m2m2.web.M2M2ContextListener.contextInitialized:40) - Mango Automation context started 
+INFO  2019-04-17T15:30:31,193 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'rootWebContext' refreshed: Root WebApplicationContext 
+WARN  2019-04-17T15:30:35,029 (org.springframework.web.servlet.handler.SimpleUrlHandlerMapping.registerHandlers:114) - Neither 'urlMap' nor 'mappings' set on SimpleUrlHandlerMapping 
+INFO  2019-04-17T15:30:35,174 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'jspDispatcherContext' refreshed: WebApplicationContext for namespace 'JSP_DISPATCHER-servlet' 
+INFO  2019-04-17T15:30:41,657 (com.serotonin.m2m2.web.mvc.rest.v1.DataPointRestController.<init>:76) - Creating Data Point Rest Controller. 
+INFO  2019-04-17T15:30:42,601 (com.serotonin.m2m2.web.mvc.rest.v1.DataSourceRestController.<init>:62) - Creating DS Rest Controller 
+INFO  2019-04-17T15:30:42,839 (com.serotonin.m2m2.web.mvc.rest.v1.BacnetDiscoveryRestController.<init>:54) - Creating Discovery Rest Controller 
+INFO  2019-04-17T15:30:43,897 (com.infiniteautomation.mango.rest.v2.DataPointRestController.<init>:96) - Creating Data Point v2 Rest Controller. 
+INFO  2019-04-17T15:30:45,053 (com.infiniteautomation.mango.rest.v2.MetaRestController.<init>:52) - Creating meta rest controller. 
+INFO  2019-04-17T15:30:47,489 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'restDispatcherContext' refreshed: WebApplicationContext for namespace 'REST_DISPATCHER-servlet' 
+INFO  2019-04-17T15:30:47,525 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: EnvCanEditDwr 
+INFO  2019-04-17T15:30:47,575 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: HttpDataSourceDwr 
+INFO  2019-04-17T15:30:47,581 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: TcpIpDataSourceEditDwr 
+INFO  2019-04-17T15:30:47,591 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: Pop3EditDwr 
+INFO  2019-04-17T15:30:47,601 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: HaystackDataSourceDwr 
+INFO  2019-04-17T15:30:47,601 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-17T15:30:47,606 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: DataFileDataSourceEditDwr 
+INFO  2019-04-17T15:30:47,630 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: OPCDAEditDwr 
+INFO  2019-04-17T15:30:47,650 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: BACnetMSTPEditDwr 
+INFO  2019-04-17T15:30:47,656 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: PakBusEditDwr 
+INFO  2019-04-17T15:30:47,661 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: MBusEditDwr 
+INFO  2019-04-17T15:30:47,661 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.infiniteautomation.mango.pakbus.dwr.PakBusEditDwr 
+INFO  2019-04-17T15:30:47,666 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SNMPEditDwr 
+INFO  2019-04-17T15:30:47,669 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: InternalEditDwr 
+INFO  2019-04-17T15:30:47,680 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SerialEditDwr 
+INFO  2019-04-17T15:30:47,688 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: MetaEditDwr 
+INFO  2019-04-17T15:30:47,693 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: DnpEditDwr 
+INFO  2019-04-17T15:30:47,700 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: ModbusEditDwr 
+INFO  2019-04-17T15:30:47,707 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: Log4jEditDwr 
+INFO  2019-04-17T15:30:47,715 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: ScriptingEditDwr 
+INFO  2019-04-17T15:30:47,720 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SshDataSourceEditDwr 
+INFO  2019-04-17T15:30:47,728 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: AsciiFileEditDwr 
+INFO  2019-04-17T15:30:47,729 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-17T15:30:47,736 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: OneWireEditDwr 
+INFO  2019-04-17T15:30:47,741 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SqlEditDwr 
+INFO  2019-04-17T15:30:47,746 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: VMStatEditDwr 
+INFO  2019-04-17T15:30:47,750 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: EgaugeDataSourceDwr 
+INFO  2019-04-17T15:30:47,750 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-17T15:30:47,758 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: BACnetIPEditDwr 
+INFO  2019-04-17T15:30:47,759 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: br.org.scadabr.dnp3.dwr.DnpEditDwr 
+INFO  2019-04-17T15:30:47,765 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: ControlCoreEditDwr 
+INFO  2019-04-17T15:30:47,765 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.modbus.dwr.ModbusEditDwr 
+INFO  2019-04-17T15:30:47,765 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-17T15:30:47,786 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: VirtualEditDwr 
+INFO  2019-04-17T15:30:47,925 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_point_details.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,926 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/events.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,927 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/pending_alarms.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,928 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/event_handlers.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,928 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_sources.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,929 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/point_hierarchy.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,929 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/mailing_lists.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,932 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/publishers.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,933 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/system_settings.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,933 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/modules.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,933 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/emport.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,933 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/error.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,934 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/not-found.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,949 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/unauthorized.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,949 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/upload.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,950 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/mobile_data_point_details.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,954 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/csvDataImport.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,968 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/dataImport.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,969 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/excel-reports.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,978 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/public_view.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,986 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/views.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,987 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/logging_console.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,989 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/maintenance_events.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,990 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/point_links.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,997 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/reportChart.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,997 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/reports.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:47,998 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/m2m_report_import.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,000 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/templateConfig.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,009 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/mobile/watch_list.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,009 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/watch_list.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,010 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/tasks.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,010 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/status.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,010 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/workItems.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,010 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/threads.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,010 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/queueStats.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,011 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_point_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataPointEditController] 
+INFO  2019-04-17T15:30:48,011 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_source_properties.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataSourcePropertiesController] 
+INFO  2019-04-17T15:30:48,011 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_source_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataSourceEditController] 
+INFO  2019-04-17T15:30:48,014 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_source_properties_error.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataSourceEditController] 
+INFO  2019-04-17T15:30:48,014 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/help.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.HelpController] 
+INFO  2019-04-17T15:30:48,014 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/startup.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.StartupController] 
+INFO  2019-04-17T15:30:48,014 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/shutdown.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.ShutdownController] 
+INFO  2019-04-17T15:30:48,014 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/publisher_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.PublisherEditController] 
+INFO  2019-04-17T15:30:48,015 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/users.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.UsersController] 
+INFO  2019-04-17T15:30:48,039 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/view_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,039 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/scheduled_events.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,042 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/sqlConsole.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:30:48,042 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/globalScripts.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-17T15:35:00,070 (com.infiniteautomation.mango.cloudConnect.server.CloudConnectServer.licenseTimerStart:493) - Unlicensed CloudConnect Server started, will automatically stop in 10m 
+WARN  2019-04-17T15:40:35,528 (com.serotonin.m2m2.web.mvc.spring.exception.ExceptionUtils.logWebException:56) - 
+REQUEST URL
+http://localhost:8080/rest/v1/modules/download-license
+
+REQUEST PARAMETERS
+
+
+REQUEST HEADERS
+   Cookie=2-123b0b6e-5720-4b45-a231-67b2760f4dd8=node0hedpyqa97d2p1n6rx4obneui10.node0; XSRF-TOKEN=b9a82236-54b1-4426-bc47-33b28d460203
+   Accept=application/json, text/plain, */*
+   X-Requested-With=XMLHttpRequest
+   X-XSRF-TOKEN=b9a82236-54b1-4426-bc47-33b28d460203
+   User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+   Referer=http://localhost:8080/ui/administration/modules
+   Connection=keep-alive
+   Host=localhost:8080
+   Accept-Language=en-US,en;q=0.5
+   Accept-Encoding=gzip, deflate
+   Content-Length=39
+   Content-Type=application/json;charset=UTF-8
+
+
+REQUEST ATTRIBUTES
+   org.springframework.web.context.request.async.WebAsyncManager.WEB_ASYNC_MANAGER=org.springframework.web.context.request.async.WebAsyncManager@7eb0e5d2
+   org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.FILTERED=true
+   __spring_security_scpf_applied=true
+   org.springframework.security.web.header.HeaderWriterFilter@55c03e4.FILTERED=true
+   org.springframework.web.servlet.DispatcherServlet.CONTEXT=WebApplicationContext for namespace 'REST_DISPATCHER-servlet': startup date [Wed Apr 17 15:30:35 EDT 2019]; parent: Root WebApplicationContext
+   org.springframework.web.servlet.resource.ResourceUrlProvider=org.springframework.web.servlet.resource.ResourceUrlProvider@5a23b9d1
+   __spring_security_session_mgmt_filter_applied=true
+   org.springframework.web.servlet.DispatcherServlet.LOCALE_RESOLVER=org.springframework.web.servlet.i18n.SessionLocaleResolver@b34e36b
+   org.springframework.web.servlet.HandlerMapping.bestMatchingPattern=/v1/modules/download-license
+   org.springframework.web.servlet.DispatcherServlet.OUTPUT_FLASH_MAP=FlashMap [attributes={}, targetRequestPath=null, targetRequestParams={}]
+   org.springframework.web.servlet.DispatcherServlet.FLASH_MAP_MANAGER=org.springframework.web.servlet.support.SessionFlashMapManager@293d5fcf
+   org.springframework.core.convert.ConversionService=ConversionService converters =
+	@org.springframework.format.annotation.DateTimeFormat java.lang.Long -> java.lang.String: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,@org.springframework.format.annotation.NumberFormat java.lang.Long -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	@org.springframework.format.annotation.DateTimeFormat java.time.LocalDate -> java.lang.String: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.time.LocalDate -> java.lang.String : org.springframework.format.datetime.standard.TemporalAccessorPrinter@1d83beed
+	@org.springframework.format.annotation.DateTimeFormat java.time.LocalDateTime -> java.lang.String: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.time.LocalDateTime -> java.lang.String : org.springframework.format.datetime.standard.TemporalAccessorPrinter@fcc6f60
+	@org.springframework.format.annotation.DateTimeFormat java.time.LocalTime -> java.lang.String: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.time.LocalTime -> java.lang.String : org.springframework.format.datetime.standard.TemporalAccessorPrinter@73570132
+	@org.springframework.format.annotation.DateTimeFormat java.time.OffsetDateTime -> java.lang.String: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.time.OffsetDateTime -> java.lang.String : org.springframework.format.datetime.standard.TemporalAccessorPrinter@446c27ea
+	@org.springframework.format.annotation.DateTimeFormat java.time.OffsetTime -> java.lang.String: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.time.OffsetTime -> java.lang.String : org.springframework.format.datetime.standard.TemporalAccessorPrinter@21cb9465
+	@org.springframework.format.annotation.DateTimeFormat java.time.ZonedDateTime -> java.lang.String: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.time.ZonedDateTime -> java.lang.String : org.springframework.format.datetime.standard.TemporalAccessorPrinter@61231757
+	@org.springframework.format.annotation.DateTimeFormat java.util.Calendar -> java.lang.String: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4
+	@org.springframework.format.annotation.DateTimeFormat java.util.Date -> java.lang.String: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4
+	@org.springframework.format.annotation.DateTimeFormat org.joda.time.LocalDate -> java.lang.String: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,org.joda.time.LocalDate -> java.lang.String : org.springframework.format.datetime.joda.ReadablePartialPrinter@788ca9a7
+	@org.springframework.format.annotation.DateTimeFormat org.joda.time.LocalDateTime -> java.lang.String: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,org.joda.time.LocalDateTime -> java.lang.String : org.springframework.format.datetime.joda.ReadablePartialPrinter@943488a
+	@org.springframework.format.annotation.DateTimeFormat org.joda.time.LocalTime -> java.lang.String: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,org.joda.time.LocalTime -> java.lang.String : org.springframework.format.datetime.joda.ReadablePartialPrinter@71b5aeaa
+	@org.springframework.format.annotation.DateTimeFormat org.joda.time.ReadableInstant -> java.lang.String: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,org.joda.time.ReadableInstant -> java.lang.String : org.springframework.format.datetime.joda.ReadableInstantPrinter@4bd5fcdc
+	@org.springframework.format.annotation.NumberFormat java.lang.Byte -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	@org.springframework.format.annotation.NumberFormat java.lang.Double -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	@org.springframework.format.annotation.NumberFormat java.lang.Float -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	@org.springframework.format.annotation.NumberFormat java.lang.Integer -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	@org.springframework.format.annotation.NumberFormat java.lang.Short -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	@org.springframework.format.annotation.NumberFormat java.math.BigDecimal -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	@org.springframework.format.annotation.NumberFormat java.math.BigInteger -> java.lang.String: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.Boolean -> java.lang.String : org.springframework.core.convert.support.ObjectToStringConverter@30a9974a
+	java.lang.Character -> java.lang.Number : org.springframework.core.convert.support.CharacterToNumberFactory@df77e5f
+	java.lang.Character -> java.lang.String : org.springframework.core.convert.support.ObjectToStringConverter@3d121da9
+	java.lang.Enum -> java.lang.Integer : org.springframework.core.convert.support.EnumToIntegerConverter@41065941
+	java.lang.Enum -> java.lang.String : org.springframework.core.convert.support.EnumToStringConverter@7926e8aa
+	java.lang.Integer -> java.lang.Enum : org.springframework.core.convert.support.IntegerToEnumConverterFactory@3d699a61
+	java.lang.Long -> java.time.Instant : org.springframework.format.datetime.standard.DateTimeConverters$LongToInstantConverter@63c62d4f
+	java.lang.Long -> java.util.Calendar : org.springframework.format.datetime.DateFormatterRegistrar$LongToCalendarConverter@3f063ffb,java.lang.Long -> java.util.Calendar : org.springframework.format.datetime.DateFormatterRegistrar$LongToCalendarConverter@120bd52a
+	java.lang.Long -> java.util.Date : org.springframework.format.datetime.DateFormatterRegistrar$LongToDateConverter@7b3cd6f3,java.lang.Long -> java.util.Date : org.springframework.format.datetime.DateFormatterRegistrar$LongToDateConverter@651ca102
+	java.lang.Long -> org.joda.time.ReadableInstant : org.springframework.format.datetime.joda.JodaTimeConverters$LongToReadableInstantConverter@39058c44
+	java.lang.Number -> java.lang.Character : org.springframework.core.convert.support.NumberToCharacterConverter@59c4c0fe
+	java.lang.Number -> java.lang.Number : org.springframework.core.convert.support.NumberToNumberConverterFactory@9557a80
+	java.lang.Number -> java.lang.String : org.springframework.core.convert.support.ObjectToStringConverter@5cb10acb
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.lang.Long: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,java.lang.String -> @org.springframework.format.annotation.NumberFormat java.lang.Long: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.time.LocalDate: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.lang.String -> java.time.LocalDate: org.springframework.format.datetime.standard.TemporalAccessorParser@4f7d5447
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.time.LocalDateTime: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.lang.String -> java.time.LocalDateTime: org.springframework.format.datetime.standard.TemporalAccessorParser@2a36ddb2
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.time.LocalTime: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.lang.String -> java.time.LocalTime: org.springframework.format.datetime.standard.TemporalAccessorParser@f38dcbc
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.time.OffsetDateTime: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.lang.String -> java.time.OffsetDateTime: org.springframework.format.datetime.standard.TemporalAccessorParser@582bb998
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.time.OffsetTime: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.lang.String -> java.time.OffsetTime: org.springframework.format.datetime.standard.TemporalAccessorParser@363c82cd
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.time.ZonedDateTime: org.springframework.format.datetime.standard.Jsr310DateTimeFormatAnnotationFormatterFactory@6f927034,java.lang.String -> java.time.ZonedDateTime: org.springframework.format.datetime.standard.TemporalAccessorParser@28b7faf3
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.util.Calendar: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat java.util.Date: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat org.joda.time.LocalDate: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,java.lang.String -> org.joda.time.LocalDate: org.springframework.format.datetime.joda.LocalDateParser@6d7e6d5e
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat org.joda.time.LocalDateTime: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,java.lang.String -> org.joda.time.LocalDateTime: org.springframework.format.datetime.joda.LocalDateTimeParser@1749c061
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat org.joda.time.LocalTime: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,java.lang.String -> org.joda.time.LocalTime: org.springframework.format.datetime.joda.LocalTimeParser@149f1a2f
+	java.lang.String -> @org.springframework.format.annotation.DateTimeFormat org.joda.time.ReadableInstant: org.springframework.format.datetime.joda.JodaDateTimeFormatAnnotationFormatterFactory@27ad6da4,java.lang.String -> org.joda.time.ReadableInstant: org.springframework.format.datetime.joda.DateTimeParser@2777d9eb
+	java.lang.String -> @org.springframework.format.annotation.NumberFormat java.lang.Byte: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> @org.springframework.format.annotation.NumberFormat java.lang.Double: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> @org.springframework.format.annotation.NumberFormat java.lang.Float: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> @org.springframework.format.annotation.NumberFormat java.lang.Integer: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> @org.springframework.format.annotation.NumberFormat java.lang.Short: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> @org.springframework.format.annotation.NumberFormat java.math.BigDecimal: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> @org.springframework.format.annotation.NumberFormat java.math.BigInteger: org.springframework.format.number.NumberFormatAnnotationFormatterFactory@594b2091
+	java.lang.String -> java.lang.Boolean : org.springframework.core.convert.support.StringToBooleanConverter@1d7b3e19
+	java.lang.String -> java.lang.Character : org.springframework.core.convert.support.StringToCharacterConverter@1f31e5b5
+	java.lang.String -> java.lang.Enum : org.springframework.core.convert.support.StringToEnumConverterFactory@4f156291
+	java.lang.String -> java.lang.Number : org.springframework.core.convert.support.StringToNumberConverterFactory@70b2900d
+	java.lang.String -> java.nio.charset.Charset : org.springframework.core.convert.support.StringToCharsetConverter@1a85503e
+	java.lang.String -> java.time.Duration: org.springframework.format.datetime.standard.DurationFormatter@6bbdfa03
+	java.lang.String -> java.time.Instant: org.springframework.format.datetime.standard.InstantFormatter@134aa097
+	java.lang.String -> java.time.Month: org.springframework.format.datetime.standard.MonthFormatter@7f4d76f4
+	java.lang.String -> java.time.MonthDay: org.springframework.format.datetime.standard.MonthDayFormatter@2cbbef2d
+	java.lang.String -> java.time.Period: org.springframework.format.datetime.standard.PeriodFormatter@16283c1f
+	java.lang.String -> java.time.Year: org.springframework.format.datetime.standard.YearFormatter@39453753
+	java.lang.String -> java.time.YearMonth: org.springframework.format.datetime.standard.YearMonthFormatter@285265c6
+	java.lang.String -> java.util.Currency : org.springframework.core.convert.support.StringToCurrencyConverter@51311a29
+	java.lang.String -> java.util.Locale : org.springframework.core.convert.support.StringToLocaleConverter@25e3aa1a
+	java.lang.String -> java.util.Properties : org.springframework.core.convert.support.StringToPropertiesConverter@79fe0bd9
+	java.lang.String -> java.util.TimeZone : org.springframework.core.convert.support.StringToTimeZoneConverter@507974c0
+	java.lang.String -> java.util.UUID : org.springframework.core.convert.support.StringToUUIDConverter@1f31c90c
+	java.lang.String -> org.joda.time.Duration: org.springframework.format.datetime.joda.DurationFormatter@6d7046b2
+	java.lang.String -> org.joda.time.MonthDay: org.springframework.format.datetime.joda.MonthDayFormatter@10064c82
+	java.lang.String -> org.joda.time.Period: org.springframework.format.datetime.joda.PeriodFormatter@3463d297
+	java.lang.String -> org.joda.time.YearMonth: org.springframework.format.datetime.joda.YearMonthFormatter@9a774dc
+	java.nio.charset.Charset -> java.lang.String : org.springframework.core.convert.support.ObjectToStringConverter@69bade7e
+	java.time.Duration -> java.lang.String : org.springframework.format.datetime.standard.DurationFormatter@6bbdfa03
+	java.time.Instant -> java.lang.Long : org.springframework.format.datetime.standard.DateTimeConverters$InstantToLongConverter@3ec05ac0
+	java.time.Instant -> java.lang.String : org.springframework.format.datetime.standard.InstantFormatter@134aa097
+	java.time.LocalDateTime -> java.time.LocalDate : org.springframework.format.datetime.standard.DateTimeConverters$LocalDateTimeToLocalDateConverter@f9d02d6
+	java.time.LocalDateTime -> java.time.LocalTime : org.springframework.format.datetime.standard.DateTimeConverters$LocalDateTimeToLocalTimeConverter@f09b696
+	java.time.Month -> java.lang.String : org.springframework.format.datetime.standard.MonthFormatter@7f4d76f4
+	java.time.MonthDay -> java.lang.String : org.springframework.format.datetime.standard.MonthDayFormatter@2cbbef2d
+	java.time.OffsetDateTime -> java.time.Instant : org.springframework.format.datetime.standard.DateTimeConverters$OffsetDateTimeToInstantConverter@52591dc3
+	java.time.OffsetDateTime -> java.time.LocalDate : org.springframework.format.datetime.standard.DateTimeConverters$OffsetDateTimeToLocalDateConverter@556cfbdd
+	java.time.OffsetDateTime -> java.time.LocalDateTime : org.springframework.format.datetime.standard.DateTimeConverters$OffsetDateTimeToLocalDateTimeConverter@6ada2d3c
+	java.time.OffsetDateTime -> java.time.LocalTime : org.springframework.format.datetime.standard.DateTimeConverters$OffsetDateTimeToLocalTimeConverter@1a2eaa9b
+	java.time.OffsetDateTime -> java.time.ZonedDateTime : org.springframework.format.datetime.standard.DateTimeConverters$OffsetDateTimeToZonedDateTimeConverter@6059b006
+	java.time.Period -> java.lang.String : org.springframework.format.datetime.standard.PeriodFormatter@16283c1f
+	java.time.Year -> java.lang.String : org.springframework.format.datetime.standard.YearFormatter@39453753
+	java.time.YearMonth -> java.lang.String : org.springframework.format.datetime.standard.YearMonthFormatter@285265c6
+	java.time.ZoneId -> java.util.TimeZone : org.springframework.core.convert.support.ZoneIdToTimeZoneConverter@74ddfc3b
+	java.time.ZonedDateTime -> java.time.Instant : org.springframework.format.datetime.standard.DateTimeConverters$ZonedDateTimeToInstantConverter@1c42d978
+	java.time.ZonedDateTime -> java.time.LocalDate : org.springframework.format.datetime.standard.DateTimeConverters$ZonedDateTimeToLocalDateConverter@17ea96b
+	java.time.ZonedDateTime -> java.time.LocalDateTime : org.springframework.format.datetime.standard.DateTimeConverters$ZonedDateTimeToLocalDateTimeConverter@2afcae2d
+	java.time.ZonedDateTime -> java.time.LocalTime : org.springframework.format.datetime.standard.DateTimeConverters$ZonedDateTimeToLocalTimeConverter@4d109eeb
+	java.time.ZonedDateTime -> java.time.OffsetDateTime : org.springframework.format.datetime.standard.DateTimeConverters$ZonedDateTimeToOffsetDateTimeConverter@680310e2
+	java.time.ZonedDateTime -> java.util.Calendar : org.springframework.core.convert.support.ZonedDateTimeToCalendarConverter@19f6e502
+	java.util.Calendar -> java.lang.Long : org.springframework.format.datetime.DateFormatterRegistrar$CalendarToLongConverter@5a501208,java.util.Calendar -> java.lang.Long : org.springframework.format.datetime.DateFormatterRegistrar$CalendarToLongConverter@50cfbdec
+	java.util.Calendar -> java.time.Instant : org.springframework.format.datetime.standard.DateTimeConverters$CalendarToInstantConverter@4927689b
+	java.util.Calendar -> java.time.LocalDate : org.springframework.format.datetime.standard.DateTimeConverters$CalendarToLocalDateConverter@2b303f77
+	java.util.Calendar -> java.time.LocalDateTime : org.springframework.format.datetime.standard.DateTimeConverters$CalendarToLocalDateTimeConverter@6c77be82
+	java.util.Calendar -> java.time.LocalTime : org.springframework.format.datetime.standard.DateTimeConverters$CalendarToLocalTimeConverter@319d98d7
+	java.util.Calendar -> java.time.OffsetDateTime : org.springframework.format.datetime.standard.DateTimeConverters$CalendarToOffsetDateTimeConverter@6446639
+	java.util.Calendar -> java.time.ZonedDateTime : org.springframework.format.datetime.standard.DateTimeConverters$CalendarToZonedDateTimeConverter@3d4c0f61
+	java.util.Calendar -> java.util.Date : org.springframework.format.datetime.DateFormatterRegistrar$CalendarToDateConverter@2551c13f,java.util.Calendar -> java.util.Date : org.springframework.format.datetime.DateFormatterRegistrar$CalendarToDateConverter@780cd640
+	java.util.Calendar -> org.joda.time.ReadableInstant : org.springframework.format.datetime.joda.JodaTimeConverters$CalendarToReadableInstantConverter@23060f02
+	java.util.Currency -> java.lang.String : org.springframework.core.convert.support.ObjectToStringConverter@494aa66e
+	java.util.Date -> java.lang.Long : org.springframework.format.datetime.DateFormatterRegistrar$DateToLongConverter@7a236942,java.util.Date -> java.lang.Long : org.springframework.format.datetime.DateFormatterRegistrar$DateToLongConverter@89aa346
+	java.util.Date -> java.util.Calendar : org.springframework.format.datetime.DateFormatterRegistrar$DateToCalendarConverter@8d5456c,java.util.Date -> java.util.Calendar : org.springframework.format.datetime.DateFormatterRegistrar$DateToCalendarConverter@44d9c99f
+	java.util.Date -> org.joda.time.ReadableInstant : org.springframework.format.datetime.joda.JodaTimeConverters$DateToReadableInstantConverter@4e4aa5b2
+	java.util.Locale -> java.lang.String : org.springframework.core.convert.support.ObjectToStringConverter@6bce75b4
+	java.util.Properties -> java.lang.String : org.springframework.core.convert.support.PropertiesToStringConverter@460873b6
+	java.util.UUID -> java.lang.String : org.springframework.core.convert.support.ObjectToStringConverter@3547552
+	org.joda.time.DateTime -> java.lang.Long : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToLongConverter@1a8a7b65
+	org.joda.time.DateTime -> java.util.Calendar : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToCalendarConverter@7c6ccea8
+	org.joda.time.DateTime -> java.util.Date : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToDateConverter@7b72da7b
+	org.joda.time.DateTime -> org.joda.time.DateMidnight : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToDateMidnightConverter@60ccfabf
+	org.joda.time.DateTime -> org.joda.time.Instant : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToInstantConverter@51a31cf
+	org.joda.time.DateTime -> org.joda.time.LocalDate : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToLocalDateConverter@3cd4aa46
+	org.joda.time.DateTime -> org.joda.time.LocalDateTime : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToLocalDateTimeConverter@137dbd7a
+	org.joda.time.DateTime -> org.joda.time.LocalTime : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToLocalTimeConverter@28ba81fe
+	org.joda.time.DateTime -> org.joda.time.MutableDateTime : org.springframework.format.datetime.joda.JodaTimeConverters$DateTimeToMutableDateTimeConverter@79d3ea7a
+	org.joda.time.Duration -> java.lang.String : org.springframework.format.datetime.joda.DurationFormatter@6d7046b2
+	org.joda.time.LocalDateTime -> org.joda.time.LocalDate : org.springframework.format.datetime.joda.JodaTimeConverters$LocalDateTimeToLocalDateConverter@701d9952
+	org.joda.time.LocalDateTime -> org.joda.time.LocalTime : org.springframework.format.datetime.joda.JodaTimeConverters$LocalDateTimeToLocalTimeConverter@6b61d5d6
+	org.joda.time.MonthDay -> java.lang.String : org.springframework.format.datetime.joda.MonthDayFormatter@10064c82
+	org.joda.time.Period -> java.lang.String : org.springframework.format.datetime.joda.PeriodFormatter@3463d297
+	org.joda.time.YearMonth -> java.lang.String : org.springframework.format.datetime.joda.YearMonthFormatter@9a774dc
+	org.springframework.core.convert.support.ArrayToArrayConverter@1e058040
+	org.springframework.core.convert.support.ArrayToCollectionConverter@afd0622
+	org.springframework.core.convert.support.ArrayToObjectConverter@69b801ce
+	org.springframework.core.convert.support.ArrayToStringConverter@39f53a5f
+	org.springframework.core.convert.support.ByteBufferConverter@4e6c034c
+	org.springframework.core.convert.support.ByteBufferConverter@4e6c034c
+	org.springframework.core.convert.support.ByteBufferConverter@4e6c034c
+	org.springframework.core.convert.support.ByteBufferConverter@4e6c034c
+	org.springframework.core.convert.support.CollectionToArrayConverter@f6d4108
+	org.springframework.core.convert.support.CollectionToCollectionConverter@3edb8837
+	org.springframework.core.convert.support.CollectionToObjectConverter@28a6c5a4
+	org.springframework.core.convert.support.CollectionToStringConverter@f2234cb
+	org.springframework.core.convert.support.FallbackObjectToStringConverter@37cd43d0
+	org.springframework.core.convert.support.IdToEntityConverter@372ee313,org.springframework.core.convert.support.ObjectToObjectConverter@2c6a4e42
+	org.springframework.core.convert.support.MapToMapConverter@5c7545d8
+	org.springframework.core.convert.support.ObjectToArrayConverter@1f95c2a4
+	org.springframework.core.convert.support.ObjectToCollectionConverter@1917b2f6
+	org.springframework.core.convert.support.ObjectToOptionalConverter@193d6ede
+	org.springframework.core.convert.support.ObjectToOptionalConverter@193d6ede
+	org.springframework.core.convert.support.ObjectToOptionalConverter@193d6ede
+	org.springframework.core.convert.support.StreamConverter@78d4973
+	org.springframework.core.convert.support.StreamConverter@78d4973
+	org.springframework.core.convert.support.StreamConverter@78d4973
+	org.springframework.core.convert.support.StreamConverter@78d4973
+	org.springframework.core.convert.support.StringToArrayConverter@b40baa1
+	org.springframework.core.convert.support.StringToCollectionConverter@139123c
+
+   org.springframework.security.web.csrf.CsrfFilter@37986daf.FILTERED=true
+   CharacterEncodingFilter.FILTERED=true
+   javax.servlet.http.HttpServletResponse=org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@3a5bd37f
+   org.springframework.security.web.FilterChainProxy.APPLIED=true
+   _csrf=org.springframework.security.web.csrf.DefaultCsrfToken@55715750
+   __spring_security_filterSecurityInterceptor_filterApplied=true
+   org.springframework.web.servlet.DispatcherServlet.THEME_SOURCE=WebApplicationContext for namespace 'REST_DISPATCHER-servlet': startup date [Wed Apr 17 15:30:35 EDT 2019]; parent: Root WebApplicationContext
+   com.serotonin.m2m2.web.mvc.spring.security.RateLimitingFilter.FILTERED=true
+   etagFilter.FILTERED=true
+   org.springframework.web.servlet.HandlerMapping.pathWithinHandlerMapping=/v1/modules/download-license
+   org.springframework.security.web.csrf.CsrfToken=org.springframework.security.web.csrf.DefaultCsrfToken@55715750
+   org.springframework.web.servlet.HandlerMapping.uriTemplateVariables={}
+   org.springframework.web.servlet.DispatcherServlet.THEME_RESOLVER=org.springframework.web.servlet.theme.FixedThemeResolver@6742d8b6
+ 
+com.infiniteautomation.mango.rest.v2.exception.GenericRestException: Internal Server Error
+	at com.serotonin.m2m2.web.mvc.rest.v1.ModulesRestController.downloadLicense(ModulesRestController.java:415) ~[?:?]
+	at com.serotonin.m2m2.web.mvc.rest.v1.ModulesRestController$$FastClassBySpringCGLIB$$269cb93e.invoke(<generated>) ~[?:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204) ~[spring-core-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746) ~[spring-aop-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:69) ~[spring-security-core-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185) ~[spring-aop-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at com.serotonin.m2m2.web.mvc.rest.v1.ModulesRestController$$EnhancerBySpringCGLIB$$a10ed741.downloadLicense(<generated>) ~[?:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:888) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:865) ~[jetty-servlet-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655) ~[jetty-servlet-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642) ~[jetty-servlet-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.springframework.web.filter.ShallowEtagHeaderFilter.doFilterInternal(ShallowEtagHeaderFilter.java:108) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at com.serotonin.m2m2.web.filter.MangoShallowEtagHeaderFilter.doFilterInternal(MangoShallowEtagHeaderFilter.java:90) ~[mango-3.5.6.jar:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634) ~[jetty-servlet-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.authentication.switchuser.SwitchUserFilter.doFilter(SwitchUserFilter.java:200) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at com.serotonin.m2m2.web.mvc.spring.security.RateLimitingFilter.doFilterInternal(RateLimitingFilter.java:108) ~[mango-3.5.6.jar:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at com.serotonin.m2m2.web.mvc.spring.security.PermissionExceptionFilter.doFilter(PermissionExceptionFilter.java:34) ~[mango-3.5.6.jar:?]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:124) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.0.9.RELEASE.jar:5.0.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642) ~[jetty-servlet-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533) ~[jetty-servlet-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548) ~[jetty-security-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473) ~[jetty-servlet-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:740) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.Server.handle(Server.java:503) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305) ~[jetty-io-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103) ~[jetty-io-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118) ~[jetty-io-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_201]
+Caused by: java.io.IOException: Invalid token.
+	at com.infiniteautomation.mango.rest.v2.util.MangoStoreClient.getLicenseToken(MangoStoreClient.java:142) ~[?:?]
+	at com.serotonin.m2m2.web.mvc.rest.v1.ModulesRestController.downloadLicense(ModulesRestController.java:406) ~[?:?]
+	... 108 more
+WARN  2019-04-17T15:43:22,957 (com.infiniteautomation.mango.rest.v2.ServerRestV2Controller.postClientError:223) - Client error
+[user=admin, cause=, location=http://localhost:8080/ui/administration/edit-pages/0c1e7fd1-4f22-4c87-b0bb-f561ce2ad0bc, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0, language=en-US, date=2019-04-17T15:43:22.651-04:00, timezone=America/New_York]
+TypeError: this.pageSummaryStore is undefined
+	at $onInit/< (http://localhost:8080/modules/mangoUI/web/ui.main.js?v=7745e7050a32a1c78744:1:139609)
+	at $eval (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102170)
+	at $applyAsync/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102558)
+	at _ (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:104260)
+	at $digest (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:100219)
+	at $evalAsync/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102259)
+	at Qr/this.$get</</this.completeTask (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:122757)
+	at ln/this.$get</</i.defer/r< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:34323) 
+WARN  2019-04-17T15:45:00,082 (com.infiniteautomation.mango.cloudConnect.server.CloudConnectServer.lambda$licenseTimerStart$3:496) - CloudConnect server trial period over, stopping... 
+WARN  2019-04-17T15:58:48,717 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Mango Internal aborted 1 polls since it started. 
+WARN  2019-04-17T15:58:48,721 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Weather aborted 1 polls since it started. 
+WARN  2019-04-17T16:41:39,068 (com.serotonin.m2m2.web.dwr.MiscDwr.jsError:176) - Javascript error
+   Description: NetworkError: A network error occurred.
+   Page: http://localhost:8080/resources/dojo/dojo.js?v=1555529396
+   Line: 325
+   Browser name: Firefox
+   Browser version: 60
+   osName: Windows
+   location: http://localhost:8080/data_sources.shtm 
+WARN  2019-04-17T16:57:28,521 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Mango Internal aborted 42 polls since it started. 
+WARN  2019-04-17T16:57:28,522 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Weather aborted 84 polls since it started. 

@@ -1,0 +1,29 @@
+<p><b>PakBus Data Point Help</b></p>
+<p>A PakBus data point stores data from a column in a datalogger's table.  There are 2 types of points Historical and Realtime.
+
+<h2>Historical Points</h2>
+<p>Historical points access multiple rows from a datalogger's table. By choosing a <b>Historical record start position</b> all records including that record number are retrieved and stored in Mango.  
+This allows previously recorded data to be retrieved. As the records are stored in Mango the latest record id is stored so that on the next poll only new records are retrieved. Note that historical 
+points are grouped together per table so that only 1 request per table is made for each data source poll.</p>
+<p>Historical points allow the tracked record id to be reset at any time while the Data Point is running.</p>
+
+<h2>Realtime Points</h2>
+<p>Realtime points gather the latest record from the table by only requesting one cell from the table.  This is more efficient that a historical request but only allows access to the most recent value.</p>
+
+<h2>Common Settings</h2>
+<ul>
+  <li><b>Device Name</b>: the name of the device these points belong to, user definable and usually the name of the data source is used.</li>
+  <li><b>Name</b>: the name of the point for use as an identifier in lists of points.</li>
+  <li><b>Settable</b>: whether the point can be manually set or not.</li>
+  <li><b>Data type</b>: the data type of the point. See below for details.</li>
+  <li><b>Logger address</b>: the address of the datalogger for which this point belongs to.</li>
+  <li><b>Table name</b>: the name of the table in the datalogger for which this point belongs to.</li>
+  <li><b>Column name</b>: the name of the column in the table of the datalogger for which this point belongs to.</li>
+  <li><b>Array index</b>: a 0 based index for the item in an array, leave as 0 for scalar values.</li>
+  <li><b>Collection type</b>: Historical or Realtime data collection.</li>
+</ul>
+
+<h2>Historical Settings</h2>
+<ul>
+<li><b>Historical record start position</b>: the initial position to start collecting data from.  This can be reset while the point is running by entering a value in the field and clicking the <b>Reset tracked starting record</b></li>
+</ul>

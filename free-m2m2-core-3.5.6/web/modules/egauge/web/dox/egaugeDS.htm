@@ -1,0 +1,33 @@
+<h1>Overview</h1>
+<p>This datasource interprets the XML stream specific to eGauge devices. eGauges
+are used for many power and other metering purposes. The data stream is described
+in the v1.32 revision of the <a href="https://www.egauge.net/docs/egauge-xml-api.pdf" target="_blank">
+eGauge XML API</a>.</p>
+
+<h1>Configuration</h1>
+<p>The <b>URI</b> is the HTTP path to reach the eGauge. It should take form: 
+https://12.34.56.789:555 (note the lack of slash at the end). The <b>Update Period</b> 
+determines the interval the URI will be polled. If <b>Query History</b> is checked, 
+the data source will send out an inquiry when a gap larger than the <b>History Period</b> and
+attempt to get data with resolution of the history period. To protect your system and preserve efficiency, 
+the buffer is of fixed size as defined by the <b>History Query Buffer Size</b>, in megabytes. If you receive a JAXB exception,
+you may need to increase your buffer size. This is particularly true for very large history queries using the utility, as most
+interruptions to regular polling are smaller. <b>Retries</b> and <b>Timeout 
+Seconds</b> are HTTP parameters governing retrying the connection and awaiting a response.</p>
+
+<p><b>Totaling Registers</b> determines if totaled and virtual registers computed from physical 
+registers should be included in the response. <b>No Team</b> determines if the device should return 
+information gathered from devices it coordinates. <b>Team Status</b> includes additional information
+about the devices being coordinated. As of version 1.0.0 of the eGauge module, team status is not
+meaningfully used. <b>Instantaneous Registers</b> includes computed rate-of-change values in the returned
+data.</p>
+
+<p><b>Convert to kWh</b> will automatically transform the readings for Watt-seconds (Joules) to Kilowatt-hours.
+This is a simple division operation by a factor of 3.6e6. <b>Interpolate Instantaneous</b> determines if the 
+datasource should calculate the power values associated with the stored data energy values during a history query.</p>
+
+<h1>History Query Tool</h1>
+<p>The History Query tool works on relative time frames. So, if the <b>history begins</b> 9 weeks ago and the 
+<b>relative end</b> is 4 weeks, the last sample will be 4 weeks later than 9 weeks ago, which is 5 weeks ago. Using a
+relative end value of 0 will result in getting history up to the current moment. Doing a sequential query will break this
+into one week increments for the sake of keeping the requests relatively small. Querying for a very long period can take time.</p> 

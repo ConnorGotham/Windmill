@@ -1,0 +1,48 @@
+<div layout="row" layout-wrap>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.model"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.modelId" ng-disabled="true">
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.serial"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.serial" ng-disabled="true">
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.hwRevision"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.hwRevision" ng-disabled="true">
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.firmware"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.fwVersion" ng-disabled="true">
+  </md-input-container>
+</div>
+
+<div layout="row" layout-wrap>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.serviceType"></label>
+    <md-select ng-model="$ctrl.deviceConfig.registers.serviceType" name="serviceType" required>
+      <md-option ng-value="0" ma-tr="deviceConfig.wye"></md-option>
+      <md-option ng-value="1" ma-tr="deviceConfig.delta"></md-option>
+      <md-option ng-value="2" ma-tr="deviceConfig.singlePhase"></md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.lineFrequency"></label>
+    <md-select ng-model="$ctrl.deviceConfig.registers.lineFrequency" name="lineFrequency" required>
+      <md-option ng-value="50">50 Hz</md-option>
+      <md-option ng-value="60">60 Hz</md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.dataScalar"></label>
+    <md-select ng-model="$ctrl.deviceConfig.registers.dataScalar" name="dataScalar" required>
+      <md-option ng-value="0">0</md-option>
+      <md-option ng-value="1">1</md-option>
+      <md-option ng-value="2">2</md-option>
+      <md-option ng-value="3">3</md-option>
+      <md-option ng-value="4">4</md-option>
+      <md-option ng-value="5">5</md-option>
+      <md-option ng-value="6">6</md-option>
+    </md-select>
+  </md-input-container>
+</div>

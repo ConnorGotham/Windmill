@@ -1,0 +1,2 @@
+INFO  2019-04-13T12:50:12,827 (com.serotonin.m2m2.rt.maint.DataPurge.executeImpl:68) - Data purge started 
+INFO  2019-04-13T12:50:13,857 (com.serotonin.m2m2.rt.maint.DataPurge.executeImpl:91) - Data purge ended, 0 point samples deleted 

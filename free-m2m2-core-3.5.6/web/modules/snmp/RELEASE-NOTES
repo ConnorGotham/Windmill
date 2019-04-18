@@ -1,0 +1,86 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Change integer type back to signed integers, gauge 32 should be used for unsigned integers
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Add unreliability status into data points
+
+*Version 3.3.2*
+* Skip parsing TRAP-TYPE definitions in MIB files
+* Improved feedback in MIB walk
+
+*Version 3.3.1*
+* Moved menu link to Utilities section under Admin home
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.1.1*
+* Added the ability to use one community string for read and another for writes
+* Added tools for doing a walk
+* Added tools for doing a walk with a MIB context
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.6.0*
+* Upgraded to work with core version 2.8.x
+* Adding force point read method
+
+*Version 1.5.3*
+* Adding more logging to poll exceptions
+
+*Version 1.5.2*
+* Adding ability to cancel OID Test request and also cancel test utility when page unloads
+* Making test OID tool more robust to user input errors
+
+*Version 1.5.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.5.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.4.6*
+* Upgraded to work with core version 2.5.x
+* Added Poll aborted Event
+
+*Version 1.4.5*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.4.4*
+* Upgraded to work with core version 2.3.x
+
+*Release notes for version 1.4.3*
+
+* Updated to work with core 2.2
+
+*Release notes for version 1.4.2*
+
+* Updated to work with core 2.1
+
+*Release notes for version 1.4.0*
+* Added Multiplicand and Augend for data points
+* Added Max Read Count for data source
+
+*Release notes for version 1.4.0*
+
+* Updated to work with core 2.0
+
+
+*Release notes for version 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Release notes for version 1.0.0*
+
+* Add better logging for bind exceptions on the trap port.
+* Detect bad integers in set point
+* Upgraded SNMP4J to version 1.11.2

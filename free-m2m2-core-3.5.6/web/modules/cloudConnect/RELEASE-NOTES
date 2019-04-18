@@ -1,0 +1,9 @@
+*Version 3.5.2*
+* Fix static resource matcher to exclude generated DWR .js files
+
+*Version 3.5.1*
+* Fix a possible NPE error
+* Change default SSH port forward to port 2222
+
+*Version 3.5.0*
+* Initial release

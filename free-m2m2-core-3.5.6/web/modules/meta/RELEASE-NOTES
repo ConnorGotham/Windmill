@@ -1,0 +1,133 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Remove ma.log spam from disabled or missing points at error level with stack trace, now log message at debug level without stack trace
+* Script log rollover settings on data points
+* Fix set() function in history generations to save all data passed to set()
+* Fix bug where unreliable points don't become reliable if they return UNCHANGED (a valid result)
+* Given enabled column into meta point edit page for context, populated at validation time
+
+*Version 3.4.1*
+* Escape point names when creating dropdowns in JSP
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Adding REST endpoint at /v2/meta-utils/generate/{xids} to generate history for multiple points
+* Adding REST endpoint at /v2/meta-utils/generate-data-source/{xid} to generate history for all points on a data source
+
+*Version 3.3.3*
+* Ensure the self variable is in the CONTEXT_POINTS array during validation of scripts
+* Allow validating a script on a point that hasn't yet been saved
+
+*Version 3.3.2*
+* Fix LOG being called in history generation NPE
+
+*Version 3.3.1*
+* Fixing delete before meta history generation, don't interval log since epoch time 0
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.2*
+* Added the ability to validate a script even if some of its context points are disabled
+* Fix bug for CONTEXT.getTimestamp() in validation
+* Added ability to specify type of context event while on timer update event
+
+*Version 3.2.1*
+* Implemented forcePointRead for point value refresh
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+* Added ability to call set() function
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* Added device name and name to generated Events
+* Bugfix to prevent points falling behind the current execution
+* Added ability to run meta point only on context updating points' logged events
+
+*Version 2.3.0*
+* Upgraded to work with core version 2.8.x
+* Changed data point missing log message to be WARN level and not include stack trace
+* Change so that a point will only run its script on the first context update at the same timestamp
+* Added ability to generate history for all points in a data source
+
+*Version 2.2.4
+* Fixed bug where disabling and re-enabling a data point within the context would cause spurious meta point calculation results
+* Improving error messages for points missing in a context
+
+*Version 2.2.3*
+* Fixing 'Result Type Error' events to be assigned as the correct type of events.
+
+*Version 2.2.2*
+* Upgraded to work with core version 2.7.x
+
+*Version 2.2.1*
+* Generate history improvements for NoSQL Database performance
+
+*Version 2.2.0*
+* Added Ace Script editor
+* Upgraded to work with core version 2.6.x
+* Removed any code references to MVEL and MVEL lib
+
+*Version 2.1.1*
+* Creating context for points on every run (if the context is not yet created).  This fixes the problem where some data points could fail if they reference points that are not available at DS start.
+
+*Version 2.1.0*
+* Adding DateTimeUtility to script context.  See help for more information.
+
+*Version 2.0.9*
+* Upgraded to work with Core 2.5.0
+* Script Context list now updates accurately when creating new points and editing existing ones.
+* Improved reliability for poorly written scripts that could previously have caused stalling of the data source
+
+*Version 2.0.8*
+* Fixed bug so that when upgrading data points that are Periodic or Cron pattern update style all Script Context Variables default to not update on context.
+* Improved Help for Statistics and variable name
+
+*Version 2.0.7*
+* Fixed bug for importing data points
+
+*Version 2.0.6*
+* Upgraded to work with core version 2.4.x
+
+*Version 2.0.5*
+* Added variable name and forcing point to always be in its own context
+
+*Version 2.0.4*
+* Added new options for Generating history with date selection, also added new help section for this
+* Added ability to select individual points to update context or not
+
+*Version 2.0.3*
+* Updated help files for AnalogStatistics javascript objects so that minimum and maximum are acutally named minimumValue and maximumValue
+
+*Version 2.0.2*
+* Upgraded to work with core version 2.3.x
+
+*Release notes for version 2.0.1*
+* Adding multiple selections for point add filter list while retaining filter
+
+*Release notes for version 2.0.0*
+* Added MVEL Script Engine Support - (NOT FINISHED)
+* Fixed bug where generating history for Interval logged points didn't generate any data
+
+*Release notes for version 1.4.1*
+
+* Updated to work with core 2.1
+* Added Search-able drop down list for data points
+
+*Release notes for version 1.4.0*
+
+* Updated to work with core 2.0
+
+
+*Release notes for version 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Release notes for version 1.0.1*
+
+* Meta points can now be configured to be settable

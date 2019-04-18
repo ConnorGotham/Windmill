@@ -1,0 +1,9 @@
+<h3>Overview</h3>
+<p>There is a REST api with special permissions for uploading and triggering a configured data source to process one or more files.  
+The permission is defined on the system settings page and must be supplied to the user in order for them to be allowed to process files.</p>
+<h4>REST Urls</h4>
+<ul>
+<li>/rest/v2/data-file/{xid}/import - POST files to upload as Multipart Form Data using a configured data source's xid in the path. The result is an empty body with a URL in the header and a Resource ID for status updates.</li>
+<li>/rest/v2/data-file/import/{resourceId} - GET get the status of an import</li>
+
+</ul>

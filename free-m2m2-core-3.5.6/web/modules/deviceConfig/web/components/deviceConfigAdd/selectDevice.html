@@ -1,0 +1,58 @@
+<md-radio-group ng-model="$ctrl.selectManual" layout="row">
+  <md-radio-button ng-value="false"><span ma-tr="deviceConfig.scanForDevices"></span></md-radio-button>
+  <md-radio-button ng-value="true"><span ma-tr="deviceConfig.selectManually"></span></md-radio-button>
+</md-radio-group>
+
+<div ng-if="!$ctrl.selectManual">
+  <div layout layout-align="start center">
+    <md-button class="md-raised md-primary" ng-click="$ctrl.scan()" ng-disabled="$ctrl.scanStatus && $ctrl.scanStatus.progress !== 100 && !$ctrl.scanStatus.cancelled">Scan</md-button>
+    <md-button class="md-raised md-warn" ng-if="$ctrl.scanStatus && $ctrl.scanStatus.progress !== 100 && !$ctrl.scanStatus.cancelled" ng-click="$ctrl.scanStatus.cancel()">Cancel</md-button>
+  </div>
+  
+  <div layout="column" layout-align="start center" ng-if="$ctrl.scanStatus">
+    <div ma-tr="deviceConfig.scanProgress" ma-tr-args="[$ctrl.scanStatus.progress, $ctrl.scannedDevices.length]"></div>
+    <md-progress-linear ng-if="$ctrl.scanStatus.progress !== 100"  md-mode="determinate" ng-value="$ctrl.scanStatus.progress"></md-progress-linear>
+  </div>
+</div>
+
+<form name="$ctrl.selectDeviceForm">
+  <md-input-container ng-if="$ctrl.selectManual">
+    <label ma-tr="dsEdit.modbus.slaveId"></label>
+    <input ng-model="$ctrl.deviceConfig.slaveId" type="number" min="1" max="247" required ng-change="$ctrl.deviceChanged()">
+  </md-input-container>
+</form>
+
+<div layout layout-align="start start" layout-wrap>
+  <md-card ng-if="!$ctrl.selectManual" ng-click="$ctrl.selectDevice(device)" ng-repeat="device in $ctrl.scannedDevices track by device.slaveId"
+      flex="100" flex-gt-sm="50" flex-gt-md="33" flex-gt-lg="25"
+      md-colors="{'background': $ctrl.deviceConfig.slaveId === device.slaveId ? 'accent' : 'background-A700'}">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">
+          <span ma-tr="deviceConfig.slaveId" ma-tr-args="[device.slaveId]"></span> &mdash;
+          <span ng-if="device.name" ng-bind="device.name"></span>
+          <span ng-if="!device.name" ma-tr="deviceConfig.unknownDevice"></span>
+        </span>
+        <span class="md-subhead" ng-if="device.registers.serial" ma-tr="deviceConfig.serialNumber" ma-tr-args="[device.registers.serial]"></span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <img ng-src="/modules/deviceConfig/web/devices/{{device.image}}">
+      <!-- <p ng-bind="device.description"></p> -->
+    </md-card-content>
+  </md-card>
+  
+  <md-card ng-if="$ctrl.selectManual" ng-click="$ctrl.selectDevice(deviceType, false)" ng-repeat="deviceType in $ctrl.deviceTypes track by deviceType.name"
+      flex="100" flex-gt-sm="50" flex-gt-md="33" flex-gt-lg="25"
+      md-colors="{'background': $ctrl.deviceConfig.name === deviceType.name ? 'accent' : 'background-A700'}">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline" ng-bind="deviceType.name"></span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <img ng-src="/modules/deviceConfig/web/devices/{{deviceType.image}}">
+      <p ng-bind="deviceType.description"></p>
+    </md-card-content>
+  </md-card>
+</div>

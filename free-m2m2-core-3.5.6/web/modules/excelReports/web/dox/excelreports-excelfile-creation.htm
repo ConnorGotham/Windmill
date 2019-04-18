@@ -1,0 +1,136 @@
+<!--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+<h1>Overview</h1>
+<p>
+  Reports use templated Excel files to fill in areas linked to data points and date ranges.  This document will explain 
+  how to setup an Excel file for use in the Excel Reports module.  After the file is uploaded, Mango will extract the necessary information 
+  and provide a way to link the ranges to data points and date ranges.
+</p>
+
+<h2>Named Ranges</h2>
+<p>
+  Named ranges are a way to link a cell or group of cells to a name.  This module supports named ranges that are either individual cells,
+  column groups or row groups.  Mango data can only be filled in horizontally or vertically.
+</p>
+<p>
+  To create a named range simply select the cells desired and enter a name into the 'Name box' at the left end of the formula bar.
+</p>
+<p>
+  When configuring a template in Mango all named ranges will be available to link to a data point.
+</p>
+<p>
+If a cell in a named range or that a named range expands to already contains a value, that value will only be modified if
+there is a value for the point or its rollup at the time corresponding to the cell. Named ranges need not begin on the same row
+as their time reference. The nth item in the time reference corresponds to n cells advanced in the named range regardless of direction or
+starting position.
+<</p>
+
+<h2>Mango Data Available</h2>
+<p>
+  Mango can insert various types of data into an Excel named range.  Some are single cell while others require a column or row.
+</p>
+<h3>Single Cell Data</h3>
+<p>
+  Single cell data can be assigned into cells by creating a named range with a .{data_name} postfix.  For example to insert the XID for a data point one would use 
+  the named range<code>voltage.xid</code>.  Then via the Mango template configuration page one can link a data point to a named range of <code>voltage</code>.  This will 
+  allow any named range that starts with <code>voltage</code> prefix to be filled in the the available single cell data.  The following are a lists of available single 
+  cell data:
+</p>
+
+<h4>For any point:</h4>
+<ul>
+  <li><b>xid</b> - The XID of the linked point</li>
+  <li><b>name</b> - The name of the linked point</li>
+  <li><b>deviceName</b> - The device name of the linked point</li>
+  <li><b>tags.tagKey</b> - The tags are accessible by replacing "tagKey" with the appropriate key</li> 
+</ul>
+<h4>For Numeric Points:</h4>
+<ul>
+  <li><b>firstValue</b> - The first value of the time period</li>
+  <li><b>firstTime</b> - The date of the first value of the time period</li>
+  <li><b>lastValue</b> - The last value of the time period</li>
+  <li><b>lastTime</b> - The date of the last value of the time period</li>
+  <li><b>minimumValue</b> - The statistical minimum value of the time period</li>
+  <li><b>minimumTime</b> - The date of the statistical minimum value of the time period</li>
+  <li><b>maximumValue</b> - The statistical maximum value of the time period</li>
+  <li><b>maximumTime</b> - The date of the statistical maximum value of the time period</li>
+  <li><b>average</b> - The statistical average value of the time period</li>
+  <li><b>integral</b> - The statistical integral value of the time period</li>
+  <li><b>sum</b> - The statistical sum of the time period</li>
+  <li><b>count</b> - The count of samples within the time period</li>
+  <li><b>delta</b> - The statistical delta of the values in the time period</li>
+</ul>
+
+<h4>For Binary and Multistate Points:</h4>
+<p>Note that there are also a Multiple Cell area for the Starts and Runtimes list. 
+<ul>
+  <li><b>firstValue</b> - The first value of the time period</li>
+  <li><b>firstTime</b> - The date of the first value of the time period</li>
+  <li><b>lastValue</b> - The last value of the time period</li>
+  <li><b>lastTime</b> - The date of the last value of the time period</li>
+  <li><b>count</b> - The count of samples within the time period</li>
+</ul>
+
+<h4>For Alphanumeric Points:</h4>
+<ul>
+  <li><b>firstValue</b> - The first value of the time period</li>
+  <li><b>firstTime</b> - The date of the first value of the time period</li>
+  <li><b>lastValue</b> - The last value of the time period</li>
+  <li><b>lastTime</b> - The date of the last value of the time period</li>
+  <li><b>count</b> - The count of samples within the time period</li>
+  <li><b>changes</b> - The number of changes within the time period</li>
+  
+</ul>
+
+<h3>Multiple Cell Data</h3>
+<p>
+  Multiple cell data can be assigned into cells by creating a named range of multiple cells in a column or row.  Mango will overwrite 
+  any data in the range and also expand the range to fit the report data.  This means that no cells below a column range or to 
+  the right of a row range should be used in your template as they may be overwritten.  Mango will copy the cell style when it fills down. 
+</p>
+
+<h4>Point Timestamps</h4>
+<p>
+  The point timestamps can optionally be written into a named range. Point timestamp named range 
+  should be group of cells in a column or row.  The named range is assigned to a Time Series on the template configuration page
+</p>
+
+<h4>Point Values</h4>
+<p>Point values can optionally be assigned to a column or row named range.</p>
+
+
+<h4>Binary and Multistate Points</h4>
+<p>A table of starts and runtimes can be filled in for these points, the available ranges are:</p>
+<ul>
+  <li><b>starts</b> - The number of times this state happened in the period</li>
+  <li><b>runtime</b> - The total duration of this state in the period</li>
+  <li><b>proportion</b> - The proportion to the total time that was spent in this state</li>
+  <li><b>startsAndRuntimeValue</b> - The value of the state</li>
+</ul>
+
+<h2>Referenced Formula Expansion</h2>
+<p>Mango will search for and expand any ranges that contain formulas that reference ranges that are assigned to the template.</p>
+
+<h2>Events</h2>
+<p>Basic support for events is provided.  To include events for all data points in the report you can define named ranges that will be populated by any matching 
+events within the Series start and finish times.  If you choose to define any of the listed named ranges a query will be done on the Events table which will incur some performance hit. 
+A list of the optional range names is here:</p>
+<ul>
+	<li><b>eventsDeviceName</b> - The device name for the point in the event. (String)</li>
+	<li><b>eventsPointName</b> -  The name for the point in the event. (String)</li>
+	<li><b>eventsLevel</b> -  Level of event. (String)</li>
+	<li><b>eventsTime</b> - Time of event creation. (Date)</li>
+	<li><b>eventsMessage</b> - Message for the event. (String)</li>
+	<li><b>eventsStatus</b> - Status of the event. (String)</li>
+	<li><b>eventsAcknowledged</b> - Has the event been acknowledged. (Boolean)</li>
+	<li><b>eventsDuration</b> - Duration that the event was active. (Integer milliseconds)</li>
+</ul>
+
+<h2>Hints</h2>
+<p>
+  Use named ranges whenever possible.  This will ensure that any references are retained when the data in inserted and the range expands or retracts. 
+  For example the following formula <code>$A$3*$B$4</code> can be expressed by <code>a_range*b_range</code>.  It is also recommended to use named 
+  ranges for Chart data and time ranges.
+</p>

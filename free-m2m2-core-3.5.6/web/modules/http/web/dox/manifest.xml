@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="httpRetrieverDS" key="dox.httpRetrieverDS" filename="httpRetrieverDS.htm">
+    <relation id="httpRetrieverPP"/>
+  </item>
+  
+  <item id="httpRetrieverPP" key="dox.httpRetrieverPP" filename="httpRetrieverPP.htm">
+    <relation id="httpRetrieverDS"/>
+  </item>
+  
+  <item id="httpJsonRetrieverDS" key="dox.httpJsonRetrieverDS" filename="httpJsonRetrieverDS.htm">
+    <relation id="httpJsonRetrieverPP"/>
+  </item>
+  
+  <item id="httpJsonRetrieverPP" key="dox.httpJsonRetrieverPP" filename="httpJsonRetrieverPP.htm">
+    <relation id="httpJsonRetrieverDS"/>
+  </item>
+  
+  <item id="httpReceiverDS" key="dox.httpReceiverDS" filename="httpReceiverDS.htm">
+    <relation id="datetimeFormats"/>
+    <relation id="httpSenderPublishing"/>
+    <relation id="httpReceiverPP"/>
+  </item>
+
+  <item id="httpReceiverPP" key="dox.httpReceiverPP" filename="httpReceiverPP.htm">
+    <relation id="httpReceiverDS"/>
+  </item>
+  
+  <item id="httpJsonReceiverDS" key="dox.httpJsonReceiverDS" filename="httpJsonReceiverDS.htm">
+    <relation id="httpReceiverDS"/>
+    <relation id="httpJsonReceiverPP"/>
+  </item>
+  
+  <item id="httpJsonReceiverPP" key="dox.httpJsonReceiverPP" filename="httpJsonReceiverPP.htm">
+    <relation id="httpJsonReceiverDS"/>
+    <relation id="httpReceiverPP"/>
+  </item>
+  
+  <item id="httpSenderPublishing" key="dox.httpSenderPublishing" filename="httpSenderPublishing.htm">
+    <relation id="datetimeFormats"/>
+  </item>
+  
+  <item id="httpImageDS" key="dox.httpImageDS" filename="httpImageDS.htm">
+    <relation id="httpImagePP"/>
+  </item>
+  
+  <item id="httpImagePP" key="dox.httpImagePP" filename="httpImagePP.htm">
+    <relation id="httpImageDS"/>
+  </item>
+</doxManifest>

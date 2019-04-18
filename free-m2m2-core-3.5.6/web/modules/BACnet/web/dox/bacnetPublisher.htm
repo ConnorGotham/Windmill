@@ -1,0 +1,16 @@
+<h1>Configuration</h1>
+<p>
+  The <b>Local device</b> is the device that should be used for connecting to the local network. Local devices can be
+  defined in system settings.
+</p>
+
+<p>
+  A published point's <b>Object Type</b> is the type of BACnet Object to be added to the local device and made available to the network.
+  An input type is not settable, while a value type is (and will only be available if the point is settable). Multistate points can be
+  published as analog values or inputs because there are restrictions upon the structure of a well-formed BACnet multistate value, such
+  as restricting values between 1 and the number of states. To address this incongruence with Mango's notion of multistate value, a multistate
+  value with a plain rendered is supposed to have Interger.MAX_VALUE states for maximum range. However, a multistate point with a multistate renderer
+  will be most like a BACnet multistate object, where the number of states is defined in the text renderer and only values between 1 and that count of
+  states (inclusive) are valid values for the point to have. If published as an Analog Value, set values are cast to integers before being set to
+  multistate points.
+</p>

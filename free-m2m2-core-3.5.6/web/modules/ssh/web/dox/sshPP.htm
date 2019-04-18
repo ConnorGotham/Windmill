@@ -1,0 +1,17 @@
+<h1>SSH Point Properties help</h1>
+<h3>Configuration</h3>
+<p><b>Device Name</b>, <b>Name</b>, and <b>XID</b> work as documented elsewhere. The <b>DataType</b> works similarly as well, but has some implementation
+details. In the present configuration, if setting a binary point to false it will appear as "0" in the set command, true is "1". When receiving information, 
+points beginning with a 0 or not yielding a response are considered false, all others are considered true. Multistate points expect the returned message to be 
+only an integer. Numeric points expect only a double. Alphanumeric points have wide open arms for text exchange protocols.</p>
+<p>Points that are <b>Queryable</b> will issue their <b>Query Command</b> every polling cycle of the data source, then attempt to cast the response as described 
+above. Points that are <b>Settable</b> will issue their <b>Set Command</b> with each occurrence of the string 'VALUE' (all capitals) replaced with the value 
+set to the point (again, casted if necessary), then the resulting command is issued and a query for that point is performed.</p>
+<p>Sets are immediately followed by a the query being issued in the same channel. On both the query and set commands, running multiple commands is supported by 
+delimiting them with a ';' for unix systems ()i.e. 'ls; ls; ls;') and '&' for windows (i.e. dir & dir & dir). This can be very important to creating responsive SSH points, 
+as sometimes delays are required for the invoked program to respond to a follow-up query. For instance, on a linux system, ssh'ing 'program modify-state args;' as your set 
+command and 'program read-state args;' as your query command could potentially get the old state, or query it before the physical state transition has occurred. For this reason, 
+consider adding another command after the set is performed in the channel to make the controlled computer wait before executing the query. On linux systems, this can be achieved 
+with 'sleep' as in 'sleep 0.2s;'</p>
+<p>Because the query string is used in the setting channel to attempt to get the new value as responsively as possible, it is wise to end your set commands in the 
+delimiter specific to your operating system (Windows ? '&' : ';'). If your point isn't queryable, this isn't an issue, but it's good practice.</p>

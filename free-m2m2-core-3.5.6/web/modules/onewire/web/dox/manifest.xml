@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="1wirePP" key="dox.1wirePP" filename="1wirePP.htm"/>
+  <item id="1wireDS" key="dox.1wireDS" filename="1wireDS.htm"/>
+</doxManifest>

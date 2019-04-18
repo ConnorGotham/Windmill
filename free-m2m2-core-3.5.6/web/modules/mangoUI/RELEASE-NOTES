@@ -1,0 +1,311 @@
+*Version 3.5.5*
+* Fix bug preventing API docs menu items from working
+* Improve ma-tr behavior when args are not present
+* Fix event table example
+* Add a wind rose SVG example
+
+*Version 3.5.4*
+* Dont delete the JSON data when resetting UI settings to default, fixes bug bootstrapping the UI app
+
+*Version 3.5.3*
+* Improve validation error feedback
+* Fix UI module icon in legacy UI
+* Fix bug where certain menu items were appearing as a folder
+* Display instance description when restarting
+* Only clear cached translations when user locale actually changes
+* Add maUiServerInfo service
+* Ability for modules to define optional requires of other AngularJS modules
+
+*Version 3.5.2*
+* Work around for incorrect event count
+* Remove .jar file that was incorrectly included in zip
+* Fix designer info for schedule components
+
+*Version 3.5.1*
+* Update the unacknowledged event count when Mango restarts
+* Fix bug that stopped auto-login from working on first page load
+* Fix bug where point value components weren't being notified of events being deactivated
+* Way to get selected text from ma-ace-editor
+* Enable querying on multiple point ids in ma-events-table
+* Add ma-daily-schedule and ma-weekly-schedule components
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Option to reset sort order to none on Watchlist
+* Add system setting for session timeout
+* Add system setting for JFree chart font
+* Add system settings for HTTP server
+* Add system settings for passwords
+* Fix hover color of md-button links
+* Faster loading via single bootstrap REST API call
+* Add a password change page for expired passwords
+* Fix so web application is reloaded upon logging in when modules have been updated
+* Fix error deleting custom page in Firefox
+* Display import errors in red on configuration import/export page
+* Option to hide CSV download button on ma-events-table
+* Method for finding and updating event detectors in maEventDetector service
+* Add realtimeQuery() and buildRealtimeQuery() methods to maPoint service
+* Add getAndSubscribe() to all RestResource and $resource based services
+* Add XID subscription capability to NotificatonManager
+* Dont clear maUser.current when connectivity lost
+* Add ma-api-down class to live point value components when connectivity lost
+* live-value CSS class renamed to ma-live-value
+
+*Version 3.4.7*
+* Fix regression in v3.4.6 that caused custom menu items to not be registered when logging in
+
+*Version 3.4.6*
+* Fix bug when editing menu folder containing children
+* Separate setting in menu editor that controls if the menu item is a folder
+* Better progress feedback while upgrading modules
+* Display a banner that shows the number of available upgrades
+* Load AngularJS locales from the module rather than from CDN
+* Lazily load some vendor libraries (Ace editor and amCharts) for faster load times
+* Add maFindByTags and maFilterByTags filters to make it easier to find/filter points by tags
+* Fix ma-now directive not outputting timezone
+* Ensure amCharts are destroyed correctly
+* Correctly focus inputs on login screen
+* Show username and the time that an event was acknowledged on events table
+* Fix text color of active event dropdown menu
+* Enable anchor scrolling using the hash component of the URL
+* Use AngularJS material v1.1.1
+* Various other small improvements and bugfixes
+
+*Version 3.4.5*
+* Work around bug in webpack causing an error if trying to use ngMango by itself
+* Expose RequireJS and libraries if loading ngMango
+
+*Version 3.4.4*
+* Stop sending some errors (unhandled rejection) to the backend
+* Ability to configure an arbitrary number of bands on gauge chart
+* Fix preview file not changing when using up/down keys on file store
+* Allow configuration of min/max/grid count for watch list chart axes
+
+*Version 3.4.3*
+* Add CSV upload/download to the bulk data point editor (ensure core and API are up to date)
+* Add ma-momentary directive for momentary push buttons
+* Provide PointValueController as a service
+* Add download link for CSV events
+* Fix possible script injection attack vector
+* Ensure default color set on ma-indicator
+
+*Version 3.4.2*
+* Add simplify settings to bulk data point editor
+* Allow deleting data points using bulk editor
+* Remember selected columns and tags on bulk data point editor
+* Update component documentation for point value components
+* Display error message and stack trace on client error page
+* Remember last used folder on file stores page and add url parameters
+* Allow up/down arrows on file stores page
+* Clicking OK on file store dialog will save open file
+* Fix drag and drop of files using Firefox
+* Fix limit of -1 being sent to API when retrieving point values using watch list download
+
+*Version 3.4.1*
+* Bug fixes
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Use webpack v4 to combine frontend code into bundles, faster more reliable loading
+* Remove admin template and other templates, remove references from documentation
+* Add system settings for public url, failed loging alarm level
+* Use module version for cache control query parameter
+* Add offline upgrade page
+* Allow dropping files in file store pages in order to upload
+* Add unreliable icon to ma-point-value component
+* Display tags on data point details page and on point drop down lists
+* Always use equal spacing in ma-serial-chart if all graphs are bar charts
+* Bug fixes
+
+*Version 3.3.6*
+* Show relinquish button in ma-set-point-value component
+
+*Version 3.3.5*
+* Fix call to incorrect method to create default menu
+
+*Version 3.3.4*
+* Fix labels not displaying on watch list chart
+* Fix incorrect queries from ma-point-query using $and
+* Fix trying to get stack trace when its not an Error
+
+*Version 3.3.3*
+* Fix bug matching selected watch list points on watch list charts
+* Send client error and stack trace to /rest/v2/server/client-error for logging
+
+*Version 3.3.2*
+* Point values v2 REST controller used across the board
+* Better chart display when data is missing from period by using point value bookends
+* Improved CSV format for downloading point values via watch list page
+* Remove tools column from watch list table and use popover instead
+* Point values component popover menu is condensed by default
+* Home page renamed to admin home and moved under administration
+* Utilities section added to admin home page
+* Improvements and bug fixes to system status pages
+* Add data type column option for bulk data point editor
+* Allow choosing which columns and tags you want displayed on the watch list table
+* Save sort order/rows per page with the watch list
+* Progress bar on upgrade page
+* Allow browsing by tags on the watch list page
+* Add Excel date format and custom date format to watch list point value download
+* Selected data points on the watchlist are associated based on the tags/columns shown on the table
+* Button for restoring a previous revision of dashboard designer / custom page
+* Add start rollup type to the menu
+* Point values service now returns both the plain number value and rendered value when using 'rendered' option
+* Display rendered color on history table on data point details page
+
+*Version 3.3.1*
+* Add tag watch list type
+* Add bulk data point edit page
+* Improvements and fixes for watchlists using parameters
+* Add auto-state-params option for watch list get/select components
+* Fix errors being thrown from ma-serial-chart component
+* Add cursor sync option to ma-serial-chart component
+* Add ma-state-params component (replaces ma-ui-state-params)
+* Add ma-point-browser component that can be used to get a watch list object object
+* Add utility service for temporary resources
+* Fix bug in adminTemplate
+* Remove old ngMango-3.x folders
+* Fix release notes
+* Update amCharts, AngularJS and Angular Material versions
+* Various other small bug fixes and improvements
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+* Add ma-data-point-tag-select and ma-data-point-tag-keys-select components
+* Use data points v2 REST controller
+* Ability to choose date/time format and timezone when downloading point values from watchlist page
+* Update to AngularJS 1.6.7 and remove use of ocLazyLoad
+* Load the correct AngularJS locale file from a CDN according to the user's locale
+* Ability to use refence ids in event table
+* Add zip upload and download to the file browser
+* Remove timeout for upload and download of files from file browser
+* Allow overwriting files from file browser
+* Can now reset a user's password via the login page (sends a password reset email)
+* Dont query for event comments for every event on the events table
+* Better display of error and messages from the upgrade/install modules websocket
+* Fixes to upgrade page around dependencies
+* AngularJS component documentation updated
+* Various other small bugfixes
+
+*Version 3.2.10*
+* Fix ma-point-value so it displays as inline element again and absolutely position the popover
+
+*Version 3.2.9*
+* Update JavaScript libraries
+* Ability to use refence ids in event table
+* Copy unreliable attribute and rendered value to point from websocket update
+
+*Version 3.2.8*
+* Use Websocket to get event/alarm updates on ma-point-value
+* Limit number of point values when using simplify
+* Fix error popup when number of point values are limited
+* Add component for getting/changing point event detectors (ma-point-event-detector)
+* Dont cache point hierarchy REST calls
+* Fix for JSON store service for when using paths
+
+*Version 3.2.7*
+* Hide point hierarchy folders that contain no points
+* Fix for displaying point value on point where no point locator is present
+* Fixes to configuration import dialog
+* Fixes to RQL point queries
+* Don't timeout waiting for point value download on watchlist page
+* Bug fix to ma-map component
+* Ability to display a status point icon/color for ma-point-hierarchy-browser
+
+*Version 3.2.6*
+* Experimental simplify rollup type, reduces number of point values for charting
+* Data point details page layout fixes
+* Data point details page supports image data points better
+* Improve filtering point list
+* Bug fixes for file store browser
+* Fix some bugs in point hierarchy components
+* Improve support for data paths in JSON store components and services
+
+*Version 3.2.5*
+* Better display of error messages on the upgrade page
+* Ability to set custom sounds which are played when events are raised
+* Improvements to ma-scale directive
+* Add enable and restart methods to data point service
+* Don't limit the number of point values when downloading JSON/CSV files from watch list
+* Fix rendering NaN values on point value displays
+* Provide way to round and add suffix to values passed into point value displays
+* AngularJS filter for masking and shifting values
+
+*Version 3.2.4*
+* Add math.js to root scope and add filters for converting units
+* Improve UI settings page to give save/error feedback
+* Update AngularJS Material library
+* Add component for editing JSON store items
+* Enable editing JSON store items from "JSON store" page
+* Add services for event detectors and handlers
+* Rename pageView.js so it isn't blocked by adblockers
+* Show line numbers in file store editor, dont close on save
+* Display examples menu if you have 'edit-ui-pages' permission
+* Watch list components now output parameters and compare each parameter value
+* Display instance description under username
+* Layout fixes
+* Bug fixes
+
+*Version 3.2.3*
+* Updated help doc for page editor
+* Updated help doc for system status page
+* Use popup dialogs on status page json outputs
+* Events page now updates in realtime via websockets
+* Fix bugs and enhance events page, progress bar, more sort options, refresh on restart etc
+* Fixes to RestResource
+* Fix filtering device name list, data source list and point hierarchy list
+* Removed maEventsEventManager service, use maEvents.notificationManager instead
+* Bug fixes and tweaks
+
+*Version 3.2.2*
+* Added point history counts to system info page
+* Fix trying to load maUiDateBar service when its not available
+
+*Version 3.2.1*
+* Added a system status page
+* Add page for viewing/deleting JSON store items
+* More compact layout for buttons and controls on "Edit pages"
+* Add maTouchstart, maTouchend, maTouchmove and maTouchcancel directives
+* Fix bug loading UI in Edge
+* Add default version parameter for loading resources
+* Fix date pickers not working in adminTemplate
+* Add popup icons to pointValue directives
+* Display data point events on watchlist popup
+* Add auto scaling mode to gaugeChart
+* Add slider component
+* Update javascript libraries
+* Bug fixes and tweaks
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+* Latest ngMango API is located in web/ngMango instead of ngMango-3.2
+* Bug fixes
+
+*Version 3.1.1*
+* Option for setting label on ma-point-value
+* Updated examples
+* Bug fixes
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+* Fix bootstrapping ngMango via bootstrap.js
+* Fix bug displaying chart and table on watch list dialog
+* Add more system settings
+* Layout changes to user and system settings pages
+* Add ma-svg directive
+* Update documentation and help pages
+* Help pages open in sidebar
+* Ctrl-S hotkey binding for custom pages
+* Fix loading issue caused by ad-blockers
+* Improve ma-state-chart directive
+* Upgrade AngularJS to 1.6.x
+* Rename AngularJS modules and services
+* Better error handling for loading module AngularJS files
+* Ability to set a user AngularJS module from UI settings page
+* Bug fixes
+
+*Version 3.0.1*
+* Initial public release
+
+*Version 3.0.0*
+* Initial release of UI module for Mango 3.0.x

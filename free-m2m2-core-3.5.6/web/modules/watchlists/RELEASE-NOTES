@@ -1,0 +1,122 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+
+*Version 3.4.2*
+* Escape HTML in point, folder, and watchlist names
+
+*Version 3.4.1*
+* Validate checks that a user with edit permission retains edit permission when saving
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Adding custom REST query to get all data point events by watchlist XID at /v1/events/module-defined-query/DATA_POINT_EVENTS_BY_WATCHLIST
+
+*Version 3.3.2*
+* Override AbstractBasicDao's get() to get the points list too.
+
+*Version 3.3.1*
+* Fetch data point tags when getting points for a watch list
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.1*
+* Fix websocket notifications
+* Clean up DAO code
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.8.0*
+* Upgraded to work with core version 2.8.x
+* Add REST API endpoints for watchlist
+* Expand watchlist properties to include a type and a query string
+
+*Version 1.7.4*
+* Fix to not use data point chart colour property and instead let JFreeChart generate the colors, unless only 1 point is charted then chart colour property is used
+
+*Version 1.7.3*
+* Bugfix for SQL error when deleting a watchlist (sometimes)
+
+*Version 1.7.2*
+* Bugfix where schema definition still had legacy watchListUsers database table in it
+
+*Version 1.7.1*
+* Bugfix for disappearing events
+* Trim events to only show 10 most recent for each point
+* Upgraded to work with core version 2.7.x
+
+*Version 1.7.0*
+* Upgraded to work with core version 2.6.x
+* Added new permissions subsystem to allow finer grained access
+* Fix bug where state information was not changing for points
+* Improved efficiency when refreshing point events
+
+*Version 1.6.1*
+* Added filter by user
+* Added filter for watchlist names
+* Increased height of watchlist area
+
+*Version 1.6.0*
+* Upgraded to work with core version 2.5.x
+* Add multiple JSON Emport labels of "watchLists" and "watchlists" for compatibility
+* Changed chart servlet link from Asyc to normal Chart Image Servlet in core.
+
+*Version 1.5.10*
+* Edits for Sharing watchlists now that Admin has access to all watchlists
+* Added (username) to the drop down so Shared lists true owners are known
+
+*Version 1.5.9*
+* Set it such that admins can see and edit all users' watchlists.
+
+*1.5.8*
+* Change JSON export id from watchlist to watchList for backward compatibility
+
+*Version 1.5.7*
+* Added H2 Support
+* Changed to allow importing XIDs via JSON Imports
+* Upgraded to work with core version 2.4.x
+
+*Version 1.5.5*
+* Fixed bug where users were unable to download data as Excel spreadsheet
+* Added ability to export single watchlist from menu
+
+*Version 1.5.4*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.5.3*
+* Modified behavior of the Filtering Select for the lookup style list creation.  The filter now remains open and allows multiple selections to be made from the list.
+* Added toggle all for inclusion/exclusion on chart and data export
+
+*Version 1.5.2*
+* Modified for Core 2.2
+
+*Version 1.5.1*
+* Modified for Core 2.1
+
+*Version 1.5.0*
+* Fixed bug where watchlist popup charts end up off screen while scrolling
+* Added ability to download XLSX File types for chart data.
+
+*Version 1.4.0*
+
+* Moved point hierarchy to the core
+* Point lookup
+* Updated to work with core 2.0
+* Bug fix for mobile device watchlists
+
+
+*Version 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Version 1.0.1*
+
+* Documentation fixes

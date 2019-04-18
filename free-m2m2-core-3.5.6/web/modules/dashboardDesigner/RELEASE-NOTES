@@ -1,0 +1,54 @@
+*Version 3.5.1*
+* Make maDesignerTagInfo service available
+* Add maDesignerTagInfoProvider.addComponentSection() method
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+
+*Version 3.4.2*
+* Fix regression in v3.4.1, alt key can no longer be used to allow clicks/mousedown in live view
+
+*Version 3.4.1*
+* Stop mousedown event occurring unless alt key pressed
+* Add flag to check if designer is active (designer.designerActive)
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.3*
+* Add option for ma-scale-to directive
+* Change default resolution of dashboards
+
+*Version 3.2.2*
+* Fix for directives/components with optionally required controllers
+* Updated help docs
+
+*Version 3.2.1*
+* Changes to styling and translations
+* Ability to hide/show panes
+* Fix layout issues in different browsers
+* Make side panes scroll independently
+* Ability to add a component by name
+* Better indentation in code view
+* Fix ID of component not showing up
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+* Ability to use components from the user module
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+* Ctrl-S hotkey binding for save
+* Allow click actions on components by holding Alt key
+* Improve compilation of some Angular directives
+* Add help page
+* Bug fixes
+
+*Version 3.0.1*
+* Initial public release
+
+*Version 3.0.0*
+* Initial release of Dashboard designer

@@ -1,0 +1,90 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+    
+    This should be imported into script tags. It provides Javascript code that uses server-side functionality, and
+    so cannot be included in a js file.
+--%>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<%@page import="com.serotonin.bacnet4j.type.enumerated.ObjectType"%>
+<%@page import="com.serotonin.m2m2.DataTypes"%>
+
+msg["mod.bacnet.sendingWhoIs"] = "<fmt:message key="mod.bacnet.sendingWhoIs"/>";
+msg["mod.bacnet.getDetails"] = "<fmt:message key="mod.bacnet.getDetails"/>";
+msg["mod.bacnet.listenerStopped"] = "<fmt:message key="mod.bacnet.listenerStopped"/>";
+msg["mod.bacnet.tester.sendObjectList"] = "<fmt:message key="mod.bacnet.tester.sendObjectList"/>";
+msg["mod.bacnet.addPoint"] = "<fmt:message key="mod.bacnet.addPoint"/>";
+msg["mod.bacnet.device"] = "<fmt:message key="mod.bacnet.device"/>";
+msg["mod.bacnet.objects"] = "<fmt:message key="mod.bacnet.objects"/>";
+msg["dsEdit.saveWarning"] = "<fmt:message key="dsEdit.saveWarning"/>";
+msg["mod.bacnet.adding"] = "<fmt:message key="mod.bacnet.adding"/>";
+msg["mod.bacnet.objListRunning"] = "<fmt:message key="mod.bacnet.objListRunning"/>";
+msg["mod.bacnet.exportObjectList"] = "<fmt:message key="mod.bacnet.exportObjectList"/>";
+
+function objectTypeIsSettable(objectType) {
+    return objectType == <c:out value="<%= ObjectType.analogOutput.intValue() %>"/> || 
+          objectType == <c:out value="<%= ObjectType.analogValue.intValue() %>"/> || 
+          objectType == <c:out value="<%= ObjectType.binaryOutput.intValue() %>"/> || 
+          objectType == <c:out value="<%= ObjectType.binaryValue.intValue() %>"/> || 
+          objectType == <c:out value="<%= ObjectType.multiStateOutput.intValue() %>"/> || 
+          objectType == <c:out value="<%= ObjectType.multiStateValue.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.characterstringValue.intValue() %>"/>;
+};
+
+function objectTypeIsValid(objectType) {
+    return objectType == <c:out value="<%= ObjectType.accessDoor.intValue() %>"/> || 
+          objectType == <c:out value="<%= ObjectType.accumulator.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.analogInput.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.analogOutput.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.analogValue.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.averaging.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.binaryInput.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.binaryOutput.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.binaryValue.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.lifeSafetyPoint.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.lifeSafetyZone.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.loop.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.multiStateInput.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.multiStateOutput.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.multiStateValue.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.pulseConverter.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.characterstringValue.intValue() %>"/> || 
+          objectType == <c:out value="<%= ObjectType.schedule.intValue() %>"/> ||
+          objectType == <c:out value="<%= ObjectType.calendar.intValue() %>"/>;
+};
+
+function enableDataTypeSelection(objectType, propertyIdentifier) {
+	if(objectType == <c:out value="<%= ObjectType.schedule.intValue() %>"/> && propertyIdentifier == "85") <%-- present value PropertyIdentifier --%>
+		return true;
+	return false;
+};
+
+function defaultDataTypeSelection(objectType) {
+	switch(objectType) { 
+	case String(<c:out value="<%= ObjectType.calendar.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.binaryInput.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.binaryOutput.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.binaryValue.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.schedule.intValue() %>"/>) :
+		$set("dataTypeId", String(<c:out value="<%= DataTypes.BINARY %>"/>));
+		dataPointDataTypeChanged(<%= DataTypes.BINARY %>);
+		break;
+	case String(<c:out value="<%= ObjectType.accessDoor.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.lifeSafetyPoint.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.lifeSafetyZone.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.multiStateInput.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.multiStateOutput.intValue() %>"/>) :
+	case String(<c:out value="<%= ObjectType.multiStateValue.intValue() %>"/>) :
+		$set("dataTypeId", String(<c:out value="<%= DataTypes.MULTISTATE %>"/>));
+		dataPointDataTypeChanged(<%= DataTypes.MULTISTATE %>);
+		break;
+	case String(<c:out value="<%= ObjectType.characterstringValue.intValue() %>"/>) :
+		$set("dataTypeId", String(<c:out value="<%= DataTypes.ALPHANUMERIC %>"/>));
+		dataPointDataTypeChanged(<%= DataTypes.ALPHANUMERIC %>);
+		break;
+	default :
+		$set("dataTypeId", String(<c:out value="<%= DataTypes.NUMERIC %>"/>));
+		dataPointDataTypeChanged(<%= DataTypes.NUMERIC %>);
+	}
+		
+};

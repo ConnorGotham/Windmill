@@ -1,0 +1,61 @@
+*Version 3.5.1*
+* New AngularJS UI
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Adding list-tables, query and update REST endpoints for admin at /v2/sql-console
+
+*Version 3.4.1*
+* Escape HTML in results
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Fixed bug with commas inside string values
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.6.0*
+* Upgraded to work with core version 2.8.x
+
+*Version 1.5.1*
+* Upgraded to work with core version 2.7.x
+* Upgraded to work with new Security Layer
+
+*Version 1.5.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.4.5*
+* Upgraded to work with core version 2.5.x
+
+*Version 1.4.4*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.4.3*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.4.2
+* Modified for Core 2.2
+
+*Version 1.4.1
+* Modified for Core 2.1
+
+*Version 1.4.0*
+
+* Null blob handling
+* Updated to work with core 2.0
+
+
+*Release notes for version 1.1.1*
+
+* Support core version 1.2+
+* Changed debug message to warning

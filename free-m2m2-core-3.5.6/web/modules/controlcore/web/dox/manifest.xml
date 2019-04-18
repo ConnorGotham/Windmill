@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doxManifest>
+  <item id="controlcoreDS" key="dox.controlcoreDS" filename="controlcore-ds.htm">
+  </item>
+  
+  <item id="controlcorePP" key="dox.controlcorePP" filename="controlcorePP.htm">
+    <relation id="controlcoreDS"/>
+  </item>
+</doxManifest>

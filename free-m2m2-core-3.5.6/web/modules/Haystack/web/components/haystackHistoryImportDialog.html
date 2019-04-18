@@ -1,0 +1,14 @@
+<!-- <h3 ng-bind="$ctrl.data.result.description"></h3> -->
+
+<md-progress-linear md-mode="indeterminate" ng-if="!$ctrl.data.result.finished"></md-progress-linear>
+
+<div ng-repeat="row in $ctrl.data.result.results track by row.pointXid">
+	<span ma-tr="haystack.ui.pointXidResults" ma-tr-args="[row.pointXid]"></span>:&nbsp;
+	<span ng-if="row.imported != null" ma-tr="haystack.ui.importedXValues" ma-tr-args="[row.imported]"></span>
+	<span md-colors="{color: 'warn'}" ng-repeat="error in row.errors" ng-bind="error"></span>
+</div>
+
+<div ng-repeat="row in $ctrl.data.result.errors track by $index" md-colors="{color: 'warn'}">
+	<span ng-if="row.message" ng-bind="row.message"></span>
+	<pre ng-if="!row.message" ng-bind="row | json"></pre>
+</div>

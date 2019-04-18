@@ -1,0 +1,54 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Data type validation on points, check commands are nonempty if settable or queryable
+* Change export to use data type name instead of id number, import support legacy
+* Improve point JSON export to exclude unused fields
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.1*
+* Adding in forcePointRead method, for refreshing point values
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.2.1*
+* Fix to return point locator models for REST
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.8.x
+
+*Version 1.1.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.1.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.0.5*
+* Removing restriction on having private key file prior to saving.  This is now checked during runtime before connecting.
+* Setting unreliable attribute for all points if the connection cannot be established
+
+*Version 1.0.4*
+* Fixed bug where if the data source was started with a host that is down it would never be able to connect
+
+*Version 1.0.3*
+* Upgraded to work with core version 2.5.x
+
+*Version 1.0.2*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.0.1*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.0.0*
+* Initial Release

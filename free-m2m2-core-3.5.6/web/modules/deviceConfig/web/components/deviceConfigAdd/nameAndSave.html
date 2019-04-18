@@ -1,0 +1,30 @@
+<form name="$ctrl.templateVariablesForm">
+  <md-checkbox ng-model="$ctrl.advanced"><span ma-tr="deviceConfig.advanced"></span></md-checkbox>
+  <div layout>
+    <md-input-container>
+      <label ma-tr="common.deviceName"></label>
+      <input ng-model="$ctrl.deviceConfig.deviceName" required ng-change="$ctrl.interpolateJson()" ng-model-options="{debounce: 1000}">
+    </md-input-container>
+    
+    <md-input-container ng-if="$ctrl.advanced">
+      <label ma-tr="deviceConfig.deviceId"></label>
+      <input ng-model="$ctrl.deviceConfig.deviceId" required ng-change="$ctrl.interpolateJson()" ng-model-options="{debounce: 1000}">
+    </md-input-container>
+  </div>
+  
+  <div layout ng-if="!$ctrl.dataSource">
+    <md-input-container>
+      <label ma-tr="filter.byDataSourceName"></label>
+      <input ng-model="$ctrl.deviceConfig.dataSourceName" required ng-change="$ctrl.interpolateJson()" ng-model-options="{debounce: 1000}" >
+    </md-input-container>
+    
+    <md-input-container ng-if="$ctrl.advanced">
+      <label ma-tr="filter.byDataSourceXid"></label>
+      <input ng-model="$ctrl.deviceConfig.dataSourceXid" required ng-change="$ctrl.interpolateJson()" ng-model-options="{debounce: 1000}">
+    </md-input-container>
+  </div>
+</form>
+
+<div ng-if="$ctrl.advanced">
+  <ma-ace-editor style="height: 400px;" ng-model="$ctrl.jsonString" mode="json"></ma-ace-editor>
+</div>

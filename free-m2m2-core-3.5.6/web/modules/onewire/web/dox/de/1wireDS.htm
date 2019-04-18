@@ -1,0 +1,32 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<h1>Übersicht</h1>
+<p>
+    Die 1-Wire Datenquelle liest Daten von einem lokalen 1-Wire-Netz.
+    Dieses Netz ist über eine RS232 oder RS485 (erfordert Adapter) Schnittstelle mit dem 1-Wire Adapter verbunden.
+    Die 1-Wire Datenquelle ist Polling-Datenquelle.
+</p>
+<p>
+    The 1-Wire Datenquelle ist in der Lage, Rekonfigurationen des Netzwerkes zu erkennen.
+    Wenn Änderungen an der Topographie eines 1-Wire Netzes festgestellt werden, wird dieses erneut gescannt.
+    Sind alle vorher vorhanden Punkte auch nach dem Scan vorhanden, wird kein Ereignis ausgel�st.
+</p>
+
+<h1>Konfiguration</h1>
+<p> 
+    Jede Datenquelle ben�tigt einen <b>Namen</b>, der frei wählbar ist.
+    Die <b>Port</b>-Auswahl enthält eine Liste aller verfügbaren seriellen Ports auf der Host-Hardware.
+    Hier wird der Port eingestellt, der mit dem 1-Wire Netzwerk verbunden ist.
+    Der <b>Aktualisierungszyklus</b> bestimmt, wie oft das Netz nach Daten abgefragt (gepollt) wird.
+</p>
+
+<h1>Netzwerkscan</h1>
+<p> 
+    Netzwerke k�nnen nach allen Geräten mit dem Scan-Dienstprogramm gescannt werden.
+    Diese Funktion dursucht die Pfade des 1-Wire Netzes, die durch 1-Wire Coupler verbunden sind, um alle Geräte im Netzwerk zu finden.
+    Die Ergebnisse werden in einer Tabelle mit der 1-Wire-Adresse und eine Beschreibung des Geräts angezeigt.
+    Um schnell ein Gerät als einen neuen Datenpunkt hinzuzufügen, drücken Sie das zugeh�rige <img src="images/icon_comp_add.png"/> Symbol.
+    Ein neuer Datenpunkt wird für das Gerät erstellt.
+</p>

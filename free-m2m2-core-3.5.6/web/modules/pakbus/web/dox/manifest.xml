@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="pakbus-pp" key="pakbus.dox.pp" filename="pakBusPP.htm">
+    <relation id="pakbus-ip"/>
+    <relation id="pakbus-serial"/>
+    <relation id="pakbus-tool"/>
+  </item>
+  
+  <item id="pakbus-ip" key="pakbus.dox.ds.ip" filename="pakBusIpDS.htm">
+    <relation id="pakbus-pp"/>
+    <relation id="pakbus-serial"/>
+    <relation id="pakbus-tool"/>
+  </item>
+  
+  <item id="pakbus-serial" key="pakbus.dox.ds.serial" filename="pakBusSerialDS.htm">
+    <relation id="pakbus-pp"/>
+    <relation id="pakbus-ip"/>
+    <relation id="pakbus-tool"/>
+  </item>
+
+  <item id="pakbus-tool" key="pakbus.dox.tool" filename="pakBusDiscoveryTool.htm">
+    <relation id="pakbus-ip"/>
+    <relation id="pakbus-serial"/>
+    <relation id="pakbus-pp"/>
+  </item>
+
+
+</doxManifest>

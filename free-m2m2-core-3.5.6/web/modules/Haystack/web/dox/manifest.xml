@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2017 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+
+<doxManifest>
+  <item id="haystackDS" key="dox.haystackDS" filename="haystackDS.htm">
+    <relation id="haystackPP"/>
+    <relation id="haystackPub"/>
+  </item>
+  
+  <item id="haystackPP" key="dox.haystackPP" filename="haystackPP.htm">
+    <relation id="haystackDS"/>
+  </item>
+  
+  <item id="haystackPub" key="dox.haystackPublisher" filename="haystackPub.htm">
+    <relation id="haystackDS"/>
+  </item>
+  
+</doxManifest>

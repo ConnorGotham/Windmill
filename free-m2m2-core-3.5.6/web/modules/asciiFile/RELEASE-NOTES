@@ -1,0 +1,55 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.1*
+* Implemented forcePointRead, now refresh point value possible
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* Added path restrictions option
+
+*Version 1.3.0*
+* Upgraded to work with core version 2.8.x
+* Adding Regex Test utility to edit page
+
+*Version 1.2.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.1.6*
+* Adding model support for Mango API
+* Modifying JSON to user data type names
+
+*Version 1.1.5*
+* Added validation for missing capture groups
+* Added event handling for out of bounds exceptions on matched regex patterns.
+* Moved Pattern compilation into the Point Locator runtime.
+* Added Poll aborted Event
+
+*Version 1.1.4*
+* Upgraded to work with core version 2.5.x
+
+*Version 1.1.3*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.1.2*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.1.1*
+* Moved to Core 2.2
+* Removed point identifier as required.
+* Fixed Dwr

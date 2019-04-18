@@ -1,0 +1,27 @@
+<h1>Overview</h1>
+<p>
+The JSON receiver accepts a few formats of JSON data over HTTP. The <b>receive type</b> is used to switch between these.
+By default, receive type "JSON" is selected, which means the data source is expecting a post with a content type application/json.
+Type "Parameter" uses the serotonin json library to parse values from json strings set as parameter values in a regular application/text
+content type.
+</p>
+<p>
+The JSON variant of the Http Receiver functions in exactly the same way, except it
+assumes the data portion of the Http request contains zero or more Json strings,
+and is agnostic to the keyset. The "Parameter Name" field of data points
+corresponds to their key or a prefix of the key within the JSON object from 
+which to draw value. 
+</p> 
+<p>
+If your receive type is JSON, then the Jackson JSON library is used to get the value described by the parameter name as a
+Jackson JSON pointer. You can find this specification here: <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-03">
+IETF JSON pointer</a>. In brief, pointers begin with leading slashes and index lists the same, so in:
+</p>
+
+<code>
+{ "foo": ["bar", "fish"] }
+</code>
+
+<p>
+/foo/0 resolves to bar
+</p>

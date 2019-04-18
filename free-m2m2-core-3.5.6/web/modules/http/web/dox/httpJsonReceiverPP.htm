@@ -1,0 +1,14 @@
+<h1>Overview</h1>
+<p>
+The JSON variant of the HTTP data point contains two additional fields: the 
+device identifier key and the device identifier itself. These are formed from
+the use case where a device publishes its name in the JSON object, i.e. 
+"id":"eGauge42", where "id" is the key and "eGauge42" is the identifier. The
+other properties are inherited from the HTTP Receiver data point properties. If 
+the device identifier key is left blank, the receiver will behave as though every 
+JSON object corresponds to the point.
+</p>
+<p>
+If you're using receive type 2, then you can also specify a Jackson JSON path to a number of milliseconds epoch timestamp.
+The device identifier key, parameter name, and timestamp key are all Jackson JSON paths within the received Json object.
+</p>

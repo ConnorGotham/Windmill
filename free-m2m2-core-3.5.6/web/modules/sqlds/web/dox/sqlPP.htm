@@ -1,0 +1,35 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<p>The attributes used to configure SQL data source points differ slightly depending upon whether the query is row-based or column-based. In both cases the <b>Data type</b> determines the data type of the Mango data point. Values from the result set are automatically converted to this type. </p>
+
+<p>For row-based queries, the <b>Row identifier</b> is matched against the first column of the result set to find the row or rows that contain values (the second column) for this point. Time overrides are taken from the third column if it exists.</p>
+
+<p>For column-based queries, the <b>Column name</b> corresponds to the column name in the result set from which the point's value is extracted. The <b>Time override column</b> (optional) specifies the column to use as the point's time override. Note that multiple points can use the same time override if appropriate.</p>
+
+
+<h1>Update statements</h1>
+<p>An <b>Update statement</b> can optionally be defined for a point, which determines how the point's value can be set in the database. This is a standard SQL statement using "update" or "insert". If this statement is not defined the point will be considered non-settable.</p>
+
+<h1>Modify Table Only</h1>
+<p>Points may be set as table modifiers that allow custom UPDATE or INSERT statements to be created.  These statements are parameterized and each parameter must be defined in order and by type.  Modify Table Only points are not polled during the usual data source polling, they are only used when a value is set to them. To invoke the statement simply write a formatted string to the point.
+ The format for the String value to write to the point is (1,'string',date).  The parameter group is surrounded by parentheses, String parameters must be single quote ' delimited and each parameter must be separated by a comma ,.</p>
+
+<p>Note that bulk updates are possible by adding additional ,(2,'string'date) clauses to the value you write to the point.  For example writing (1,'string',date),(2,'string',date) would insert 2 rows into the database.</p>
+
+<p>The <b>Date Format</b> is the format to use for all date parameters in the statement.  This string is parsed using the Simple Date Format, more information can be found <a href="http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html">here.</a>
+<p><b>Example 1</b>
+<br></br>The statement: 
+update myTable set date=? where name=?
+<br></br>will update all dates in the table named 'myTable' where row values in column named 'name' matches the second parameter.
+By writing (1999-03-22T12:00:23,'test') all rows with column named 'name' that equals 'test' will be updated with this date.
+<br></br>The Date Format for this example is: yyyy-MM-dd'T'HH:mm:ss
+
+<br></br><b>Example 2</b>
+<br></br>The statement: 
+insert into table values (?,?,?)
+<br></br>will insert a new row into the table named 'table'. This table has 3 columns id (INT), name (VARCHAR(10)), and date (DATETIME).
+By Writing (1,'newName',1999-03-22T12:00:23) one row with id 1 will be inserted.  
+<br></br>The Date Format for this example is: yyyy-MM-dd'T'HH:mm:ss
+</p>

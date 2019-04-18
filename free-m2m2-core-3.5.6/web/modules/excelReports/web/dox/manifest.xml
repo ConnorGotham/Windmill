@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+
+  <item id="excelreports-excelfile-creation" key="dox.excelreportExcelFileCreation" filename="excelreports-excelfile-creation.htm">
+    <relation id="excelreports-template-list"/>
+    <relation id="excelreports-template-setup"/>
+    <relation id="excelreports-report-list"/>
+  </item>
+
+  <item id="excelreports-template-list" key="dox.excelreportTemplates" filename="excelreports-template-list.htm">
+    <relation id="excelreports-template-setup"/>
+    <relation id="excelreports-excelfile-creation"/>
+    <relation id="excelreports-report-list"/>
+  </item>
+  
+  <item id="excelreports-template-setup" key="dox.excelreportTemplateSetup" filename="excelreports-template-setup.htm">
+    <relation id="excelreports-template-list"/>
+    <relation id="excelreports-excelfile-creation"/>
+    <relation id="excelreports-report-list"/>
+    <relation id="excelreports-script-util"/>
+    <relation id="cronPatterns"/>
+  </item>
+  
+  <item id="excelreports-report-list" key="dox.excelreportInstances" filename="excelreports-report-list.htm">
+    <relation id="excelreports-template-list"/>
+    <relation id="excelreports-template-setup"/>
+    <relation id="excelreports-excelfile-creation"/>
+  </item>
+  
+  <item id="excelreports-settings" key="dox.excelreportSettings" filename="excelreport-settings.htm">
+      <relation id="excelreports-template-setup"/>
+      <relation id="excelreports-template-list"/>
+  </item>
+  
+  <item id="excelreports-script-util" key="dox.excelreportScriptUtil" filename="excelreports-script-util.htm">
+      <relation id="excelreports-template-setup"/>
+  </item>
+</doxManifest>

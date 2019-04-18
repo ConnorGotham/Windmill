@@ -1,0 +1,24 @@
+<%--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+--%>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<script type="text/javascript">
+
+function saveDataSourceImpl(basic) {
+	  PakBusEditDwr.savePakBusSerialDataSource(basic, $get("updatePeriods"), 
+            $get("updatePeriodType"), $get("quantize"),
+            $get("networkPollPeriods"), $get("networkPollPeriodType"), dataloggers,
+            $get("commPortId"), $get("baudRate"), $get("flowControlIn"), $get("flowControlOut"), $get("dataBits"), 
+            $get("stopBits"), $get("parity"), saveDataSourceCB);
+}
+
+function connectImpl(loggerAddress, neighborAddress, roundTripTime, securityCode, tableRequestRetryDelay) {
+    PakBusEditDwr.startSerialUtility($get("commPortId"), $get("baudRate"), $get("flowControlIn"), $get("flowControlOut"), $get("dataBits"), 
+            $get("stopBits"), $get("parity"), $get("networkPollPeriods"), $get("networkPollPeriodType"), $get("nodeAddress"), 
+            loggerAddress, neighborAddress, roundTripTime, securityCode, tableRequestRetryDelay, connectCB);
+}
+
+</script>
+
+<tag:serialSettings/>

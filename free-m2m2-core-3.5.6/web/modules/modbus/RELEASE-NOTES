@@ -1,0 +1,152 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Fix 'encoding' in API for serial data source to use RTU / ASCII instead of the translation key in getting the DS JSON
+
+*Version 3.4.1*
+* Give slave monitor points the device name of the modbus data source initially
+* Added four, six, and eight byte Mod10k data types for modbus data points
+* Prevent partial batch read bug if someone is forcing polls from a script while polling regularly
+* Add single byte unsigned integer data types
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Fixed bug in v2 endpoints that would fail to authorize any users
+* Fixed bug in Point Locator model that wouldn't allow creating points with an offset via REST
+
+*Version 3.3.1*
+* Improved init error messages for serial data source edit page tools
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.2*
+* Added ability to have numeric data types stored as multistate values.
+* Fixed Modbus publisher to export/import using property names instead of enum.
+* Fixed bug in Modbus publisher edit UI where changing data types or ranges only affected last row.
+* Fixed NPE in Modbus publisher for publishing disabled points.
+
+*Version 3.2.1*
+* Fixes in publisher for unreliable behaviors with multiple publishers.
+* Added strict addressing option to respond with zeros to unconfigured addresses.
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.8.0*
+* Adding REST endpoints for discovery tools
+* Enabling tools to be used on the edit page while a data source is running.
+
+*Version 1.7.0*
+* Upgraded to work with core version 2.8.x
+* Removed message frame and character spacing settings
+* Publisher alarm levels now configurable
+
+*Version 1.6.5*
+* Fixed bug where multiple publishers would cause problems
+* Fixing Data Source model to use correct values for Transport Type
+
+*Version 1.6.4*
+* Added exception handling to IP Publisher Slave to log exceptions
+* Fixing i18n missing keys for Publisher Point Error Events
+
+*Version 1.6.3*
+* Fixed bug in ModbusIpDataSource where local data variable was shadowing superclass's
+
+*Version 1.6.2*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.6.1*
+* Fixed bug in Data Point Model where the Modbus Data Type was not being used.
+
+*Version 1.6.0*
+* Fixed bug on Data Souce page where adding a point via the tool would not work.
+* Adding additional publisher options for publishing Numeric points as Integers and 4 byte floats.
+* Upgrading Modbus4j to 3.0.0 to be able to adjust message timing, and reduce dependencies
+* Adding settings to override the Modbus4j default message timing settings
+* Upgraded to work with core version 2.6.x
+
+
+*Version 1.5.5*
+* Upgrading Modbus4j to 2.1.0 to be able to cancel batch reads. Should speed up the shutdown of modbus data sources.
+
+*Version 1.5.4*
+* Upgrading Modbus4j to 2.0.9 for additional Data Types and TCP Master null pointer bugfix
+* Improvements in re-connecting to disconnected Slaves while data source is running
+
+*Version 1.5.3*
+* Upgrading to Modbus 4j 2.0.6 to capture changes to expose TcpListener type
+
+*Version 1.5.2*
+* Upgrading to Modbus 4j 2.0.5 to allow reading of register 65535
+
+*Version 1.5.1*
+* Added IO Logging for Serial Test Tool (500K size, keep 2)
+* Added IO Logging for IP Test Tool (500K size, keep 2)
+
+*Version 1.5.0*
+* Upgraded Modbus4j to version 2.0.4 to pick up enhancement to Serial RTU message frame timing
+* Upgraded to work with version 2.5.x core
+* Added REST Model
+* Added Device Name to Alarms that correspond to data points
+* Removed concurrency section from Modbus Serial help file.
+
+*Version 1.4.9*
+* Added rolling logging to the IO logs
+
+*Version 1.4.8*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.4.7*
+* Adding Modbus Publisher into module
+
+*Version 1.4.6*
+* Upgraded to work with core version 2.3.x
+
+*Release notes for version 1.4.5*
+* Improved serial port reliability by upgrading to Serotonin Utils 2.0.1 and modbus4j 2.0.1
+
+*Release notes for version 1.4.4*
+* Upgraded to use jssc instead of RXTX for serial communications
+* Removed Concurrency Settings for Serial connection as they are no longer supported or needed
+* Core 2.2
+
+*Release notes for version 1.4.3*
+
+* Added unInitImpl from data source page to clean up scan task after unloading the page.  This kills the scan poll
+on the page as to not confuse the other modules.
+* Updated to work with core version 2.1
+
+*Release notes for version 1.4.2*
+
+* Removed 1-240 slave id restriction
+* Added DWR conversion entry to prevent error rendering the data source list
+* Updated to work with core version 2.0.6
+
+
+*Release notes for version 1.4.1*
+
+* Added swapped 4B BCD data type
+* Licensing bug fix
+
+
+*Release notes for version 1.4.0*
+
+* I/O logging
+* Updated to work with core 2.0
+
+
+*Release notes for version 1.3.0*
+
+* E-poll support
+* Updated to work with core 1.3
+
+
+*Release notes for version 1.1.0*
+
+* License enforcement

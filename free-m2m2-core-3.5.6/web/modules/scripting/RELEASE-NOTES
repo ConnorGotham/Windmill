@@ -1,0 +1,80 @@
+*Version 3.5.1*
+* Fix script LOG missing at script data source runtime
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Script log rollover settings added
+* Allow scripting data sources not to have cron patterns, and be driven by events only
+* Put enabled column into context, such that at script validation the user can tell if context points are enabled
+
+*Version 3.4.2*
+* Escape point names when creating dropdowns in JSP
+
+*Version 3.4.1*
+* Fix "Saves historic" to save values to unsettable points
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+* Fixing bug in "saves historic" when the points were the script's own points
+
+*Version 3.2.1*
+* Ability for script context points to trigger a script execution
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* Fix for script errors not printing in some situations
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.8.x
+
+*Version 1.1.2*
+* Changed so that when a point is set from the script and fails the event's timestamp is the time of the set not the timestamp for the point value (which can be different)
+
+*Version 1.1.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.1.0*
+* Added Ace Script editor
+* Upgraded to work with core version 2.6.x
+* Added script permissions
+
+*Version 1.0.8*
+* Upgraded to work with core version 2.5.x
+* Added Poll aborted Event
+* Added additional help file extracted from meta data source to explain some additional Mango JavaScript methods
+* Added date output to validate script when a point value is set.
+
+*Version 1.0.7*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.0.6*
+* Adding toggle on datasource to enable saving history values *
+
+*Version 1.0.5*
+* Upgraded to work with core version 2.3.x
+
+*Release notes for version 1.0.4*
+* Adding multiple selections for point add filter list while retaining filter
+
+*Release notes for version 1.0.3*
+* Changing log directory to be  $MA_HOME/logs
+
+*Release notes for version 1.0.2*
+* Updated to work with core 2.2
+
+*Release notes for version 1.0.1*
+
+* Updated to work with core 2.1
+
+*Release notes for version 1.0.0*
+
+* Initial release

@@ -1,0 +1,258 @@
+INFO  2019-04-15T10:02:07,331 (com.serotonin.m2m2.Main.main:101) - Starting Mango 3.5.6 with Schema Version: 26 
+INFO  2019-04-15T10:02:08,228 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'asciiFile', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,265 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'BACnet', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,279 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'controlcore', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,290 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dashboardDesigner', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,294 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\free-m2m2-core-3.5.6\web\modules\dashboardDesigner\web\dox\manifest.xml 
+INFO  2019-04-15T10:02:08,301 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dataFile', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,328 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dataImport', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,338 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'deviceConfig', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,342 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\free-m2m2-core-3.5.6\web\modules\deviceConfig\web\dox\manifest.xml 
+INFO  2019-04-15T10:02:08,351 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dnp3', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,363 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'egauge', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,375 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'envcands', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,387 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'excelReports', v3.5.3 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,419 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'graphicalViews', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,470 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'Haystack', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,487 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'http', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,508 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'jsonFileImport', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,520 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'log4jDS', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,531 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'log4JReset', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,538 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'loggingConsole', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,550 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'maintenanceEvents', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,563 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mangoApi', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,581 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mangoUI', v3.5.5 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,587 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\free-m2m2-core-3.5.6\web\modules\mangoUI\web\dox\manifest.xml 
+INFO  2019-04-15T10:02:08,673 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mbus', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,687 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'meta', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,698 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'modbus', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,710 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'onewire', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,723 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'opcda', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,729 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pakbus', v3.5.4 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,742 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pointLinks', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,760 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pop3', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,772 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'reports', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,790 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'scheduledEvents', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,802 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'scripting', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,809 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'serial', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,819 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'snmp', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,834 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sqlConsole', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,846 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sqlds', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,859 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'ssh', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,870 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sstGlobalScripts', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,882 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sstGraphics', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,935 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'TCPIP', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,944 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'templateConfig', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,955 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'twilio', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,967 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'virtualDS', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,979 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'vmstat', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:08,989 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'watchlists', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:09,014 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'internal', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-15T10:02:13,442 (com.serotonin.m2m2.Lifecycle.loadLic:604) - Checking license... 
+INFO  2019-04-15T10:02:13,443 (com.serotonin.m2m2.Lifecycle.loadLic:690) - License file not found 
+INFO  2019-04-15T10:02:13,670 (com.serotonin.m2m2.db.H2Proxy.initializeImpl:42) - Initializing H2 connection manager 
+INFO  2019-04-15T10:02:22,163 (com.serotonin.m2m2.db.upgrade.DBUpgrade.checkUpgrade:38) - Starting instance with core version 3.5.6, db 26 
+INFO  2019-04-15T10:02:27,256 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'runtimeContext' refreshed: org.springframework.context.annotation.AnnotationConfigApplicationContext@72e295cc 
+INFO  2019-04-15T10:02:27,272 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextStarted:134) - Spring context 'runtimeContext' started: org.springframework.context.annotation.AnnotationConfigApplicationContext@72e295cc 
+INFO  2019-04-15T10:02:27,589 (com.serotonin.m2m2.rt.DataSourceGroupInitializer.initialize:77) - Initializing 4 NORMAL priority data sources in 8 threads. 
+INFO  2019-04-15T10:02:27,752 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Test' initialized 
+INFO  2019-04-15T10:02:27,752 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Test' took 155.482022ms to start 
+INFO  2019-04-15T10:02:27,837 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Mango Internal' initialized 
+INFO  2019-04-15T10:02:27,837 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Mango Internal' took 239.993146ms to start 
+INFO  2019-04-15T10:02:28,083 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Test2' initialized 
+INFO  2019-04-15T10:02:28,083 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Test2' took 486.409316ms to start 
+INFO  2019-04-15T10:02:28,101 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:380) - Data source 'Weather' initialized 
+INFO  2019-04-15T10:02:28,102 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initializeDataSourceStartup:385) - Data source 'Weather' took 504.885331ms to start 
+INFO  2019-04-15T10:02:28,162 (com.serotonin.m2m2.rt.DataSourceGroupInitializer.initialize:109) - Initialization of 4 NORMAL priority data sources took 573ms 
+INFO  2019-04-15T10:02:28,280 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initialize:156) - Starting 0 Publishers... 
+INFO  2019-04-15T10:02:28,280 (com.serotonin.m2m2.rt.RuntimeManagerImpl.initialize:168) - 0 Publisher's started in 2ms 
+INFO  2019-04-15T10:02:32,739 (com.serotonin.m2m2.web.M2M2ContextListener.contextInitialized:32) - Mango Automation context starting 
+INFO  2019-04-15T10:02:32,740 (com.serotonin.m2m2.web.M2M2ContextListener.contextInitialized:40) - Mango Automation context started 
+INFO  2019-04-15T10:02:37,510 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'rootWebContext' refreshed: Root WebApplicationContext 
+WARN  2019-04-15T10:02:39,701 (org.springframework.web.servlet.handler.SimpleUrlHandlerMapping.registerHandlers:114) - Neither 'urlMap' nor 'mappings' set on SimpleUrlHandlerMapping 
+INFO  2019-04-15T10:02:39,933 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'jspDispatcherContext' refreshed: WebApplicationContext for namespace 'JSP_DISPATCHER-servlet' 
+INFO  2019-04-15T10:02:43,671 (com.serotonin.m2m2.web.mvc.rest.v1.BacnetDiscoveryRestController.<init>:54) - Creating Discovery Rest Controller 
+INFO  2019-04-15T10:02:45,213 (com.serotonin.m2m2.web.mvc.rest.v1.DataPointRestController.<init>:76) - Creating Data Point Rest Controller. 
+INFO  2019-04-15T10:02:46,363 (com.serotonin.m2m2.web.mvc.rest.v1.DataSourceRestController.<init>:62) - Creating DS Rest Controller 
+INFO  2019-04-15T10:02:47,697 (com.infiniteautomation.mango.rest.v2.MetaRestController.<init>:52) - Creating meta rest controller. 
+INFO  2019-04-15T10:02:49,576 (com.infiniteautomation.mango.rest.v2.DataPointRestController.<init>:96) - Creating Data Point v2 Rest Controller. 
+INFO  2019-04-15T10:02:51,097 (com.infiniteautomation.mango.spring.MangoRuntimeContextConfiguration.contextRefreshed:120) - Spring context 'restDispatcherContext' refreshed: WebApplicationContext for namespace 'REST_DISPATCHER-servlet' 
+INFO  2019-04-15T10:02:51,109 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: EnvCanEditDwr 
+INFO  2019-04-15T10:02:51,115 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: HttpDataSourceDwr 
+INFO  2019-04-15T10:02:51,121 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: TcpIpDataSourceEditDwr 
+INFO  2019-04-15T10:02:51,129 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: Pop3EditDwr 
+INFO  2019-04-15T10:02:51,133 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: HaystackDataSourceDwr 
+INFO  2019-04-15T10:02:51,135 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-15T10:02:51,141 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: DataFileDataSourceEditDwr 
+INFO  2019-04-15T10:02:51,145 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: OPCDAEditDwr 
+INFO  2019-04-15T10:02:51,168 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: BACnetMSTPEditDwr 
+INFO  2019-04-15T10:02:51,179 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: PakBusEditDwr 
+INFO  2019-04-15T10:02:51,238 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: MBusEditDwr 
+INFO  2019-04-15T10:02:51,238 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.infiniteautomation.mango.pakbus.dwr.PakBusEditDwr 
+INFO  2019-04-15T10:02:51,256 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SNMPEditDwr 
+INFO  2019-04-15T10:02:51,260 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: InternalEditDwr 
+INFO  2019-04-15T10:02:51,280 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SerialEditDwr 
+INFO  2019-04-15T10:02:51,297 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: MetaEditDwr 
+INFO  2019-04-15T10:02:51,306 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: DnpEditDwr 
+INFO  2019-04-15T10:02:51,321 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: ModbusEditDwr 
+INFO  2019-04-15T10:02:51,329 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: Log4jEditDwr 
+INFO  2019-04-15T10:02:51,334 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: ScriptingEditDwr 
+INFO  2019-04-15T10:02:51,341 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SshDataSourceEditDwr 
+INFO  2019-04-15T10:02:51,343 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: AsciiFileEditDwr 
+INFO  2019-04-15T10:02:51,344 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-15T10:02:51,348 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: OneWireEditDwr 
+INFO  2019-04-15T10:02:51,353 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: SqlEditDwr 
+INFO  2019-04-15T10:02:51,355 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: VMStatEditDwr 
+INFO  2019-04-15T10:02:51,359 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: EgaugeDataSourceDwr 
+INFO  2019-04-15T10:02:51,359 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-15T10:02:51,362 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: BACnetIPEditDwr 
+INFO  2019-04-15T10:02:51,363 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: br.org.scadabr.dnp3.dwr.DnpEditDwr 
+INFO  2019-04-15T10:02:51,367 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: ControlCoreEditDwr 
+INFO  2019-04-15T10:02:51,368 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.modbus.dwr.ModbusEditDwr 
+INFO  2019-04-15T10:02:51,368 (com.serotonin.m2m2.Lifecycle.configureDwr:1242) - Duplicate definition of DWR class ignored: com.serotonin.m2m2.http.dwr.HttpDataSourceDwr 
+INFO  2019-04-15T10:02:51,381 (com.serotonin.m2m2.Lifecycle.configureDwr:1249) - Added DWR definition for: VirtualEditDwr 
+INFO  2019-04-15T10:02:51,461 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_point_details.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,461 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/events.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,461 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/pending_alarms.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,461 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/event_handlers.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,461 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_sources.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,462 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/point_hierarchy.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,462 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/mailing_lists.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,462 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/publishers.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,462 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/system_settings.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,462 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/modules.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,462 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/emport.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,462 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/error.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,463 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/not-found.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,463 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/unauthorized.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,463 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/upload.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,463 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/mobile_data_point_details.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,463 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/dataImport.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,468 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/csvDataImport.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,468 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/excel-reports.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,472 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/public_view.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,477 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/views.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,478 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/logging_console.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,478 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/maintenance_events.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,478 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/point_links.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,478 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/m2m_report_import.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,478 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/reports.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,481 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/reportChart.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,481 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/templateConfig.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,495 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/mobile/watch_list.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,495 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/watch_list.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,495 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/status.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,495 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/threads.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,496 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/tasks.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,496 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/queueStats.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,496 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/internal/workItems.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,496 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_point_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataPointEditController] 
+INFO  2019-04-15T10:02:51,496 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_source_properties.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataSourcePropertiesController] 
+INFO  2019-04-15T10:02:51,497 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_source_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataSourceEditController] 
+INFO  2019-04-15T10:02:51,497 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/data_source_properties_error.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.DataSourceEditController] 
+INFO  2019-04-15T10:02:51,497 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/help.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.HelpController] 
+INFO  2019-04-15T10:02:51,497 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/startup.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.StartupController] 
+INFO  2019-04-15T10:02:51,497 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/shutdown.htm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.ShutdownController] 
+INFO  2019-04-15T10:02:51,497 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/publisher_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.PublisherEditController] 
+INFO  2019-04-15T10:02:51,497 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/users.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.controller.UsersController] 
+INFO  2019-04-15T10:02:51,502 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/view_edit.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,502 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/scheduled_events.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,505 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/sqlConsole.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+INFO  2019-04-15T10:02:51,505 (org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler:373) - Mapped URL path [/globalScripts.shtm] onto handler of type [class com.serotonin.m2m2.web.mvc.UrlHandlerController] 
+WARN  2019-04-15T10:51:23,507 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Mango Internal aborted 1 polls since it started. 
+WARN  2019-04-15T10:51:23,527 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Weather aborted 1 polls since it started. 
+WARN  2019-04-15T11:07:46,317 (com.infiniteautomation.mango.rest.v2.ServerRestV2Controller.postClientError:223) - Client error
+[user=admin, cause=<div ng-style="{'font-size': ` + 'px'}">, location=http://localhost:8080/ui/administration/edit-pages/8b744c87-6846-492a-b785-d2286d4c0902, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0, language=en-US, date=2019-04-15T11:07:46.269-04:00, timezone=America/New_York]
+Error: [$parse:lexerr] Lexer Error: Unexpected next character  at columns 14-14 [`] in expression [{'font-size': ` + 'px'}].
+https://errors.angularjs.org/1.7.3/$parse/lexerr?p0=Unexpected%20next%20character%20&p1=s%2014-14%20%5B%60%5D&p2=%7B'font-size'%3A%20%60%20%2B%20'px'%7D
+	at a/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:832)
+	at throwError (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:81327)
+	at lex (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:79954)
+	at ast (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:83535)
+	at getAst (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:118026)
+	at parse (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:117573)
+	at o (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:91907)
+	at $watchCollection (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:99373)
+	at co< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:169194)
+	at pe/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:7416)
+	at Re (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:56644)
+	at ie (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:51450)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44321)
+	at ie (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:51401)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44321)
+	at ie (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:51401)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44321)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44338)
+	at oe/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:43534)
+	at k.prototype.updatePreview (http://localhost:8080/modules/mangoUI/web/mangoUi.js?v=7420dd568f397afe5313:1:153418)
+	at k.prototype.$onChanges (http://localhost:8080/modules/mangoUI/web/mangoUi.js?v=7420dd568f397afe5313:1:153192)
+	at l (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:56981)
+	at I/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:40422)
+	at $eval (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102170)
+	at $apply (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102412)
+	at I (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:40363)
+	at $digest (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:101076)
+	at $apply (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102465)
+	at o/c< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:124794)
+	at Qr/this.$get</</this.completeTask (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:122757)
+	at ln/this.$get</</i.defer/r< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:34323) 
+WARN  2019-04-15T11:30:58,427 (com.infiniteautomation.mango.rest.v2.ServerRestV2Controller.postClientError:223) - Client error
+[user=admin, cause=<div class="bar-display-text" ng-style="{'font-size': 90 + 'px'}>, location=http://localhost:8080/ui/administration/edit-pages/8b744c87-6846-492a-b785-d2286d4c0902, userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0, language=en-US, date=2019-04-15T11:30:58.417-04:00, timezone=America/New_York]
+Error: [$parse:syntax] Syntax Error: Token '%' not a primary expression at column 26 of the expression [{'font-size': 90 + 'px'}>%</div>
+</div>
+
+</div>
+    <div flex=] starting at [%</div>
+</div>
+
+</div>
+    <div flex=].
+https://errors.angularjs.org/1.7.3/$parse/syntax?p0=%25&p1=not%20a%20primary%20expression&p2=26&p3=%7B'font-size'%3A%2090%20%2B%20'px'%7D%3E%25%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20flex%3D&p4=%25%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20flex%3D
+	at a/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:832)
+	at throwError (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:87907)
+	at primary (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:86096)
+	at unary (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:85607)
+	at multiplicative (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:85353)
+	at additive (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:85179)
+	at relational (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:85120)
+	at equality (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:84837)
+	at logicalAND (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:84687)
+	at logicalOR (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:84533)
+	at ternary (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:84331)
+	at assignment (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:84108)
+	at expression (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:84061)
+	at filterChain (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:83969)
+	at expressionStatement (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:83915)
+	at program (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:83760)
+	at ast (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:83559)
+	at getAst (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:118026)
+	at parse (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:117573)
+	at o (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:91907)
+	at $watchCollection (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:99373)
+	at co< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:169194)
+	at pe/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:7416)
+	at Re (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:56644)
+	at ie (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:51450)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44321)
+	at ie (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:51401)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44321)
+	at ie (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:51401)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44321)
+	at ie (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:51401)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44321)
+	at ce/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:44338)
+	at oe/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:43534)
+	at k.prototype.updatePreview (http://localhost:8080/modules/mangoUI/web/mangoUi.js?v=7420dd568f397afe5313:1:153418)
+	at k.prototype.$onChanges (http://localhost:8080/modules/mangoUI/web/mangoUi.js?v=7420dd568f397afe5313:1:153192)
+	at l (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:56981)
+	at I/< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:40422)
+	at $eval (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102170)
+	at $apply (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102412)
+	at I (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:40363)
+	at $digest (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:101076)
+	at $apply (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:102465)
+	at o/c< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:124794)
+	at Qr/this.$get</</this.completeTask (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:122757)
+	at ln/this.$get</</i.defer/r< (http://localhost:8080/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9:78:34323) 
+WARN  2019-04-15T11:55:44,276 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Mango Internal aborted 13 polls since it started. 
+WARN  2019-04-15T11:55:44,276 (com.serotonin.m2m2.rt.dataSource.PollingDataSource.incrementUnsuccessfulPolls:157) - Data Source Weather aborted 12 polls since it started. 

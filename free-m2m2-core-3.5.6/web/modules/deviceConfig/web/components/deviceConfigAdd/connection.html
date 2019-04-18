@@ -1,0 +1,84 @@
+<md-checkbox ng-model="$ctrl.useExistingDataSource" ng-change="$ctrl.dataSourceSelected()">
+  <span ma-tr="deviceConfig.useExistingDatasource"></span>
+</md-checkbox>
+
+<div layout="column" ng-if="$ctrl.useExistingDataSource">
+  <md-input-container>
+    <label ma-tr="ui.app.dataSource"></label>
+    <ma-data-source-list ng-model="$ctrl.dataSource" ng-change="$ctrl.dataSourceSelected()" auto-init="false" query="'in(dataSourceType,MODBUS_IP,MODBUS_SERIAL)'"></ma-data-source-list>
+  </md-input-container>
+</div>
+
+<h4 ma-tr="deviceConfig.connectionParameters"></h4>
+<form name="$ctrl.connectionForm">
+  <md-input-container>
+    <label ma-tr="common.type"></label>
+    <md-select ng-model="$ctrl.connection.type" ng-disabled="$ctrl.useExistingDataSource" required ng-change="$ctrl.connectionChanged()">
+      <md-option value="MODBUS_IP"><span ma-tr="MODBUS_IP.dataSource"></span></md-option>
+      <md-option value="MODBUS_SERIAL"><span ma-tr="MODBUS_SERIAL.dataSource"></span></md-option>
+    </md-select>
+  </md-input-container>
+  
+  <div ng-if="$ctrl.connection.type === 'MODBUS_IP'">
+    <md-input-container>
+      <label ma-tr="dsEdit.modbusIp.host"></label>
+      <input ng-model="$ctrl.connection.host" name="host" ng-disabled="$ctrl.useExistingDataSource" required ng-change="$ctrl.connectionChanged()">
+    </md-input-container>
+    <md-input-container>
+      <label ma-tr="dsEdit.modbusIp.port"></label>
+      <input ng-model="$ctrl.connection.port" name="port" ng-disabled="$ctrl.useExistingDataSource" type="number" min="1" max="65535" required ng-change="$ctrl.connectionChanged()">
+    </md-input-container>
+  </div>
+  
+  <div ng-if="$ctrl.connection.type === 'MODBUS_SERIAL'">
+    <md-input-container>
+      <label ma-tr="dsEdit.serial.port"></label>
+      <input ng-model="$ctrl.connection.commPortId" name="commPortId" ng-disabled="$ctrl.useExistingDataSource" required ng-change="$ctrl.connectionChanged()">
+    </md-input-container>
+    <md-input-container>
+      <label ma-tr="dsEdit.serial.baud"></label>
+      <md-select ng-model="$ctrl.connection.baudRate" name="baudRate" ng-disabled="$ctrl.useExistingDataSource" required>
+        <md-option ng-value="110">110</md-option>
+        <md-option ng-value="300">300</md-option>
+        <md-option ng-value="1200">1200</md-option>
+        <md-option ng-value="2400">2400</md-option>
+        <md-option ng-value="4800">4800</md-option>
+        <md-option ng-value="9600">9600</md-option>
+        <md-option ng-value="19200">19200</md-option>
+        <md-option ng-value="38400">38400</md-option>
+        <md-option ng-value="57600">57600</md-option>
+        <md-option ng-value="115200">115200</md-option>
+        <md-option ng-value="230400">230400</md-option>
+        <md-option ng-value="460800">460800</md-option>
+        <md-option ng-value="921600">921600</md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container>
+      <label ma-tr="dsEdit.serial.dataBits"></label>
+      <md-select ng-model="$ctrl.connection.dataBits" name="dataBits" ng-disabled="$ctrl.useExistingDataSource" required>
+        <md-option ng-value="5">5</md-option>
+        <md-option ng-value="6">6</md-option>
+        <md-option ng-value="7">7</md-option>
+        <md-option ng-value="8">8</md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container>
+      <label ma-tr="dsEdit.serial.parity"></label>
+      <md-select ng-model="$ctrl.connection.parity" name="parity" ng-disabled="$ctrl.useExistingDataSource" required>
+        <md-option ng-value="0"><span ma-tr="dsEdit.serial.parity.none"></span></md-option>
+        <md-option ng-value="1"><span ma-tr="dsEdit.serial.parity.odd"></span></md-option>
+        <md-option ng-value="2"><span ma-tr="dsEdit.serial.parity.even"></span></md-option>
+        <md-option ng-value="3"><span ma-tr="dsEdit.serial.parity.mark"></span></md-option>
+        <md-option ng-value="4"><span ma-tr="dsEdit.serial.parity.space"></span></md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container>
+      <label ma-tr="dsEdit.serial.stopBits"></label>
+      <md-select ng-model="$ctrl.connection.stopBits" name="stopBits" ng-disabled="$ctrl.useExistingDataSource" required>
+        <md-option ng-value="1">1</md-option>
+        <md-option ng-value="3">1.5</md-option>
+        <md-option ng-value="2">2</md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+</form>

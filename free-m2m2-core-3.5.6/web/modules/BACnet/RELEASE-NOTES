@@ -1,0 +1,142 @@
+*Version 3.5.1*
+* Fixed bug with COV subscribed points when more than one BACnet data source is sharing a local device.
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Adding max master, max info frames and usage timeout settings to MS/TP Configuration to control master polling sequence
+* Adding support for 3rd party realtime mstp linux kernel module
+* Expanding published data type options on BACnet publisher for multistate usability and control if published points are settable
+* Fixed race condition where COV points may have delayed a poll period before sending their COV subscriptions
+
+*Version 3.4.1*
+* Escape HTML issues on publisher page
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Setting reliability attribute for points
+* Upgrade BACnet4J to 4.1.5
+* Adding API support for PriorityValue, DateTime, and AmbiguousValue
+
+*Version 3.3.3*
+* Fixing REST serialization of com.serotonin.bacnet4j.type.primitive.Enumerated
+
+*Version 3.3.2*
+* Support for reading object properties besides 'Present Value'
+* Update BACnet4J to pickup bugfix for reading elements of priority arrays and wrong loop condition when getting local device id
+
+*Version 3.3.1*
+* Added characterstring and calendar as object types for points
+* Beta API for reading/writing any object properties admin permission required
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Verion 3.1.1*
+* Fix for NPE on data point save
+* Fix for hanging read on missing device discovery, use timeout
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded for core 3.0.x
+* Adding REST endpoints for discovery tools
+
+*Version 2.3.0*
+* Upgraded to work with core version 2.8.x
+* Moved COV unsubscriptions into their own task/object.
+* Publisher alarm levels configurable
+
+*Version 2.2.4*
+* Upgrade BACnet4j to 3.2.4 to pickup bugfix for MSTP Devices
+* Add refresh button to comm port list on Local Device settings section
+
+*Version 2.2.3*
+* Upgrade BACnet4j to 3.2.3 to pickup BBMD support and much enhanced support for acting as a foreign device
+* Fixed bug in upgrade of data points for case-sensitive databases
+* Fixed bug where there were problems shutting down a poorly configured data source
+* Fixed bug where adding a point via the tool to an unsaved data source would cause a confusing popup message.
+* Fixed bug where dead network connection would render the local device unusable in the future.
+
+*Version 2.2.2*
+* Fixing bug with Discovery Tool that was causing Mango to hang at Shutdown
+* Adding label to Export Object list icon
+
+*Version 2.2.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 2.2.0*
+* Upgraded to work with core version 2.6.0
+* Adding Mango API model support
+* Adding SerialUID's to the point locators, on module start existing UIDs are replaced with -1.
+* Changed COV subscription IDs to use the data point ID instead of incrementing counter.
+* Upgraded BACnet4J to 3.1.2
+
+*Version 2.1.4*
+* Fix for BACnet error "Cannot send a request in the socket listener thread."
+* Upgrade BACnet4J to 2.0.2
+
+*Version 2.1.3*
+* Fixed bug with MSTP link station addresses not being parsed properly when discovering devices.
+
+*Version 2.1.2*
+* Upgraded to work with core version 2.5.x
+* Added Poll aborted Event
+
+*Version 2.1.1*
+* Upgraded to work with core version 2.4.x
+
+*Version 2.1.0*
+* Added view support for TrendLog and TrendLogMultiple Object types
+* Added ability to export BACnetIP discovery data as XLSX file
+* Added ability to export ALL BACnetIP discovery data from url /bacnet/data/all-discovered.xlsx
+
+*Version 2.0.7*
+* Upgraded to work with core version 2.3.x
+
+*Version 2.0.6*
+* Added Ability for Accumulator BACNet points be saved as Mango Numeric points, previously they could only be Multistate.
+* Added option for user to choose Object Name or Object Description for new points
+* Fixed translation in BACnetIP data source help file where the header was missing.
+
+*Version 2.0.5*
+* Updated to core 2.2
+
+*Version 2.0.4*
+* Fixed bug with MSTP addresses in the Discovery Tool
+* Added functionality to use the Object Description for the point name if it is collected by the Discovery Tool
+
+*Version 2.0.2*
+* Added UnInitImpl from data source page to clean up and cancel the running task for discovery.
+* Updated to work with core 2.1
+
+
+*Version 2.0.1*
+
+* Added functionality to add objects from an object list result as points in batch by selecting with a check box. Also added 76800 as an MS/TP baud rate.
+* Multiple performance, usability and documentation enhancements in the BACnet module.
+* Progress bars and additional error checking for various activities.
+* Points that are added in batch are automatically enabled
+
+
+*Version 2.0.0*
+
+* Added MS/TP
+
+
+*Version 1.4.0*
+
+* Updated to work with core 2.0
+
+
+*Version 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Version 1.0.0*
+
+* Initial production release

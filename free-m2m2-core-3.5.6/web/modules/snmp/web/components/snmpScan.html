@@ -1,0 +1,139 @@
+<div layout layout-align="start center">
+	<md-input-container flex>
+		<label ma-tr="snmp.ui.ipRange"></label>
+		<input ng-model="$ctrl.ipRange" ng-disabled="$ctrl.scanPromise">
+	</md-input-container>
+	<md-button class="md-raised md-accent" ng-click="$ctrl.startScan($event)" ng-disabled="!$ctrl.ipRange || $ctrl.scanPromise">
+		<span ma-tr="snmp.ui.startScan"></span>
+	</md-button>
+	<md-button class="md-raised md-warn" ng-click="$ctrl.cancelScan = true" ng-disabled="!$ctrl.scanPromise || $ctrl.cancelScan">
+		<span ma-tr="snmp.ui.cancelScan"></span>
+	</md-button>
+</div>
+
+<md-progress-linear ng-if="$ctrl.scanPromise" md-mode="determinate" ng-value="$ctrl.scanProgress / $ctrl.hosts.length * 100"></md-progress-linear>
+
+<div ng-if="$ctrl.scanPromise" layout layout-align="center center">
+	<strong><span ng-bind="$ctrl.scanProgress"></span> / <span ng-bind="$ctrl.hosts.length"></span></strong>
+</div>
+<md-checkbox ng-model="$ctrl.showScanSettings"><span ma-tr="snmp.ui.showScanSettings"></span></md-checkbox>
+
+<md-card ng-if="$ctrl.showScanSettings">
+	<md-card-content>
+		<div layout layout-align="start center" layout-wrap>
+			<md-input-container flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.port"></label>
+				<input ng-model="$ctrl.scanSettings.port" type="number" min="0" max="65535">
+			</md-input-container>
+			<md-input-container flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.retries"></label>
+				<input ng-model="$ctrl.scanSettings.retries" type="number" min="0" max="10">
+			</md-input-container>
+			<md-input-container flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.timeout"></label>
+				<input ng-model="$ctrl.scanSettings.timeout" type="number" min="1" max="60000">
+			</md-input-container>
+			<md-input-container flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.version"></label>
+				<md-select ng-model="$ctrl.scanSettings.version">
+					<md-option value="v1">1</md-option>
+					<md-option value="v2c">2c</md-option>
+					<md-option value="v3">3</md-option>
+				</md-select>
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version !== 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.readCommunity"></label>
+				<input ng-model="$ctrl.scanSettings.readCommunity">
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version !== 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.writeCommunity"></label>
+				<input ng-model="$ctrl.scanSettings.writeCommunity">
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.securityName"></label>
+				<input ng-model="$ctrl.scanSettings.securityName">
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.authProtocol"></label>
+				<md-select ng-model="$ctrl.scanSettings.authProtocol">
+					<md-option ng-value="''"><span ma-tr="common.none"></span></md-option>
+					<md-option value="MD5">MD5</md-option>
+					<md-option value="SHA">SHA</md-option>
+				</md-select>
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.authPassphrase"></label>
+				<input ng-model="$ctrl.scanSettings.authPassphrase">
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.privProtocol"></label>
+				<md-select ng-model="$ctrl.scanSettings.privProtocol">
+					<md-option ng-value="''"><span ma-tr="common.none"></span></md-option>
+					<md-option value="DES">DES</md-option>
+					<md-option value="AES128">AES128</md-option>
+					<md-option value="AES192">AES192</md-option>
+					<md-option value="AES256">AES256</md-option>
+				</md-select>
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.privPassphrase"></label>
+				<input ng-model="$ctrl.scanSettings.privPassphrase">
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.engineId"></label>
+				<input ng-model="$ctrl.scanSettings.engineId">
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.contextEngine"></label>
+				<input ng-model="$ctrl.scanSettings.contextEngineId">
+			</md-input-container>
+			<md-input-container ng-if="$ctrl.scanSettings.version === 'v3'" flex="50" flex-gt-sm="25">
+				<label ma-tr="dsEdit.snmp.contextName"></label>
+				<input ng-model="$ctrl.scanSettings.contextName">
+			</md-input-container>
+		</div>
+	</md-card-content>
+</md-card>
+
+<md-card>
+	<md-card-content>
+		<md-table-container>
+		  <table md-table>
+		    <thead md-head md-order="$ctrl.deviceOrder">
+		      <tr md-row>
+				<th md-column md-order-by="host" ma-tr="snmp.ui.host"></th>
+				<th md-column md-order-by="sysDescr" ma-tr="snmp.ui.oids.sysDescr"></th>
+				<th md-column md-order-by="sysObjectID" ma-tr="snmp.ui.oids.sysObjectID"></th>
+				<th md-column md-order-by="sysUpTime" ma-tr="snmp.ui.oids.sysUpTime"></th>
+				<th md-column md-order-by="sysContact" ma-tr="snmp.ui.oids.sysContact"></th>
+				<th md-column md-order-by="sysName" ma-tr="snmp.ui.oids.sysName"></th>
+				<th md-column md-order-by="sysLocation" ma-tr="snmp.ui.oids.sysLocation"></th>
+				<th md-column md-order-by="sysServices" ma-tr="snmp.ui.oids.sysServices"></th>
+				<th md-column></th>
+		      </tr>
+		    </thead>
+		    <tbody md-body>
+		      <tr class="ma-text-centered" ng-if="!$ctrl.devices.length">
+		      	<td colspan="9"><em ma-tr="snmp.ui.noDevices"></em></td>
+		      </tr>
+		      <tr md-row ng-repeat="device in $ctrl.devices | orderBy:$ctrl.deviceOrder track by device.host">
+		        <td md-cell ng-bind="device.host"></td>
+		        <td md-cell ng-bind="device.sysDescr"></td>
+		        <td md-cell ng-bind="device.sysObjectID"></td>
+		        <td md-cell ng-bind="device.sysUpTime"></td>
+		        <td md-cell ng-bind="device.sysContact"></td>
+		        <td md-cell ng-bind="device.sysName"></td>
+		        <td md-cell ng-bind="device.sysLocation"></td>
+		        <td md-cell ng-bind="device.sysServices"></td>
+		        <td md-cell>
+			        <md-button class="md-icon-button" ng-click="$ctrl.addDataSource($event, device)">
+			        	<md-icon>add_box</md-icon>
+			        	<md-tooltip ma-tr="snmp.ui.newDataSource"></md-tooltip>
+			        </md-button>
+		        </td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</md-table-container>
+	</md-card-content>
+</md-card>

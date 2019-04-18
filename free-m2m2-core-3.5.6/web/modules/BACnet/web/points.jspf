@@ -1,0 +1,74 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<%@page import="com.serotonin.bacnet4j.type.enumerated.ObjectType"%>
+<tag:pointList pointHelpId="bacnetPP">
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="mod.bacnet.remoteDeviceInstanceNumber"/></td>
+    <td class="formField"><input type="text" id="remoteDeviceInstanceNumber"/></td>
+  </tr>
+  
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="mod.bacnet.objectType"/></td>
+    <td class="formField">
+      <select name="objectTypeId" onchange="objectTypeChanged()">
+        <option value="<c:out value="<%= ObjectType.accessDoor.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.accessDoor"/></option>
+        <option value="<c:out value="<%= ObjectType.accumulator.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.accumulator"/></option>
+        <option value="<c:out value="<%= ObjectType.analogInput.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.analogInput"/></option>
+        <option value="<c:out value="<%= ObjectType.analogOutput.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.analogOutput"/></option>
+        <option value="<c:out value="<%= ObjectType.analogValue.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.analogValue"/></option>
+        <option value="<c:out value="<%= ObjectType.averaging.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.averaging"/></option>
+        <option value="<c:out value="<%= ObjectType.binaryInput.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.binaryInput"/></option>
+        <option value="<c:out value="<%= ObjectType.binaryOutput.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.binaryOutput"/></option>
+        <option value="<c:out value="<%= ObjectType.binaryValue.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.binaryValue"/></option>
+        <option value="<c:out value="<%= ObjectType.lifeSafetyPoint.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.lifeSafetyPoint"/></option>
+        <option value="<c:out value="<%= ObjectType.lifeSafetyZone.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.lifeSafetyZone"/></option>
+        <option value="<c:out value="<%= ObjectType.loop.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.loop"/></option>
+        <option value="<c:out value="<%= ObjectType.multiStateInput.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.multiStateInput"/></option>
+        <option value="<c:out value="<%= ObjectType.multiStateOutput.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.multiStateOutput"/></option>
+        <option value="<c:out value="<%= ObjectType.multiStateValue.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.multiStateValue"/></option>
+        <option value="<c:out value="<%= ObjectType.pulseConverter.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.pulseConverter"/></option>
+        <option value="<c:out value="<%= ObjectType.characterstringValue.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.characterstringValue"/></option>
+        <option value="<c:out value="<%= ObjectType.schedule.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.schedule"/></option>
+        <option value="<c:out value="<%= ObjectType.calendar.intValue() %>"/>"><fmt:message key="mod.bacnet.objectType.calendar"/></option>
+      </select>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="mod.bacnet.objectInstanceNumber"/></td>
+    <td class="formField"><input type="text" id="objectInstanceNumber"/></td>
+  </tr>
+  
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="mod.bacnet.useCov"/></td>
+    <td class="formField"><input type="checkbox" id="useCovSubscription"/></td>
+  </tr>
+  
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="dsEdit.settable"/></td>
+    <td class="formField"><input type="checkbox" id="settable" onclick="settableChanged()"/></td>
+  </tr>
+  
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="mod.bacnet.writePriority"/></td>
+    <td class="formField"><input type="text" id="writePriority"/></td>
+  </tr>
+  
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="dsEdit.pointDataType"/></td>
+    <td class="formField">
+      <tag:dataTypeOptions id="dataTypeId" name="dataTypeId" onchange="dataPointDataTypeChanged(this.value);" excludeImage="true"/>
+      <tag:img id="refreshDataTypesButton" src="/images/arrow_refresh.png" onclick="refreshDataTypes($get('objectTypeId'), $get('propertyIdentifierId'));" title="mod.bacnet.refreshDataTypes"></tag:img>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="mod.bacnet.propertyIdentifier"/></td>
+    <td class="formField">
+      <select id="propertyIdentifierId" onchange="propertyIdentifierChanged()" disabled>
+      <%-- Whenever the object type changes, this needs to get locked to presentValue and the refresh deployed. --%>
+      </select>
+      <tag:img id="propertiesRefresh" src="/images/arrow_refresh.png" onclick="reloadAvailablePropertiesList($get('objectTypeId'));" title="mod.bacnet.refreshProperties"></tag:img>
+</tag:pointList>

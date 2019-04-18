@@ -1,0 +1,14 @@
+<h1 ma-tr="header.haystackHistoryImport"></h1>
+
+<div layout>
+	<md-input-container flex>
+		<label ma-tr="haystack.ui.chooseDs"></label>
+		<ma-data-source-list ng-model="dataSource" query="'dataSourceType=HAYSTACK_DS'"></ma-data-source-list>
+	</md-input-container>
+</div>
+
+<md-card>
+	<md-card-content>
+		<ma-haystack-history-import data-source-xid="{{dataSource.xid}}"></ma-haystack-history-import>
+	</md-card-content>
+</md-card>

@@ -1,0 +1,278 @@
+<%--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+--%>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<%@page import="com.infiniteautomation.mango.pakbus.vo.PakBusPointLocatorVO"%>
+<%@page import="com.serotonin.m2m2.DataTypes"%>
+<script type="text/javascript">
+
+/* Data Source Methods */
+var dataloggers = [];
+<c:forEach items="${dataSource.dataloggers}" var="datalogger">
+addDatalogger({
+	address: ${datalogger.address},
+	neighborAddress: ${datalogger.neighborAddress},
+	roundTripTime: ${datalogger.roundTripTime},
+	securityCode: ${datalogger.securityCode},
+	tableRequestRetryDelay: ${datalogger.tableRequestRetryDelay}
+});
+</c:forEach>
+
+function initImpl(){
+	utilityInitImpl();
+}
+
+function addDatalogger(datalogger){
+	dataloggers.push(datalogger);
+	redrawDataloggersTable();
+}
+
+function redrawDataloggersTable(){
+	dwr.util.removeAllRows('dataSourceDataloggersTable');
+	dwr.util.addRows('dataSourceDataloggersTable', dataloggers, 
+			[ function(logger) { return logger.address; },
+			  function(logger) { return logger.neighborAddress; },
+			  function(logger) { return logger.roundTripTime; },
+			  function(logger) { return logger.securityCode; },
+			  function(logger) { return logger.tableRequestRetryDelay; },
+			  function(logger) { 
+				  var jsRemove = 'removeDatalogger(' + logger.address +');';
+				  var jsCopy = 'copySettingsToUtility(' + logger.address +');';
+				  var html = writeImage("removeLoggerImg_" + logger.address, null, "delete", '<fmt:message key="dsEdit.pakbus.removeLogger"/>', jsRemove);
+				  html += writeImage("copyLoggerImg_" + logger.address, null, "control_play_blue", '<fmt:message key="dsEdit.pakbus.utility.copySettings"/>', jsCopy);
+				  return html;
+			  }
+			 ],
+			{ rowCreator: function(options){
+                var tr = document.createElement("tr");
+                tr.id = "tableNumber_"+ options.rowData.number;
+                tr.className = "row"+ (options.rowIndex % 2 == 0 ? "" : "Alt");
+                return tr;			
+			}
+	});
+}
+
+function removeDatalogger(address){
+	for(var i=0; i<dataloggers.length; i++){
+		if(dataloggers[i].address === address){
+			dataloggers.splice(i, 1);
+			break;
+		}
+	}
+	redrawDataloggersTable();
+}
+
+function copySettingsToUtility(address){
+	for(var i=0; i<dataloggers.length; i++){
+		if(dataloggers[i].address === address){
+			setUtilityDatalogger(dataloggers[i]);
+			break;
+		}
+	}
+}
+ 
+ 
+/* Data Point Methods */
+ 
+function changeDataType(){
+	if($get("dataTypeId") == <c:out value="<%= DataTypes.ALPHANUMERIC %>"/>){
+		show('stringLengthRow');
+		hide('arrayIndexRow');
+	}else{
+		hide('stringLengthRow');
+		show('arrayIndexRow');
+	}
+}
+
+function appendPointListColumnFunctions(pointListColumnHeaders, pointListColumnFunctions) {
+    pointListColumnHeaders.push('<fmt:message key="pointEdit.pakbus.collectorType"/>');
+    pointListColumnFunctions.push(function(p) {
+    	var html = '';
+    	switch(p.pointLocator.collectorType){
+	    	case <c:out value="<%= PakBusPointLocatorVO.REALTIME %>"/>:
+	    		html = '<fmt:message key="pointEdit.pakbus.collectorType.realtime"/>';
+	    	break;
+	    	case <c:out value="<%= PakBusPointLocatorVO.HISTORICAL %>"/>:
+	    		html = '<fmt:message key="pointEdit.pakbus.collectorType.historical"/>';
+	    	break;
+    	}
+        return html;
+    });
+}
+
+function editPointCBImpl(locator) {
+	$set("dataTypeId", locator.dataTypeId);
+	$set("loggerAddress", locator.loggerAddress);
+	$set("tableName", locator.tableName);
+	$set("columnName", locator.columnName);
+	$set("arrayIndex", locator.arrayIndex);
+	$set("collectorType", locator.collectorType);
+	$set("historicalRecordStart", locator.historicalRecordStart);
+	$set("stringLength", locator.stringLength);
+	changeDataType();
+	changeCollectorType();
+}
+
+function savePointImpl(locator) {
+	locator.dataTypeId = $get("dataTypeId");
+	locator.loggerAddress = $get("loggerAddress");
+	locator.tableName = $get("tableName");
+	locator.columnName = $get("columnName");
+	locator.arrayIndex = $get("arrayIndex");
+	locator.collectorType = $get("collectorType");
+	locator.historicalRecordStart = $get("historicalRecordStart");
+	locator.stringLength = $get("stringLength");
+	PakBusEditDwr.savePakBusPointLocator(currentPoint.id, $get("xid"), $get("name"), locator, savePointCB);
+}
+
+function changeCollectorType(){
+	//Get collector type
+	if($get('collectorType') === "<c:out value="<%= PakBusPointLocatorVO.HISTORICAL %>"/>"){
+		show('historicalRecordStartRow');
+		show('currentHistoricalRecordStartRow');
+	}else{
+		hide('historicalRecordStartRow');
+		hide('currentHistoricalRecordStartRow');
+	}
+}
+
+function resetStartingHistoricalRecord(){
+	//Make DWR Call to set it in RT
+	hideContextualMessages("pointDetails");
+	PakBusEditDwr.resetStartingHistoricalRecord(currentPoint.id, $get("historicalRecordStart"), function(response){
+		if(response.hasMessages)
+			showDwrMessages(response.messages);
+	});
+}
+
+function getStartingHistoricalRecord(){
+	hide("currentHistoricalRecordStart");
+	hideContextualMessages("pointDetails");
+	//Make DWR call to get it from RT
+	PakBusEditDwr.getStartingHistoricalRecord(currentPoint.id, function(response){
+		if(response.hasMessages)
+			showDwrMessages(response.messages);
+		else{
+			$set("currentHistoricalRecordStart", response.data.historicalRecordStart);
+			show("currentHistoricalRecordStart");
+		}
+	})
+}
+</script>
+
+<c:choose>
+  <c:when test="${dataSource.definition.dataSourceTypeName == 'PAKBUS_SERIAL'}">
+    <c:set var="dsKey" value="pakbus.serial.description"/>
+    <c:set var="dsHelpId" value="pakbus-serial"/>
+  </c:when>
+  <c:when test="${dataSource.definition.dataSourceTypeName == 'PAKBUS_IP'}">
+    <c:set var="dsKey" value="pakbus.ip.description"/>
+    <c:set var="dsHelpId" value="pakbus-ip"/>
+  </c:when>
+</c:choose>
+
+<tag:dataSourceAttrs descriptionKey="${dsKey}" helpId="${dsHelpId}">
+  <jsp:attribute name="extraPanels">
+	<%@ include file="testUtility.jspf" %>
+  </jsp:attribute>
+  
+  <jsp:body>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="dsEdit.updatePeriod"/></td>
+      <td class="formField">
+        <input type="text" id="updatePeriods" value="${dataSource.updatePeriods}" class="formShort"/>
+        <tag:timePeriods id="updatePeriodType" value="${dataSource.updatePeriodType}" ms="true" s="true" min="true" h="true"/>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="dsEdit.quantize"/></td>
+      <td class="formField"><sst:checkbox id="quantize" selectedValue="${dataSource.quantize}"/></td>
+    </tr>
+    
+    <tr>
+  	  <td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.nodeAddress"/></td>
+  	  <td class="formField"><input id="nodeAddress" type="number" value="${dataSource.nodeAddress}"/></td>
+	</tr>
+	<tr>
+      <td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.networkPollPeriod"/></td>
+      <td class="formField">
+        <input type="text" id="networkPollPeriods" value="${dataSource.networkPollPeriods}" class="formShort"/>
+        <tag:timePeriods id="networkPollPeriodType" value="${dataSource.networkPollPeriodType}" ms="true" s="true" min="true" h="false"/>
+      </td>
+    </tr>
+	
+    <c:choose>
+      <c:when test="${dataSource.definition.dataSourceTypeName == 'PAKBUS_SERIAL'}">
+        <%@ include file="editPakBusSerial.jspf" %>
+      </c:when>
+      <c:when test="${dataSource.definition.dataSourceTypeName == 'PAKBUS_IP'}">
+        <%@ include file="editPakBusIp.jspf" %>
+      </c:when>
+    </c:choose>
+   
+    <tr>
+     <td colspan="2">
+     	<table id="dataloggersTable">
+     	<tr><td colspan="6" class="smallTitle"><fmt:message key="dsEdit.pakbus.dataloggers"/></td></tr>
+     		<tr class="smRowHeader">
+     		  <td><fmt:message key="dsEdit.pakbus.loggerAddress"/></td>
+     		  <td><fmt:message key="dsEdit.pakbus.neighborAddress"/></td>
+     		  <td><fmt:message key="dsEdit.pakbus.roundTripTime"/></td>
+     		  <td><fmt:message key="dsEdit.pakbus.securityCode"/></td>
+     		  <td><fmt:message key="dsEdit.pakbus.tableRequestRetryDelay"/></td>
+     		  <td></td>
+     		</tr>
+     		<tbody id="dataSourceDataloggersTable"></tbody>
+     	</table>
+     </td>
+    </tr>
+  </jsp:body>
+</tag:dataSourceAttrs>
+
+<tag:pointList pointHelpId="pakbus-pp">
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="dsEdit.pointDataType"/></td>
+    <td class="formField"><tag:dataTypeOptions id="dataTypeId" excludeImage="true" onchange="changeDataType();"/></td>
+  </tr>
+
+  <tr>
+   <td class="formLabelRequired"><fmt:message key="pointEdit.pakbus.loggerAddress"/></td>
+   <td class="formField"><input type="number" id="loggerAddress"/></td>
+  </tr>
+  <tr>
+   <td class="formLabelRequired"><fmt:message key="pointEdit.pakbus.tableName"/></td>
+   <td class="formField"><input type="text" id="tableName"/></td>
+  </tr>
+  <tr>
+   <td class="formLabelRequired"><fmt:message key="pointEdit.pakbus.columnName"/></td>
+   <td class="formField"><input type="text" id="columnName"/></td>
+  </tr>
+  <tr id="arrayIndexRow">
+   <td class="formLabelRequired"><fmt:message key="pointEdit.pakbus.arrayIndex"/></td>
+   <td class="formField"><input type="number" id="arrayIndex"/></td>
+  </tr>
+  <tr id="stringLengthRow" style="display:none">
+   <td class="formLabelRequired"><fmt:message key="pointEdit.pakbus.stringLength"/></td>
+   <td class="formField"><input type="number" id="stringLength"/></td>
+  </tr>
+  <tr>
+   <td class="formLabelRequired"><fmt:message key="pointEdit.pakbus.collectorType"/></td>
+   <td class="formField">
+     <select id="collectorType" onchange="changeCollectorType()">
+       <option value="<c:out value="<%= PakBusPointLocatorVO.REALTIME %>"/>"><fmt:message key="pointEdit.pakbus.collectorType.realtime"/></option>
+       <option value="<c:out value="<%= PakBusPointLocatorVO.HISTORICAL %>"/>"><fmt:message key="pointEdit.pakbus.collectorType.historical"/></option>
+	 </select>   	
+   </td>
+  </tr>
+  <tr id="historicalRecordStartRow" style="display:none">
+   <td class="formLabelRequired"><fmt:message key="pointEdit.pakbus.historicalRecordStart"/></td>
+   <td class="formField"><input type="number" id="historicalRecordStart" style="margin-right: 5px"/><button onClick="resetStartingHistoricalRecord()"><fmt:message key="pointEdit.pakbus.resetHistoricalRecordStart"/></button></td>
+  </tr>  
+  <tr id="currentHistoricalRecordStartRow" style="display:none">
+   <td class="formLabel"><fmt:message key="pointEdit.pakbus.currentHistoricalRecordStart"/></td>
+   <td class="formField"><span id="currentHistoricalRecordStart" style="margin-right: 5px; font-weight: bold"></span><button onClick="getStartingHistoricalRecord()"><fmt:message key="pointEdit.pakbus.getCurrentHistoricalRecordStart"/></button></td>
+  </tr>  
+
+</tag:pointList>

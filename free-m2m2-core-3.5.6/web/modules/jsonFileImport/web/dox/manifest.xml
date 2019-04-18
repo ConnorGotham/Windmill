@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2013 Infinite Automation Systems. All rights reserved.
+    @author Phillip Dunlap
+-->
+
+<doxManifest>
+  <item id="jsonFileImporter" key="dox.jsonfile.help" filename="jsonFileImporter.htm">
+    <relation id="emport"/>
+  </item>
+</doxManifest>

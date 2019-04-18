@@ -1,0 +1,47 @@
+*Version 3.5.4*
+* Fix initialization issue created in 3.5.3
+
+*Version 3.5.3*
+* Convert network poller class to use ordered thread pool
+* Locking in methods that create connections
+* Updated PakBus library to 1.3.14
+
+*Version 3.5.2*
+* Fix deadlock introduced in 3.5.1
+
+*Version 3.5.1*
+* Wrap resetNetwork in a lock
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+
+*Version 3.4.1*
+* Remove use of org.h2.util.StringUtils and replaced with Apache Commons version
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.8.x
+
+*Version 1.1.2
+* Upgraded for Mango 2.7.x
+
+*Version 1.1.1
+* Stability enhancements to polling process
+* Fixed bug where editing/adding and saving a Datalogger on the data source didn't work
+
+*Version 1.0.0
+* Initial Release

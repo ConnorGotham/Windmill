@@ -1,0 +1,652 @@
+<%--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+--%>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<%@page import="com.serotonin.m2m2.DataTypes"%>
+<script type="text/javascript">
+
+//Setup the time inputs
+var dataloggerTime,dataloggerDate;
+require(['dijit/form/TimeTextBox', 'dijit/form/DateTextBox'], function(TimeTextBox, DateTextBox){
+	dataloggerTime = new TimeTextBox({
+		value: null,
+		style: "width: 10em; color: gray",
+	}, "dataloggerTime");
+	dataloggerDate = new DateTextBox({
+    	value: null,
+    	style: "width: 10em; color: gray",
+	}, "dataloggerDate");
+});
+
+/**
+ * Create a date from the date and time inputs 
+ */
+function createDateTime(date,time){
+    
+    if(date==null && time==null)
+        return -1;
+    if(date == null)
+        date = new Date(); //Default to today
+    if(time == null)
+        time = new Date(date.getFullYear(), date.getMonth(), date.getDate(),
+                0,0,0,0); //Default to Midnight
+    return new Date(
+            date.getFullYear(), date.getMonth(), date.getDate(),
+            time.getHours(), time.getMinutes(), time.getSeconds(),
+            time.getMilliseconds()
+            );
+}
+
+var pakBusUtilityTask;
+var pakBusUtilityActive = false;
+var pakBusUtilityTablesLoaded = false;
+var pakBusUtilityLoggerTables = null;
+
+/**
+ * Clean up the tasks on exit.
+ */
+function unInitImpl(){
+  if(pakBusUtilityActive){
+	  DataSourceEditDwr.cancelTestingUtility(); 
+        clearTimeout(pakBusUtilityTask);
+    }
+}
+
+function utilityInitImpl() {
+	utilityButtons(false);
+}
+
+function connectToLogger(){
+	clearUtilityMessages();
+	addUtilityMessages([{
+		genericMessage:"<fmt:message key='dsEdit.pakbus.utility.connecting'/>",
+		level: 'info'
+	}]);
+	utilityButtons(true);
+	connectImpl(
+			$get('utilityLoggerAddress'),
+			$get('utilityLoggerNeighborAddress'),
+			$get('utilityLoggerRoundTripTime'),
+			$get('utilityLoggerSecurityCode'),
+			$get('utilityLoggerTableRequestRetryDelay'));
+}
+
+function connectCB(response){
+	if(response.hasMessages){
+		addUtilityMessages(response.messages);
+		utilityButtons(false);
+	}else
+		pakBusUtilityTask = setTimeout(utilityUpdate, 1000);
+	
+}
+
+function utilityUpdate(){
+	PakBusEditDwr.pakBusUtilityUpdate(function(response){
+		if(response.data.running === false)
+			return;
+		if((response.data.hasTables === true)&&(!pakBusUtilityTablesLoaded)){
+			pakBusUtilityTablesLoaded = true;
+			//Show ready message
+			addUtilityMessages([{
+				genericMessage:"<fmt:message key='dsEdit.pakbus.utility.ready'/>",
+				level: 'info'
+			}]);
+			//Should we load the table info?
+			loadLoggerTables(response.data.tables);
+		}
+		if(response.data.historicalDataReady === true){
+			loadTableData(response.data.historicalData)
+		}
+		if(response.data.loggerTimeReady === true){
+			showLoggerTime(response.data.loggerTime);
+		}
+		if(response.data.requestingTime === false){
+			setDisabled('utilitySetLoggerTimeBtn', false);
+			setDisabled('utilityGetLoggerTimeBtn', false);
+		}else{
+			setDisabled('utilitySetLoggerTimeBtn', true);
+			setDisabled('utilityGetLoggerTimeBtn', true);
+		}
+		if(response.data.loggerFilesReady === true){
+			showLoggerFiles(response.data.loggerFiles);
+		}
+		if(response.data.fileDownloaded === true){
+			window.location = '/pakbus-files/' + response.data.downloadingFilename;
+		}
+		if(response.data.uploadingFile === true){
+			$set('fileUploadProgress', response.data.uploadedFileProgress.toFixed(0) + '%');	
+		}
+		if(response.data.programStatsReady === true){
+			var statMsg = {
+				genericMessage: response.data.programStats.programName + ': ' + response.data.programStats.result,
+				level: 'info'	
+			};
+			addUtilityMessages([statMsg]);
+		}
+		if(response.hasMessages)
+			addUtilityMessages(response.messages);
+		
+		pakBusUtilityTask = setTimeout(utilityUpdate, 1000);
+	});
+}
+
+function utilityButtons(active){
+	pakBusUtilityActive = active;
+	setDisabled("connectBtn", active);
+	setDisabled("utilityCancelBtn", !active);
+	setDisabled('utilitySetLoggerTimeBtn', !active);
+	setDisabled('utilityGetLoggerTimeBtn', !active);
+	//setDisabled('utilityLoggerTime', !active);
+	setDisabled('requestFilesBtn', !active);
+	setDisabled('uploadFileInput', !active);
+	setDisabled('uploadFileBtn', !active);
+	
+	if(!active){
+		//Hide the logger tables
+		hide('pakBusLoggerTables');
+		hide('pakBusLoggerTable');
+		hide('pakBusLoggerTableValues');
+		hide('pakBusLoggerFiles')
+		//Clear out states
+		pakBusUtilityTablesLoaded = false;
+	}
+}
+
+function cancelTestUtility(){
+	DataSourceEditDwr.cancelTestingUtility(utilityButtons(false));
+	if(pakBusUtilityTask != null)
+		clearTimeout(pakBusUtilityTask);
+	addUtilityMessages([{
+		genericMessage:"<fmt:message key='dsEdit.pakbus.utility.cancelled'/>",
+		level: 'warning'
+	}]);
+}
+
+//Logger Table Operations
+
+function loadLoggerTables(tables){
+	pakBusUtilityLoggerTables = tables;
+	dwr.util.removeAllRows('pakBusLoggerTablesBody');
+	dwr.util.addRows('pakBusLoggerTablesBody', tables, 
+			[ function(table) { return table.number; },
+			  function(table) { return table.name; },
+			  function(table) { 
+				  var js = 'showPakBusTable(' + table.number +');';
+				  var html = writeImage("tableDetailsImg_" + table.number, null, "control_play_blue", '<fmt:message key="dsEdit.pakbus.utility.showTableInfo"/>', js);
+				  return html;
+			  }
+			 ],
+			{ rowCreator: function(options){
+                var tr = document.createElement("tr");
+                tr.id = "tableNumber_"+ options.rowData.number;
+                tr.className = "row"+ (options.rowIndex % 2 == 0 ? "" : "Alt");
+                return tr;			
+			}
+	});
+	
+	//Finally Show the logger tables table
+	show('pakBusLoggerTables');
+}
+
+function showPakBusTable(number){
+	//Find the table
+	var pakBusLoggerTable = null;
+	for(var i=0; i<pakBusUtilityLoggerTables.length; i++){
+		if(pakBusUtilityLoggerTables[i].number === number){
+			pakBusLoggerTable = pakBusUtilityLoggerTables[i];
+			break;
+		}	
+	}
+	
+	hide('pakBusLoggerTable');
+	hide('pakBusLoggerTableValues');
+	$set('pakBusLoggerTableName', pakBusLoggerTable.name)
+	dwr.util.removeAllRows('pakBusLoggerTableBody');
+	dwr.util.addRows('pakBusLoggerTableBody', pakBusLoggerTable.columns, 
+			[ function(column) { return column.number; },
+			  function(column) { return column.name; },
+			  function(column) { 
+				  if(column.arrayLength > 1)
+				  	return column.arrayLength; 
+				  else
+					  return "n/a";
+			  },
+			  function(column) { 
+				  switch(column.dataType){
+				  case <c:out value="<%= DataTypes.BINARY %>"/>:
+					  return '<fmt:message key="common.dataTypes.binary"/>';
+				  case <c:out value="<%= DataTypes.MULTISTATE %>"/>:
+					  return '<fmt:message key="common.dataTypes.multistate"/>';
+				  case <c:out value="<%= DataTypes.NUMERIC %>"/>:
+					  return '<fmt:message key="common.dataTypes.numeric"/>';
+				  case <c:out value="<%= DataTypes.ALPHANUMERIC %>"/>:
+					  return '<fmt:message key="common.dataTypes.alphanumeric"/>';
+				  }
+			  },
+			  function(column) { 
+				  var js = 'addPakBusPoint(' + pakBusLoggerTable.number +',' + column.number + ');';
+				  var html = writeImage("addPointImg_" + column.number, null, "control_play_blue", '<fmt:message key="dsEdit.pakbus.utility.addPakBusPoint"/>', js);
+				  return html;
+			  }
+			 ],
+			{ rowCreator: function(options){
+	                var tr = document.createElement("tr");
+	                tr.id = "tableNumber_"+ options.rowData.number;
+	                tr.className = "row"+ (options.rowIndex % 2 == 0 ? "" : "Alt");
+	                return tr;			
+				}
+			});
+	show('pakBusLoggerTable')
+	
+}
+
+function requestTableValues(){
+	var currentTableName = $get('pakBusLoggerTableName');
+	startImageFader('getTableValuesImg', true);
+	//Make a request to get the latest values
+	PakBusEditDwr.requestMostRecentData(currentTableName, 1, function(response){
+		if(response.hasMessages){
+			stopImageFader('getTableValuesImg');
+			addUtilityMessages(response.messages);
+		}
+	});
+}
+
+function loadTableData(tableData){
+	stopImageFader('getTableValuesImg');
+	hide('pakBusLoggerTableValues');
+	if((tableData.rows.length === 0)||(tableData.rows[0].columns.length === 0)){
+		addUtilityMessages([{
+			genericMessage:"<fmt:message key='table.noData'/>",
+			level: 'warning'
+		}]);
+		return; //No Data
+	}
+	
+	
+	$set('pakBusLoggerTableValuesName', tableData.rows[0].columns[0].tableName);
+	
+	//Massage the values into rows (one per array index)
+	var columns = [];
+	for(var i=0; i<tableData.rows[0].columns.length; i++){
+		var column = tableData.rows[0].columns[i];
+		for(var j=0; j<column.objectValues.length; j++){
+			columns.push({
+				number: column.columnNumber,
+				name: column.columnName,
+				dataType: column.columnDataType,
+				index: j,
+				value: column.objectValues[j],
+				date: column.date,
+				recordNumber: column.recordNumber
+			});
+		}
+	}
+	
+	dwr.util.removeAllRows('pakBusLoggerTableValuesBody');
+	dwr.util.addRows('pakBusLoggerTableValuesBody', columns, 
+			[ function(column) { return column.number; },
+			  function(column) { return column.name; },
+			  function(column) { return column.index; },
+			  function(column) { 
+				  switch(column.dataType){
+				  case <c:out value="<%= DataTypes.BINARY %>"/>:
+					  return '<fmt:message key="common.dataTypes.binary"/>';
+				  case <c:out value="<%= DataTypes.MULTISTATE %>"/>:
+					  return '<fmt:message key="common.dataTypes.multistate"/>';
+				  case <c:out value="<%= DataTypes.NUMERIC %>"/>:
+					  return '<fmt:message key="common.dataTypes.numeric"/>';
+				  case <c:out value="<%= DataTypes.ALPHANUMERIC %>"/>:
+					  return '<fmt:message key="common.dataTypes.alphanumeric"/>';
+				  }
+			  },
+			  function(column) { return column.value; },
+			  function(column) { return column.date.toLocaleTimeString(); },
+			  function(column) { return column.recordNumber; },
+			 ],
+			{ rowCreator: function(options){
+	                var tr = document.createElement("tr");
+	                tr.id = "tableValueNumber_"+ options.rowData.columnNumber;
+	                tr.className = "row"+ (options.rowIndex % 2 == 0 ? "" : "Alt");
+	                return tr;			
+				}
+			});
+	show('pakBusLoggerTableValues')
+
+}
+
+//Logger Time Operations 
+
+function setLoggerToServerTime(){
+	requestLoggerTime(true, null);
+}
+function setLoggerTime(){
+	var time = dataloggerTime.get('value');
+	var date = dataloggerDate.get('value');
+	requestLoggerTime(false, createDateTime(date, time));
+}
+
+function requestLoggerTime(useServerTime, loggerTime){
+	if(typeof useServerTime == 'undefined')
+		useServerTime = false;
+
+	if(typeof loggerTime == 'undefined')
+		loggerTime = null;
+
+	setDisabled('utilitySetLoggerTimeBtn', true);
+	setDisabled('utilityGetLoggerTimeBtn', true);
+	
+	PakBusEditDwr.checkClock(loggerTime, useServerTime, function(response){
+		if(response.hasMessages){
+			setDisabled('utilitySetLoggerTimeBtn', false);
+			setDisabled('utilityGetLoggerTimeBtn', false);
+			addUtilityMessages(response.messages);
+		}
+	});
+}
+function showLoggerTime(loggerTime){
+
+	dataloggerTime.set('value', loggerTime);
+	dataloggerDate.set('value', loggerTime);
+	setDisabled('utilitySetLoggerTimeBtn', false);
+	setDisabled('utilityGetLoggerTimeBtn', false);
+}
+
+//Logger Files Operations
+var currentLoggerFiles;
+
+function requestLoggerFiles(){
+	PakBusEditDwr.listFiles(function(response){
+		if(response.hasMessages){
+			addUtilityMessages(response.messages);
+		}
+	});
+}
+
+function showLoggerFiles(loggerFiles){
+	
+	//Setup file numbers
+	currentLoggerFiles = [];
+	for(var i=0; i<loggerFiles.length; i++){
+		var file = loggerFiles[i];
+		file.number = i;
+		currentLoggerFiles.push(file);
+	}
+	
+	dwr.util.removeAllRows('pakBusLoggerFilesBody');
+	dwr.util.addRows('pakBusLoggerFilesBody', loggerFiles, 
+			[ function(file) { return file.name; },
+			  function(file) { return file.lastUpdated; },
+			  function(file) { return file.size; },
+			  function(file) { 
+				  if(file.running === true){
+					  var title = '<fmt:message key="dsEdit.pakbus.utility.currentlyRunningProgram"/>';
+					  return '<img id="programFileImg_' + file.number + '" src="/images/cog.png" ' + ' alt="' + title + '" title="' + title + '" />';
+				  }else{
+				 	  var js = 'setRunningProgram(' + file.number + ');';
+				  	  return writeImage("programFileImg_" + file.number, null, 'cog_add', '<fmt:message key="dsEdit.pakbus.utility.setAsRunningProgram"/>', js);
+				  }
+			  },
+			  function(file) { 
+				  var js = 'downloadLoggerFile(' + file.number + ');';
+				  var html = writeImage("downloadFileImg_" + file.number, null, "bullet_down", '<fmt:message key="dsEdit.pakbus.utility.downloadFile"/>', js);
+				  return html;
+			  }
+			 ],
+			{ 
+				rowCreator: function(options){
+	                var tr = document.createElement("tr");
+	                tr.id = "tableValueNumber_"+ options.rowData.number;
+	                tr.className = "row"+ (options.rowIndex % 2 == 0 ? "" : "Alt");
+	                return tr;			
+				},
+				cellCreator:function(options) {
+	                var td = document.createElement("td");
+	                if (options.cellNum == 3){
+	                    td.align = "center";
+	                }
+					return td;
+				}
+			});
+	show('pakBusLoggerFiles');
+}
+
+function downloadLoggerFile(index){
+	PakBusEditDwr.downloadFile(currentLoggerFiles[index].name, function(response){
+		if(response.hasMessages){
+			addUtilityMessages(response.messages);
+		}
+	});
+}
+
+function setRunningProgram(index){
+	PakBusEditDwr.loadProgram(currentLoggerFiles[index].name, function(response){
+		if(response.hasMessages){
+			addUtilityMessages(response.messages);
+		}
+	});
+}
+
+function uploadLoggerFile(){
+	hide('fileUploadProgressDiv');
+	if (!$get("uploadFileInput"))
+        alert('<m2m2:translate key="dsEdit.pakbus.utility.noFileSelected" escapeDQuotes="true"/>');
+    else{
+    	$set('fileUploadProgress', '0%');
+    	show('fileUploadProgressDiv');
+		document.getElementById("daform").submit();
+    }
+}
+//Point Locator Operations
+
+function addPakBusPoint(tableNumber, columnNumber){
+	//First check to see if the data source has been saved
+	if(dataSources.currentId === -1){
+		alert('Please save data source first');
+		return;
+	}
+		
+	var pakBusLoggerTable = null;
+	var pakBusLoggerColumn = null;
+	
+	for(var i=0; i<pakBusUtilityLoggerTables.length; i++){
+		if(pakBusUtilityLoggerTables[i].number === tableNumber){
+			pakBusLoggerTable = pakBusUtilityLoggerTables[i];
+			for (var j =0; j<pakBusLoggerTable.columns.length; j++){
+				if(pakBusLoggerTable.columns[j].number === columnNumber){
+					pakBusLoggerColumn = pakBusLoggerTable.columns[j];
+					break;
+				}
+			}
+			break;
+		}	
+	}
+	
+	PakBusEditDwr.getNewPoint(function(point) {
+		  editPointCB(point);
+		  $set("deviceName", $get("dataSource.name"));
+		  $set("name", pakBusLoggerTable.name + "." + pakBusLoggerColumn.name);
+	      $set("dataTypeId", pakBusLoggerColumn.dataType);
+	      $set("loggerAddress", $get("utilityLoggerAddress"));
+	      $set("tableName", pakBusLoggerTable.name);
+	      $set("columnName", pakBusLoggerColumn.name);
+	      changeDataType();
+	  });
+}
+
+//Utility Datalogger Operations
+function addUtilityDatalogger(){
+	var datalogger = {
+		address: $get("utilityLoggerAddress"),
+		neighborAddress: $get("utilityLoggerNeighborAddress"),
+		roundTripTime: $get("utilityLoggerRoundTripTime"),
+		securityCode: $get("utilityLoggerSecurityCode"),
+		tableRequestRetryDelay: $get("utilityLoggerTableRequestRetryDelay")	
+	};
+	addDatalogger(datalogger);
+}
+
+/**
+ * Set the values up for the logger
+ */
+function setUtilityDatalogger(datalogger){
+	cancelTestUtility();
+	$set("utilityLoggerAddress", datalogger.address),
+	$set("utilityLoggerNeighborAddress", datalogger.neighborAddress);
+	$set("utilityLoggerRoundTripTime", datalogger.roundTripTime);
+	$set("utilityLoggerSecurityCode", datalogger.securityCode );
+	$set("utilityLoggerTableRequestRetryDelay", datalogger.tableRequestRetryDelay);
+}
+
+function addUtilityMessages(genericMessages){
+	var genericMessageNode = getNodeIfString('utilityMessages');
+	dwr.util.addRows(genericMessageNode, genericMessages,
+            [ function(data) { return data.genericMessage; } ],
+            {
+                cellCreator:function(options) {
+                    var td = document.createElement("td");
+                    if (options.rowData.level == 'error')
+                        td.className = "formError";
+                    else if (options.rowData.level == 'warning')
+                        td.className = "formWarning";
+                    else if (options.rowData.level == 'info')
+                        td.className = "formInfo";
+                    return td;
+                }
+            });
+     show(genericMessageNode);
+}
+function clearUtilityMessages(){
+	var genericMessageNode = getNodeIfString('utilityMessages');
+	dwr.util.removeAllRows(genericMessageNode);
+}
+
+</script>
+
+    <td valign="top">
+      <div class="borderDiv marB marR" style="float:left;">
+        <table>
+          <tr><td colspan="2" class="smallTitle"><fmt:message key="dsEdit.pakbus.utility.description"/><tag:help id="pakbus-tool"/></td></tr>
+          <tr>
+  	  		<td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.loggerAddress"/></td>
+  	  		<td class="formField"><input id="utilityLoggerAddress" type="number" value="10"/></td>
+	      </tr>
+	      <tr>
+     		<td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.neighborAddress"/></td>
+     		<td class="formField"><input id="utilityLoggerNeighborAddress" type="number" value="0"/></td>
+	      </tr>
+	      <tr>
+     		<td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.roundTripTime"/></td>
+     		<td class="formField"><input id="utilityLoggerRoundTripTime" type="number" value="5000"/></td>
+	      </tr>
+	      <tr>
+     		<td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.securityCode"/></td>
+     		<td class="formField"><input id="utilityLoggerSecurityCode" type="number" value="0"/></td>
+	      </tr>
+	      <tr>
+     		<td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.tableRequestRetryDelay"/></td>
+     		<td class="formField"><input id="utilityLoggerTableRequestRetryDelay" type="number" value="5000"/></td>
+     	  </tr>
+     	  <tr id="utilityLoggerTimeRow">
+     		<td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.utility.loggerTime"/></td>
+     		<td class="formField">
+     		  <input id="dataloggerDate"/><input id="dataloggerTime" style="float: left"/><br>
+     		  <input id="utilityGetLoggerTimeBtn" type="button" value="<fmt:message key="dsEdit.pakbus.utility.getLoggerTime"/>" onclick="requestLoggerTime();"/>
+     		  <input id="utilitySetLoggerTimeBtn" type="button" value="<fmt:message key="dsEdit.pakbus.utility.setLoggerTime"/>" onclick="setLoggerTime();"/>
+     		  <input id="utilitySetLoggerTimeBtn" type="button" value="<fmt:message key="dsEdit.pakbus.utility.setLoggerTimeToMangoTime"/>" onclick="setLoggerToServerTime();"/>     		  
+     		</td>
+     	  </tr>
+     	  <tr>
+     		<td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.utility.uploadFile"/></td>
+     		<td class="formField">
+     		  <iframe id="target_upload" name="target_upload" src="" style="display: none;"></iframe>
+              <form id="daform" action="/pakbus-files" method="post" enctype="multipart/form-data" target="target_upload">
+     	  	    <input id="uploadFileInput" type="file" name="programFile"/>
+     	  	    <input id="uploadFileBtn" type="button" value="<fmt:message key="dsEdit.pakbus.utility.uploadFile"/>" onclick="uploadLoggerFile();"/>
+     	  	    <div id="fileUploadProgressDiv" style="display:none">Progress:&nbsp<span id="fileUploadProgress"></span></div>
+     	  	  </form>
+     	  	</td>
+     	  </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input id="connectBtn" type="button" value="<fmt:message key="dsEdit.pakbus.utility.connect"/>" onclick="connectToLogger();"/>
+              <input id="utilityCancelBtn" type="button" value="<fmt:message key="common.cancel"/>" onclick="cancelTestUtility();"/>
+              <input id="addLoggerBtn" type="button" value="<fmt:message key="dsEdit.pakbus.utility.addDatalogger"/>" onclick="addUtilityDatalogger();"/>
+     	  	  <input id="requestFilesBtn" type="button" value="<fmt:message key="dsEdit.pakbus.utility.getFiles"/>" onclick="requestLoggerFiles();"/>
+            </td>
+          </tr>
+          <tr><td colspan="2"><table><tbody id="utilityMessages"></tbody></table></td></tr>
+        </table>
+      </div>
+     </td>
+     <td id="pakBusLoggerTables" valign="top" style="display:none">
+      <div class="borderDiv marB marR" style="float:left;">
+        <table>
+            <tr>
+            	<td colspan="3" class="smallTitle"><fmt:message key="dsEdit.pakbus.utility.loggerTables"/></td></tr>
+      		<tr>
+        	<tr class="smRowHeader">
+        		<td><fmt:message key="dsEdit.pakbus.utility.number"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.name"/></td>
+        		<td></td>
+        	</tr>
+			<tbody id="pakBusLoggerTablesBody"></tbody>
+        </table>
+      </div>
+     </td>
+     <td id="pakBusLoggerTable" valign="top" style="display:none">
+      <div class="borderDiv marB marR" style="float:left;">
+        <table>
+            <tr>
+            	<td colspan="3" class="smallTitle"><span id="pakBusLoggerTableName"></span>&nbsp<tag:img title="dsEdit.pakbus.utility.getLatestValues" png="control_play_blue" onclick="requestTableValues()" id="getTableValuesImg"/></td></tr>
+      		<tr>
+        	<tr class="smRowHeader">
+        		<td><fmt:message key="dsEdit.pakbus.utility.number"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.name"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.arrayLength"/></td>
+        		<td><fmt:message key="dsEdit.pointDataType"/></td>
+        		<td></td>
+        	</tr>
+			<tbody id="pakBusLoggerTableBody"></tbody>
+        </table>
+      </div>
+     </td>
+     <td id="pakBusLoggerTableValues" valign="top" style="display:none">
+      <div class="borderDiv marB marR" style="float:left;">
+        <table>
+        	<!-- format this table to line up with the logger table (it has images) -->
+            <tr style="height: 19px">
+            	<td colspan="3" class="smallTitle"><span id="pakBusLoggerTableValuesName"></span>&nbsp<fmt:message key="dsEdit.pakbus.utility.currentValues"/></td></tr>
+      		<tr>
+        	<tr class="smRowHeader" style="height: 19px">
+        		<td><fmt:message key="dsEdit.pakbus.utility.number"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.name"/></td>
+        		<td><fmt:message key="pointEdit.pakbus.arrayIndex"/></td>
+        		<td><fmt:message key="dsEdit.pointDataType"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.value"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.timestamp"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.recordNumber"/></td>
+        	</tr>
+			<tbody id="pakBusLoggerTableValuesBody"></tbody>
+        </table>
+      </div>
+     </td>
+     <td id="pakBusLoggerFiles" valign="top" style="display:none">
+      <div class="borderDiv marB marR" style="float:left;">
+        <table>
+            <tr>
+            	<td colspan="3" class="smallTitle"><fmt:message key="dsEdit.pakbus.utility.loggerFiles"/></td></tr>
+      		<tr>
+        	<tr class="smRowHeader">
+        		<td><fmt:message key="dsEdit.pakbus.utility.name"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.lastUpdated"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.size"/></td>
+        		<td><fmt:message key="dsEdit.pakbus.utility.running"/></td>
+        		<td></td>
+        	</tr>
+			<tbody id="pakBusLoggerFilesBody"></tbody>
+        </table>
+      </div>
+     </td>
+     

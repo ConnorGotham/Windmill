@@ -1,0 +1,16 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<p>
+  The <b>OID</b> represents either the object identifier to request on host, or to match in traps that are received. 
+  The <b>Data type</b> is the Mango representation of the value. Received data is automatically converted to the 
+  required data type. The <b>Binary 0 value</b> is the value to match for a binary point to be given the value 0. The 
+  <b>Set type</b> is the SNMP data type to use when setting values on the host. A value of "(not settable)" indicates 
+  that the point is read-only. The <b>Polling</b> field determines whether to include the value in GET requests with 
+  each polling cycle, or whether values are received only via traps.
+</p>
+<p>
+  Numeric points allow a multiplicand and augent to be set, allowing point values to be linearly translated between 
+  Mango and the SNMP target.
+</p>

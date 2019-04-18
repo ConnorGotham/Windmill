@@ -1,0 +1,126 @@
+*Version 3.5.3*
+* Adding support to change the subject in the email template using the subject directive.
+
+*Version 3.5.2*
+* Adding v2 websockets
+* Adding JavaScripting support for report post-processing
+* Adding JavaScripting support for email model processing
+* Moving /v1/excel-report-templates/upload to /v2/excel-report-templates/upload
+
+*Version 3.5.1*
+* Fix running a report modifying the underlying template file
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Change resulting report filename scheme from runtime_templateName to reportName_runtime
+* Substring error message to first 512 characters for database column width
+* Bugfix for new UI to resolve error message about help translation being from dashboard designer
+* Modify statistics to use bookend query to handle edge case where there is a value exactly at report from time.
+* Add XLSM file extension into template selector in new UI
+* Validate template when POST'ed to /run endpoint with a time series to be applied
+* Bugfix in TimeSeriesModel translation
+* Bugix to ensure template file is closed after generating a report
+
+*Version 3.4.1*
+* Fix logic checking if any events ranges exist
+* New Angular UI
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Expanding end time of report to end of rollup period if using rollups
+
+*Version 3.3.5*
+* Prevent NPEs in json import, use class defaults if valid
+
+*Version 3.3.4*
+* Single GET template endpoint returns with allNamedRanges=null instead of 404 with missing template file.
+
+*Version 3.3.3*
+* Check Mango/overrides/web/modules/excelReports/web/ftl/ for persistent email templates.
+
+*Version 3.3.2*
+* Fixed bug where final quantized period of statistics was not getting generated.
+
+*Version 3.3.1*
+* Fixed bug with one one value in series in named range getting blanked.
+* Removed cell blanking through advancement or the named range lacking data.
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+* Using new Rollup and Quantization algorithms from 3.3.0 core
+
+*Version 3.2.1*
+* Bugfix for not advancing first cell in series without data at first stamp
+* Bugfix for ranges growing in a dimension other than the dimension of the time values
+* Bugfix for ranges growing in the same dimension as time but from a different origin row/column
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+* Fixed time period type Current to accept periods > 1
+
+*Version 3.1.4*
+* Fixing bug in advancing cells where first cells weren't counted toward totals and ranges could be blanks
+
+*Version 3.1.3*
+* Fix for null filenames in purge
+
+*Version 3.1.2*
+* Add system settings to new UI
+* Add angular component for running and downloading a report
+
+*Version 3.1.1*
+* Fixed bug where named ranges were not available
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* Fix validation bug when multiple points were wrongly being validated as in the same range.
+* System settings import validation bugfix
+* Fixing statistical bug where first/last values were backwards
+* Improved validation feedback for Point Range area
+
+*Version 1.1.3*
+* Adding support to include Data Point Events for all points in the report.
+
+*Version 1.1.2*
+*Bugfix for not being able to use some Single Cell Data attributes for time series with Rollup other than None.
+
+*Version 1.1.1*
+* Bugfix for report failure when no time range defined or rollup used
+
+*Version 1.1.0*
+* Upgraded to work with core version 2.8.x
+* Fixing purge REST calls from swagger and system settings page.
+* Better handling for validation and JSON emport
+
+*Version 1.0.6*
+* Allow the use of macro enabled Excel templates
+* Allow using statistics ranges directly without requiring a default range for a point.
+
+*Version 1.0.5*
+* Fixed bug where saving mailing lists would fail
+* Added better REST response message for report templates with missing file
+
+*Version 1.0.4*
+* Adding 'Current' date range type to allow reporting on the current period type, for example to report on this month until now
+* Adding 'Ago' date range type to allow reporting on a period for x periods ago, for example you can now report on the entire month that was 3 months ago
+* Adding error page output for feedback on problems when viewing reports as HTML
+* Fixing bug where deleted users linked to a report template's email functionality would break the report
+* Permissions change: Reports and Templates can only be deleted by admin or the owner of the item.
+* Permissions change: Report readers can only view generated reports
+
+*Version 1.0.3*
+* Parameterization of rest endpoints with filenames for use in Swagger.
+* Fix Download of template file to have appropriate filename
+* Fix for licensing to allow the correct number of templates per the license type
+* Changing column ordering for the points list of a Time Series
+
+*Version 1.0.2*
+* Improvements to Permissions handling
+* Improvements to JSON import/export
+
+*Version 1.0.1*
+* Fix to allow filtering data points by XID, Device Name and Name
+* Upgraded to work with core version 2.7.x
+
+*Version 1.0.0*
+* Initial Release

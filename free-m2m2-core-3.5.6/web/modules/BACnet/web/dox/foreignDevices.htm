@@ -1,0 +1,9 @@
+<h1>Overview</h1>
+<p>The <b>Register as foreign device</b> tool is of limited utility. It is an error to attempt to register a local device
+as a foreign device if it already has registered as a foreign device. For this utility to behave, the local device configuration
+should not have a BBMD address and should not have had this utility used on it since the last time it restarted. A BACnet
+local device will be reinitialized if all of its users (data sources, publishers, API calls, scripts) have released it.</p>
+
+<p>The <b>BBMD address</b> is the address of the BBMD. The <b>BBMD port</b> is its port. The <b>BBMD registration interval</b>
+is the interval in seconds to resend the foreign device registration. If the attempt to register as a foreign device fails
+when the local device is started, it will not try again unless reinitialized. This utility is useful in that case, too.</p>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Stellar Solutions Inc. All rights reserved.
+    @author Phillip Dunlap
+-->
+
+<doxManifest>
+  <item id="egaugeDS" key="egauge.dox.egaugeDS" filename="egaugeDS.htm">
+    <relation id="egaugePP"/>
+  </item>
+  
+  <item id="egaugePP" key="egauge.dox.egaugePP" filename="egaugePP.htm">
+    <relation id="egaugeDS"/>
+  </item>
+</doxManifest>

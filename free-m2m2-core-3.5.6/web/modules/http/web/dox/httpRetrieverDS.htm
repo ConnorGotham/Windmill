@@ -1,0 +1,33 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<h1>Overview</h1>
+<p>
+  This data source is used to collect generic information from the web sites available on the internet, or internal 
+  equipment available on an intranet. Using mechanisms similar to a web browser, the data source requests information 
+  from HTTP-enabled devices, and then uses Regular Expressions to extract the desired information. This is a polling 
+  data source.
+</p>
+
+<h1>Configuration</h1>
+<p>
+  Every data source requires a <b>Name</b>, which can be any description. The <b>Update period</b> determines how often 
+  the HTTP request is made. The <b>URL</b> is the address of the page that is to be parsed. Use the 
+  <img src="images/bullet_go.png"/> icon to test the URL. (Opens in a new window or browser tab.)
+</p>
+
+<p>
+  Checking <b>Quantize</b> will cause the data source startup to be delayed
+  so that pollings occur at a "rounded" point in time (e.g. if polling is every 10 seconds, polls will occur on the 10th 
+  second, the 20th second, etc). Otherwise, polling will begin immediately. The <b>Timeout</b> and <b>Retries</b> fields 
+  determine the system behaviour in the case of a polling failure. The data source waits the given number of timeout 
+  milliseconds for a response from the equipment. If it is not received the request will be retried the given number of 
+  times.
+</p>
+
+<p>
+  The <b>Timeout</b> and <b>Retry</b> fields determine how long to wait for the web server to return the page, and how 
+  many times to retry the connection in the event of failures. If all of the retries are exhausted, a data source 
+  exception event is raised.
+</p>

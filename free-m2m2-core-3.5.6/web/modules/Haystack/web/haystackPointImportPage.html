@@ -1,0 +1,14 @@
+<h1 ma-tr="header.haystackPointImport"></h1>
+
+<div layout>
+	<md-input-container flex>
+		<label ma-tr="haystack.ui.chooseDs"></label>
+		<ma-data-source-list ng-model="dataSource" query="'dataSourceType=HAYSTACK_DS'"></ma-data-source-list>
+	</md-input-container>
+</div>
+
+<md-card>
+	<md-card-content class="ma-no-padding">
+		<ma-haystack-point-import data-source-xid="{{dataSource.xid}}"></ma-haystack-point-import>
+	</md-card-content>
+</md-card>

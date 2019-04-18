@@ -1,0 +1,17 @@
+ma-snmp-point-import th[md-order-by="unit"] {
+	min-width: 100px;
+}
+
+ma-snmp-point-import th[md-order-by="xid"],
+ma-snmp-point-import th[md-order-by="deviceName"],
+ma-snmp-point-import th[md-order-by="name"] {
+	min-width: 300px;
+}
+
+ma-snmp-point-import td > md-input-container {
+	width: 100%;
+}
+
+ma-snmp-point-import .md-table-pagination {
+	border-top: 0;
+}

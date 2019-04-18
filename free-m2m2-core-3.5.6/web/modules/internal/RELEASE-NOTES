@@ -1,0 +1,87 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Changes to handle Monitor points with null values as this can now happen in Mango 3.5 to indicate a monitor has no information and is not actually 0
+* Escaping HTML in monitor IDs
+
+*Version 3.4.1*
+* Escape HTML
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.1*
+* Added ability for a regex to optionally create value monitor points
+* Removed validation that monitor ID is currently valid, since dynamic IDs exist
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.1*
+* Implemented forcePointRead in internal data source
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* Automatic creation of data source and useful points when module is installed/upgraded
+* Adding additional points for database table counts
+
+*Version 1.6.2*
+* Bugfix for importing internal points and static init race
+
+*Version 1.6.1*
+* Bugfix for missing translations on data point edit page
+
+*Version 1.6.0*
+* Upgraded to work with core version 2.8.x
+* Adding dynamic collection of all monitoring points instead of hard coding options into interface
+* Fixing bad id for JVM Used Memory Monitor
+
+*Version 1.5.3*
+* Adding additional help for Internal Metrics Page and Data Source Points
+* Cleaning up labels
+
+*Version 1.5.2*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.5.1*
+* Fixing point locator Model for REST Api
+
+*Version 1.5.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.4.7*
+* Adding Mango API model support
+
+*Version 1.4.5*
+* Upgraded to work with core version 2.5.x
+* Added Poll aborted Event
+
+*Version 1.4.4*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.4.3*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.4.2*
+* Modified for Core 2.2
+
+*Version 1.4.1*
+* Modified for Core 2.1
+
+*Release notes for version 1.4.0*
+* Updated to work with core 2.0
+
+*Release notes for version 1.3.0*
+* Added database active and idle connection counts
+* Updated to work with core 1.3
+
+*Release notes for version 1.3.0*
+* Added database active and idle connection counts
+
+*Release notes for version 0.9.0*
+* Initial production release

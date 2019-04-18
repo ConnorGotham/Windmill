@@ -1,0 +1,33 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<p>
+  The <b>Network number</b> is the number of the network in which the device for the BACnet object is found. A value of 
+  0 indicates the local network. The <b>MAC</b> is the id of the device within the network. <b>Link service</b> is the
+  MAC of the device that acts as a router to other networks if this device for the object is foreign to the local 
+  network. If the device is on the local network, this value can be empty. The <b>Device instance number</b> is the 
+  BACnet inter-network unique identifier of the remote device.
+</p>
+<p>
+  The <b>Object type</b> is the type of object from which values will be requested. The <b>Object instance number</b> is 
+  the unique identifier of the object/type from which values will be requested. Points request the <i>present value</i> 
+  of an object instance.
+</p>
+<p>
+  The <b>Use COV subscription</b> determines whether Mango will attempt to subscribe to COV events for the object on the 
+  device. Not all objects support COV subscriptions, and not all devices support them even on objects that normally 
+  would. Moreover, some devices limit the amount of concurrent COV subscriptions they will accept, so no guarantees can
+  be made that COV reporting will be established at runtime.
+</p>
+<p>
+  Use <b>Settable</b> to determine whether the interface will allow users to enter value with which to update the 
+  object. Only "output" values are considered to be settable.
+</p>
+<p>
+  The <b>Write priority</b> determines the priority to use when sending a write command to the object.
+</p>
+<p>
+  The <b>Data Type</b> field determines what Mango data type the point will have. Values returned from the BACnet 
+  network will automatically be converted to the required type.
+</p>

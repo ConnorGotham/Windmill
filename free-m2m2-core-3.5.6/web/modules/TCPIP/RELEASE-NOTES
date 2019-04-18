@@ -1,0 +1,64 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Improved exception handling for parse exceptions
+* Tune down logging exceptions for things beyond the data source's control (i.e. connection refused) to debug level
+* Add point locator validation
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.1*
+* Fix for infinite read loop
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.1*
+* Adding synchronization to connect and close methods
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.8.x
+* Adding test utility.
+* Adding IO Logging
+
+*Version 1.1.5*
+* Implementing forcePointRead
+
+*Version 1.1.4*
+* Adding support for HEX conversion to/from ASCII messages
+
+*Version 1.1.3*
+* Changed to allow Escaped characters in the messages
+* Upgraded to work with core version 2.7.x
+
+*Version 1.1.2*
+* Fixed Point Locator Model for REST API
+
+*Version 1.1.1*
+* Test and check connection on every poll
+* Added retries to connection and requests attempts
+* Fixed so that a timeout of 0 can be used to ensure no socket timeout
+
+*Version 1.1.0*
+* Upgraded to work with core version 2.6.x
+* Improved startup so that opening the connection can timeout instead of hang the Runtime Manager indefinitely if there is no host to connect to
+
+*Version 1.0.3*
+* Improved connection reliability
+
+*Version 1.0.2*
+* Upgraded to work with core version 2.5.x
+* Added Poll aborted Event
+* Improved JSON Emport for PeriodType
+
+*Version 1.0.1*
+* Upgraded to work with core version 2.4.x

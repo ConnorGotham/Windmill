@@ -1,0 +1,107 @@
+*Version 3.5.1*
+* Fix 'Error parsing Json object' with valid JSON on catchall alphanumeric JSON receiver points
+
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+
+*Version 3.4.1*
+* Escape HTML in publisher table
+* Add validation to JSON receiver points' JSON pointers
+* Add logging to HttpDataSourceServlet to log messages at debug level
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Fixed JSON export to include superclass information in HTTP receivers
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+* Added publisher format for setting points on HTTP receivers
+
+*Version 3.2.1*
+* Implemented forcePointRead in HTTP Retriever data source
+* Added receiveType to Json receiver, default JSON receiver to receive application/json
+* Added HTTP JSON retriever data source type
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* Improved event generation to include name and device name information
+* Improved error handling when the returned JSON data type doesn't match the point's data type.
+
+*Version 1.6.2*
+* Bugfix for Receiver API model
+
+*Version 1.6.1*
+* Bugfix for non Jpeg image colors shifting when overlaid with points.
+* Bugfix for greyed out overlay points being global to all points.  Now each data point has its own set of 'used' points
+
+*Version 1.6.0*
+* Upgraded to work with core version 2.8.x
+* Publisher alarm levels now configurable
+
+*Version 1.5.3*
+* Adding option for HTTP Sender to publish parameters as JSON in addition to URL parameters
+* Adding ability to overlay multiple text rendered point values onto an image at the bottom left
+
+*Version 1.5.2*
+* Fixing Publisher to display data point type column properly
+
+*Version 1.5.1*
+* Added ability to set capture groups for Http Retriever's value and time match patterns
+* Upgraded to work with core version 2.7.x
+
+*Version 1.5.0*
+* Upgraded to work with core version 2.6.x
+* Fixed bug where decoding ms since Jan 1 1970 for __time parameter didn't work
+
+*Version 1.4.8*
+* Fixed bug where conversion using ms timestamp __time didn't work
+
+*Version 1.4.7*
+* Upgraded to work with core version 2.5.x
+* Added Mango API model support
+
+*Version 1.4.6
+* Upgraded to work with core version 2.4.x
+* Added Poll aborted Event for HttpRetriever
+* Added Poll aborted Event fort HttpImageRetriever
+
+*Version 1.4.5*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.4.4*
+* Fixed serialization error introduced by the JSON variant.
+
+*Version 1.4.3*
+* Allowing point add filter to remain open to add multiple points
+
+*Version 1.4.2*
+* Updated for Core 2.2
+* Added convenience data source for JSON objects in HTTP messages.
+
+*Version 1.4.1*
+* Performance improvement: reuse the HttpClient object between polls
+
+
+*Version 1.4.0*
+* Updated to work with core 2.0
+* HTTP components upgrade
+* Improved ISO date format handling
+* Dojo upgrade
+* Added ability to set point values in receiver and retriever
+
+
+*Version 1.3.0*
+* Fixed bug where HTTP epilogue was used where prologue should have been
+* Allow polls to be quantized
+* Changes to support core 1.3.0
+* Initialization bug fix
+
+
+*Version 1.0.0*
+Initial production release

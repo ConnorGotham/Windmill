@@ -1,0 +1,49 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+
+*Version 3.3.1*
+* Fixed array bounds bug with $$$$ templating
+* Removed print statement from h2ftl.py to be Python 3 compatible
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.1.0*
+* Upgraded to work with core version 2.8.x
+
+*Version 1.0.8*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.0.7*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.0.6*
+* Adding templates for points
+
+*Version 1.0.5*
+* Upgraded to work with core version 2.5.x
+
+*Version 1.0.4*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.0.3*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.0.2*
+* Reports Import Complete
+
+*Version 1.0.1*
+* Fixed python script
+* Core 2.2

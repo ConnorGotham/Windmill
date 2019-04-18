@@ -1,0 +1,263 @@
+/**
+ * Copyright (C) 2015 Infinite Automation Systems, Inc. All rights reserved.
+ * http://infiniteautomation.com/
+ * @author Jared Wiltshire
+ */
+
+/* import other common style sheets */
+@import url("/resources/dijit/themes/claro/claro.css");
+@import url("/resources/jquery-ui/jquery-ui.structure.css");
+@import url("/resources/jquery-ui/jquery.datetimepicker.css");
+
+/* 
+ * Hack for bug in Mango 2.7.12 css that defined .dgrid-no-data the same as loading
+ */
+.mango .dgrid-grid .dgrid-no-data {
+    margin-top: 5px;
+    text-align: center;
+    background: none;
+    height: 100%;
+}
+
+.nav > li > a {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 10px;
+}
+
+.tab-pane {
+    padding-top: 10px;
+}
+
+#reports {
+    float: left;
+    width: 400px;
+}
+
+#report-setup {
+    overflow: auto;
+    max-width: 800px;
+}
+
+.editor-item-modified {
+    box-shadow: 0px 0px 6px 0px red;
+}
+
+.editor-save {
+    display: none;
+}
+
+.editor-item-modified .editor-save {
+    display: inline;
+}
+
+.editor-item-modified .run-template,
+.editor-item-modified .run-template-specific {
+    display: none;
+}
+
+#finished-reports-grid {
+    border-style: solid none none none;
+    height: auto;
+}
+
+#finished-reports-grid td {
+    line-height: 24px;
+}
+
+#finished-reports-grid tr.error-message td {
+    line-height: inherit;
+}
+
+#finished-reports-grid .dgrid-scroller {
+    position: relative;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#finished-reports-grid .field-readPermission {
+    width: 250px;
+}
+
+#finished-reports-grid .field-readPermission input {
+    width: 225px;
+}
+
+#finished-reports-grid .field-controls {
+    width: 95px;
+}
+
+#finished-reports-grid .field-preventPurge {
+    width: 100px;
+}
+
+#finished-reports-grid .dgrid-row {
+    cursor: pointer;
+}
+
+#finished-reports-grid .dgrid-row.state-queued {
+    background-color: #ffffd5;
+}
+
+#finished-reports-grid .dgrid-row.state-running {
+    background-color: #ffff80;
+}
+
+#finished-reports-grid .dgrid-row.state-finished {
+    background-color: #dafada;
+}
+
+#finished-reports-grid .dgrid-row.state-failed {
+    background-color: #ffd5d5;
+}
+
+#finished-reports-grid .dgrid-row.state-email-failed {
+    background-color: #ffe2d5;
+}
+
+#finished-reports-grid .dgrid-row.dgrid-selected {
+    cursor: auto;
+    background-color: #bfd6eb;
+}
+
+#finished-reports-grid .dgrid-row.dgrid-selected.ctrl-active {
+    cursor: pointer;
+}
+
+#report-templates-grid {
+    border-style: none;
+    height: auto;
+}
+
+#report-templates-grid td {
+    line-height: 24px;
+}
+
+#report-templates-grid .dgrid-scroller {
+    position: relative;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#report-templates-grid .dgrid-row {
+    cursor: pointer;
+}
+
+#report-templates-grid .dgrid-row.dgrid-selected {
+    cursor: auto;
+}
+
+#report-templates-grid .field-controls {
+    width: 120px;
+}
+
+/* override bootstrap setting */
+input[type=file] {
+  display: inline-block;
+}
+
+#time-series-list {
+    height: auto;
+    border: none;
+}
+
+#time-series-list .dgrid-no-data {
+    margin-bottom: 5px;
+}
+
+#time-series-list .dgrid-scroller {
+    position: relative;
+    overflow-y: auto;
+}
+
+.time-series {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.time-series .time-series-points {
+    height: auto;
+    border: none;
+}
+
+.time-series .time-series-points .dgrid-scroller {
+    position: relative;
+    overflow-y: auto;
+}
+
+.time-series .time-series-points .field-namedRange .dijitTextBox {
+    width: 100%;
+}
+
+.time-series .time-series-points .field-controls {
+    width: 22px;
+}
+
+#recipients-grid {
+    height: auto;
+    border: none;
+    margin-bottom: 3px;
+}
+
+#recipients-grid .dgrid-scroller {
+    position: relative;
+    overflow-y: auto;
+}
+
+#recipients-grid .field-controls {
+    width: 22px;
+}
+
+#recipients-grid .dgrid-cell .dijitTextBox {
+    width: 100%;
+}
+
+#recipients-grid .dgrid-header .field-username,
+#recipients-grid .dgrid-header .field-address,
+.recipient-type-address .field-xid,
+.recipient-type-address .field-username,
+.recipient-type-user .field-xid,
+.recipient-type-user .field-address,
+.recipient-type-mailing-list .field-address,
+.recipient-type-mailing-list .field-username {
+    display: none;
+}
+
+#date-controls-list {
+    border: none;
+    height: auto;
+}
+
+#date-controls-list .dgrid-scroller {
+    position: relative;
+    overflow-y: auto;
+}
+
+#date-controls-list .dgrid-row {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.datetimepicker {
+    cursor: pointer;
+    width: 200px;
+}
+
+.specific-date-controls label {
+    width: 30px;
+    text-align: right;
+}
+
+.label-layout label, label.row-label, .mango-row > label {
+    width: 120px;
+}
+
+.mango-row * {
+    vertical-align: middle;
+}
+
+.relative-date-controls, .specific-date-controls {
+  margin: 5px 0;
+}

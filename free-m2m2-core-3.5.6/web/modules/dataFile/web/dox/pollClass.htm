@@ -1,0 +1,38 @@
+<h3>Overview</h3>
+<p>A <b>Poll class</b> is invoked before the configured data file path is checked for data files. The poll class must extend
+AbstractPollClass, whose definition is:</p>
+<pre>
+<code>public abstract class AbstractPollClass {
+	public abstract void run(long time, PollClassInvoker invoker, String[] arguments);
+	
+	public List&lt;ImportPoint&gt; getGeneratedImportPoints() {
+		return new ArrayList&lt;&gt;();
+	}
+}</code></pre>
+
+<h4>Example</h4>
+<p>Here is a very simple example that only prints some things and raises an event.</p>
+<pre>
+<code>
+import com.infiniteautomation.datafilesource.rt.AbstractPollClass;
+import com.infiniteautomation.datafilesource.rt.PollClassInvoker;
+
+public class TestPollClass extends AbstractPollClass {
+	public void run(long time, PollClassInvoker invoker, String[] arguments) {
+		invoker.infoLog("Hey something works!");
+		System.out.println("Everything works! " + arguments);
+		invoker.delegatedRaiseEvent(6, "I can even raise an event!");
+	}
+}
+</code>
+</pre>
+
+<h4>Arguments</h4>
+<p>Arguments are configured on the data source edit page and are passed as a string array to the run method of the poll class.</p>
+
+<h4>Setting values</h4>
+<p>Poll classes are also used by the data source to set values. A boolean is returned, to indicate if the set value should be saved.
+The method signature is the same as a DataSourceRT setPointValueImpl method:</p>
+<pre>
+public boolean setPointValueImpl(DataPointRT dataPoint, PointValueTime valueTime, SetPointSource source);
+</pre>

@@ -1,0 +1,95 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Improve poll class documentation
+* Change 40 character XID restriction to 100 character
+* Validate mapped point exists
+* Export data type as string rather than ID
+* Improve point locator help
+* Export mapped point as XID rather than ID
+
+*Version 3.4.2*
+* Escape point names' HTML
+* Poll classes can have parsed points even if the file location doesn't exist
+
+*Version 3.4.1*
+* A more meaningful message if someone attempts to compile templates while using a JRE instead of a JDK
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Added public char getSeparatorCharacter, getQuoteCharacter, and getEscapeCharacter methods to AbstractCSVDataSource, same defaults
+
+*Version 3.3.1*
+* Added ability to upload templates on edit data source page
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.1*
+* Adding ability to customize data source event levels and broke out more event types
+* Adding setPointValueImpl as a method for the poll class, called in sets
+* Made data points settable
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.1*
+* Fixed bug with Excel Workbook data file type
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.2*
+* Added Excel Workbook data file type
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+* Added Binary data file type
+* Added API endpoint for immediate import
+* Passing the filename to CSV, Excel and Binary importers
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.8.x
+* Updates to get event for newest value in datapoint if newer than existing value
+
+*Version 1.1.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.1.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.0.9*
+* Added support for the Mango API
+
+*Version 1.0.8*
+* Added ability to compile files from Web UI
+
+*Version 1.0.7*
+* Upgraded to work with core version 2.5.x
+
+*Version 1.0.6*
+* Fixed issue of duplicate import prefixes in file names.
+* Added option to import on a cron job.
+* Added Poll aborted Event
+* web/templates folder is now persisted across upgrades
+
+*Version 1.0.5*
+* Improved stability for point creation
+* Fixing compile scripts
+* Reordering alphanumeric points constructor
+* Added default import type for sake of default template folder
+
+*Version 1.0.4*
+* Changed to use Commons Logging
+
+*Version 1.0.3*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.0.2*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.0.1*
+* Updated for Core 2.2
+* Created points can contain properties maps
+
+*Version 1.0.0*
+* Initial Release

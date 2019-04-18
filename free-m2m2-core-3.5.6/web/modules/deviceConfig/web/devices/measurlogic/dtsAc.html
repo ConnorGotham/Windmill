@@ -1,0 +1,102 @@
+<div layout="row" layout-wrap>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.serial"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.serial" type="number" ng-disabled="true">
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.firmware"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.fwVersion" type="number" step="any" ng-disabled="true">
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.model"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.modelId" type="number" ng-disabled="true">
+  </md-input-container>
+</div>
+
+<ma-calc input="$ctrl.deviceConfigForm.$pristine && $ctrl.deviceConfig.registers.voltageSecondary === $ctrl.deviceConfig.registers.voltagePrimary"
+  output="directVoltage"></ma-calc>
+
+<md-checkbox ng-model="directVoltage" ng-change="directVoltage && ($ctrl.deviceConfig.registers.voltageSecondary = $ctrl.deviceConfig.registers.voltagePrimary)">
+  Direct voltage
+</md-checkbox>
+
+<div layout="row" layout-wrap>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.voltagePrimary"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.voltagePrimary" type="number" required ng-change="directVoltage && ($ctrl.deviceConfig.registers.voltageSecondary = $ctrl.deviceConfig.registers.voltagePrimary)">
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.voltageSecondary"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.voltageSecondary" type="number" required ng-disabled="directVoltage">
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.currentPrimary"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.currentPrimary" type="number" required>
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.currentSecondary"></label>
+    <input ng-model="$ctrl.deviceConfig.registers.currentSecondary" type="number" required>
+  </md-input-container>
+  <md-input-container flex="50">
+    <label ma-tr="deviceConfig.enerPowDivider"></label>
+    <md-select ng-model="$ctrl.deviceConfig.registers.enerPowDivider" name="enerPowDivider" required>
+      <md-option ng-value="100">100</md-option>
+      <md-option ng-value="1000">1,000</md-option>
+      <md-option ng-value="10000">10,000</md-option>
+      <md-option ng-value="100000">100,000</md-option>
+      <md-option ng-value="1000000">1,000,000</md-option>
+      <md-option ng-value="10000000">10,000,000</md-option>
+      <md-option ng-value="100000000">100,000,000</md-option>
+    </md-select>
+    <div class="hint">
+      <span md-colors="{color: 'warn'}" ng-if="$ctrl.deviceConfig.registers.enerPowDivider !== 10000">The manufacturer recommended setting is 10,000</span>
+    </div>
+  </md-input-container>
+</div>
+
+<ma-calc input="$ctrl.deviceConfig.registers.voltagePrimary * $ctrl.deviceConfig.registers.currentPrimary / 1000"
+  output="power"></ma-calc>
+<ma-calc input="power * Math.sqrt(3)"
+  output="power3Phase"></ma-calc>
+
+<h2>Resolution and roll-over details</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Energy/power divider</th>
+      <th>Register resolution</th>
+      <th>Energy roll over</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td ng-bind="$ctrl.deviceConfig.registers.enerPowDivider"></td>
+      <td ng-if="$ctrl.deviceConfig.registers.enerPowDivider < 1000000"><span ng-bind="$ctrl.deviceConfig.registers.enerPowDivider / 1000"></span> W</td>
+      <td ng-if="$ctrl.deviceConfig.registers.enerPowDivider >= 1000000"><span ng-bind="$ctrl.deviceConfig.registers.enerPowDivider / 1000000"></span> kW</td>
+      <td><span ng-bind="$ctrl.deviceConfig.registers.enerPowDivider * 999.999999"></span> kWh</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Calculated total power</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total power (single phase)</th>
+      <th>Total power (3 phase)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td ng-if="power < 1000"><span ng-bind="power | number:3"></span> kW</td>
+      <td ng-if="power >= 1000 && power < 1000000"><span ng-bind="power / 1000 | number:3"></span> MW</td>
+      <td ng-if="power >= 1000000"><span ng-bind="power / 1000000 | number:3"></span> GW</td>
+      
+      <td ng-if="power3Phase < 1000"><span ng-bind="power3Phase | number:3"></span> kW</td>
+      <td ng-if="power3Phase >= 1000 && power3Phase < 1000000"><span ng-bind="power3Phase / 1000 | number:3"></span> MW</td>
+      <td ng-if="power3Phase >= 1000000"><span ng-bind="power3Phase / 1000000 | number:3"></span> GW</td>
+    </tr>
+  </tbody>
+</table>

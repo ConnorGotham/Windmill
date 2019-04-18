@@ -1,0 +1,15 @@
+<h3>Overview</h3>
+<p>The Template Configuration module is designed to make creating model configurations, 
+used multiple times with slight modification, easy. Simply annotate a Json configuration, 
+run the included python script, place the generated template into the web/ftl folder, and 
+launch the module.</p>
+<h2>Using the Templates</h2>
+<p>Use the <b>Import Template</b> button to begin the import dialog. Every field from the template file is 
+read and displayed with certain identifying information in the form: "Property Name - Message" with information about 
+how that field spatially related to any static content in the template. If it says field, the template has no static value 
+for that property. If it says prefix, the template contains static content that will come after the entered value. Suffix 
+similarly refers to preceding static content. Body means there is static content on both sides. Globals do not offer information 
+about their locations, as they may appear in differing situations throughout the ftl but all correspond to a single input.</p>
+<p>Once your fields are filled, use the <b>Import</b> button to begin the import process. You should see the results 
+of your dynamically populated import right on the page. If there are errors, don't worry, the dialog will remember 
+the values you've entered if you attempt to re-open the same template.</p>

@@ -1,0 +1,49 @@
+<style>
+    ma-data-file-data-source-import .ma-import-dropzone {
+        height: 100px;
+        border: 1px dashed currentColor;
+        border-radius: 2px;
+    }
+</style>
+
+<md-card flex>
+    <md-card-title layout layout-align="start center">
+        <md-card-title-text>
+            <span class="md-headline" ng-if="!$ctrl.dropDownMode">Upload Data File to Data Source (xid: {{$ctrl.xid}})</span>
+            <span class="md-headline" ng-if="$ctrl.dropDownMode">Upload Data File - Select Data Source:</span>
+        </md-card-title-text>
+
+        <ma-data-source-list flex ng-if="$ctrl.dropDownMode && !$ctrl.xid" ng-model="$ctrl.selectedDataSource"
+                              query="{dataSourceType: 'Data File'}"></ma-data-source-list>
+
+        <md-select flex ng-if="$ctrl.dropDownMode && $ctrl.xid" ng-model="$ctrl.selectedXid">
+            <md-option ng-repeat="eachXid in $ctrl.xid" ng-bind="eachXid" ng-value="eachXid"></md-option>
+        </md-select>
+
+        <md-button class="md-raised md-primary ma-label-button">
+            <label for="csv-file-upload" flex>
+                <md-icon>file_upload</md-icon>
+                <span>Upload Data File</span></label>
+        </md-button>
+        <input id="csv-file-upload" type="file" accept=".csv,.xml,.xls,.xlsx" ma-change="$ctrl.fileSelected($event)" style="display:none">
+    </md-card-title>
+
+    <md-card-content layout="column">
+        <div flex class="ma-import-dropzone" ma-dropzone ng-style="{'border-color': dragOver && $ctrl.accentColor}"
+             ma-drag-enter="dragOver = true"
+             ma-drag-leave="dragOver = false" ma-drop="dragOver = false; $ctrl.fileDropped($data)" layout layout-align="center center">
+            <span>Drop file here</span>
+        </div>
+
+        <br>
+
+        <md-input-container flex>
+            <label>Upload Status</label>
+            <textarea id="textarea-upload-status" ng-model="$ctrl.uploadStatus" ng-readonly="true" rows="5" max-rows="5"
+                      md-select-on-focus></textarea>
+        </md-input-container>
+
+        <md-progress-linear md-mode="determinate" ng-value="$ctrl.uploadProgress" class="md-accent"></md-progress-linear>
+    </md-card-content>
+
+</md-card>

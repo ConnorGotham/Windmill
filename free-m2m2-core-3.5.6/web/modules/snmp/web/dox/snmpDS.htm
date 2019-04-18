@@ -1,0 +1,35 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<h1>Overview</h1>
+<p>
+  The SNMP data source is used to gather data from device that implement the SNMP protocol. This data source performs 
+  polling and also accepts SNMP traps.
+</p>
+
+<h1>Configuration</h1>
+<p>
+  Every data source requires a <b>Name</b>, which can be any description. The <b>Update period</b> determines how often 
+  the SNMP points will be polled for data. The remainder of the fields are needed to configure the details of SNMP 
+  communication.
+</p>
+<p>
+  Setting <b>Maximum vars per request</b> to a value greater than 0 will partition requests into vars of the given size.
+  A value of 0 implies no partitioning; all vars will be sent in a single request. 
+</p>
+
+<h1>SNMP host testing</h1>
+<p>
+  The host testing can be used to test both the data source configuration and the existence and value of a given OID 
+  (Object IDentifier). Enter the OID to test and click "Get OID value". The current configuration settings will be used 
+  to sent an SNMP get request. If successful, the OID value will be displayed. Otherwise, a message describing the error 
+  will be provided.
+</p>
+
+<h1>Community</h1>
+<p>
+  SNMPv1 and SNMPv2c use <b>community</b> strings as passwords for access. Often there will be a read-only community string
+  and a read-write community string, or perhaps write only. Mango will send the write community string with point set value
+  actions, and will send the read community string while polling.
+</p>

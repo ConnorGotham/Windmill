@@ -1,0 +1,28 @@
+<h1>Generating History for Meta Points</h1>
+
+<p>When generating the history for a point one can choose how Mango will fill in missing values.</p>
+
+<p>When generating data it is important to remember the following information:</p>
+<ul>
+    <li>Point values cannot be generated prior to the earliest value in the <b>Script context</b></li>
+    <li>Point values cannot be generated after to the oldest value in the <b>Script context</b></li>
+    <li>Generating a history for a point that already has values may result in duplicate point values</li>    
+</ul>
+
+<h2>Selecting Dates</h2>
+<p>The <b>from date</b> is the earliest date that data will be generated for. This date is pre-set to the earliest point value in the context.
+ If a selected date is prior to the earliest context point value, then the earliest context point value is used instead.</p>
+
+<p>The <b>to date</b> is the latest date that data will be generated to.  This date is pre-set to the earliest date where there is no data for a point.
+  If a selected date is after the latest context point value, then the latest context point value is used instead.</p>
+
+
+<h2>Duplicate Point Values</h2>
+<p>Depending on the type of data storage used for point values it may be possible to generate duplicates.  For instance, SQL type data stores allow 
+multiple entries at the same time, whereas NoSQL time series data stores do not.  If you are using SQL data storage be cautious when generating history. 
+It is advisable to purge your point history prior to generating if you do not want duplicate values stored.</p> 
+
+<h2>Calls to set</h2>
+<p>Calls to the set() functions on context points will result in the data being stored at the timestamp set but will not result in anything
+being transmitted by the data source as a normal set in the regular course of a running meta point does. Set values do not respect logging type
+and are simply saved to the database.</p>

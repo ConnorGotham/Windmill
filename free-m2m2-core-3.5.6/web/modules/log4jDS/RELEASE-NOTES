@@ -1,0 +1,49 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Fix to allow > 1 data source with the same name to run at the same time
+* IMPORTANT, the log message pattern now matches exactly what you see in the Logging Console UI of Mango so if you use pattern matching  you will need to review your pattern
+* Improved regex test utility to show last real log message to test against
+* Add throttling 'Message repeat interval' setting to prevent handling identical messages occurring quickly together
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Fix for potential null pointer exception when log messages had an empty message, they are now ignored
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0
+* Upgraded to work with core 3.0.0
+* Added support for Log4J2
+
+*Version 1.2.0*
+* Upgraded to work with core version 2.8.x
+* Fix ALL level logging
+* Fix documentation name for point properties
+* Adding validation to the regex
+* Fixing bug for points that once matched then do not still matching
+* Fixing i18n for regex tester
+
+*Version 1.1.2*
+* Fixed bug where points would not import.
+
+*Version 1.1.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.1.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.0.2*
+* Added Mango API models
+
+*Version 1.0.1*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.0.0*
+* Initial Release

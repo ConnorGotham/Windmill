@@ -1,0 +1,45 @@
+<!--
+    Copyright (C) 2014 Infinite Automation All rights reserved.
+    @author Terry Packer
+-->
+<p>
+  The MODBUS write tool allows writing to one or many modbus registers or coils.
+</p>
+<p>
+  The <b>Register range</b> determines in which of the four ranges the value is to be found. Consult the documentation 
+  for your equipment to determine what should be used.
+</p>
+<ul>
+  <li>
+    Coil status represents the hexadecimal range 0x00000 to 0x0FFFF. Each register contains a single, writable bit. 
+    Values in this range are always Binary.
+  </li>
+  
+  <li>
+    Holding register represents the hexadecimal range 0x40000 to 0x4FFFF. Each register is a 2 bytes (or a "word"), 
+    and is writable. Values in this range can be Binary or Numeric depending upon further settings.
+  </li>
+</ul>
+
+<p>
+  Coil status and Input status values are always Binary. However, Modbus vendors are often very creative in the ways 
+  that Holding and Input registers are used. The <b>Modbus data type</b> field reflects the many ways in which data can 
+  be encoded. Consult the documentation for your Modbus equipment to determine the proper setting.
+</p>
+<p>
+  Specific values are located with the <b>Offset</b> setting. This is a 0-indexed value, meaning that counting starts 
+  from 0. Some Modbus vendors provide documentation that is 1-indexed, where counting starts from one. As such, it is 
+  sometimes necessary to subtract one from documented index to determine the 0-indexed offset. When registers include 
+  their range, e.g. written as 0x30001, 1-indexing is typically implied. The <b>Bit</b> field is used when binary 
+  values are encoded into individual register bits.
+</p>
+
+<p> The <b>Data</b> field is the data that will be sent.  The data will be encoded as per the selected settings.  
+When writing multiple values, separate each value with a comma. 
+When writing binary values either 0 or the word false indicate a false value while 1 or the word true indicate a true value. 
+</p>
+
+<ul>
+	<li>Coil writes are performed using the <b>Write Coils Function Code = 15</b></li>
+	<li> Register writes are performed using the <b>Write Registers Function Code = 16</b></li>
+</ul>

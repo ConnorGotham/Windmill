@@ -1,0 +1,9 @@
+<h1>Overview</h1>
+<p>The JSON File Importer periodically searches the file immediately inside a supplied file path and attempts to import any and all
+which begin with the specified prefix. After import, it renames the file so as not to import it again. The mechanism is the same 
+as the import/export tab in Mango, but serves the purpose of importing configurations automatically such that multiple access points 
+can be easily updated through a service placing files on the file system. The output usually pushed to the import/export page is
+placed into a file prefixed with "log_". <b>To disabled checking and import</b> set the update periods to zero (0).</p>
+<p>If a file fails to be renamed, the runtime will record that file name internally as something not to import a second time (for 
+performance reasons). If the system is reset, this list is cleared. It can also be manually cleared using the button on the configuration 
+page. Every poll the importer consults its list of failed renames and attempts them again.</p>

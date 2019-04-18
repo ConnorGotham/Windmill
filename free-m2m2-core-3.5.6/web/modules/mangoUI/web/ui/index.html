@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title ng-bind="titleText">Mango v3</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <base href="/ui/">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/modules/mangoUI/web/img/icon192.png?v=04b2746ec86fd5c5674b8eee6ef2072f">
+    <link rel="icon" type="image/png" sizes="128x128" href="/modules/mangoUI/web/img/icon128.png?v=933195cd71b13ed0313ef87767b74e66">
+    <link rel="icon" type="image/png" sizes="96x96" href="/modules/mangoUI/web/img/icon96.png?v=ac12cb02d70c7c36ab6e7c2a7eb5e6e9">
+    <link rel="icon" type="image/png" sizes="32x32" href="/modules/mangoUI/web/img/icon32.png?v=b86f9773618055c350a46380d04d0714">
+    <link rel="icon" type="image/png" sizes="16x16" href="/modules/mangoUI/web/img/icon16.png?v=9e1425b2887d1883c266d54478c8af52">
+    <link rel="apple-touch-icon" type="image/png" sizes="128x128" href="/modules/mangoUI/web/img/icon128.png?v=933195cd71b13ed0313ef87767b74e66">
+    <link rel="manifest" href="/modules/mangoUI/web/ui/manifest.json?v=6adfd6d26015f7aa95abe22e893d6593">
+    
+    <link rel="stylesheet" href="/modules/mangoUI/web/ui/styles/preBoot.css?v=5305454c3bd4d8d37740f6c074b2553c">
+    <meta name="user-styles-after-here" content="">
+</head>
+
+<body layout="column" ng-class="{'ma-api-down': !mangoWatchdog.apiUp, 'ma-logged-out': !mangoWatchdog.loggedIn, 'ma-mobile': !$mdMedia('gt-sm'), 'ma-phone': $mdMedia('xs')}"
+      md-theme="{{uiSettings.activeTheme}}" md-colors="{background: 'background'}">
+    <div id="loading-bar-container" md-colors="{color: 'accent-hue-2'}"></div>
+    
+	<div ng-if="::appLoading" class="app-loading">
+		<svg class="ma-ui-spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+		   <circle fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30" stroke="#FF8500"></circle>
+		</svg>
+		
+        <div class="pre-bootstrap-error" style="display:none">
+            <div></div>
+            <a href="#">Show stack trace</a>
+            <pre style="display:none"><code></code></pre>
+        </div>
+	</div>
+    <div ng-cloak ui-view layout="column" flex class="main-application" ng-class="stateNameClass"></div>
+<script type="text/javascript" src="/modules/mangoUI/web/mangoUi~ngMango~ngMangoServices.js?v=0f03d20f7b30b4a597f9"></script><script type="text/javascript" src="/modules/mangoUI/web/mangoUi~ngMango.js?v=1dfa5170b7822c28b0be"></script><script type="text/javascript" src="/modules/mangoUI/web/mangoUi.js?v=7420dd568f397afe5313"></script></body>
+</html>

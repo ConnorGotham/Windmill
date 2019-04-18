@@ -1,0 +1,68 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@page import="com.serotonin.modbus4j.serial.SerialMaster"%>
+<%@page import="com.serotonin.m2m2.modbus.vo.ModbusSerialDataSourceVO"%>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+
+<script type="text/javascript">
+   
+   var concurrencyValue = 1; //Removed uppermost level concurrency setting as it isn't used anymore.
+
+  function scanImpl() {
+	  ModbusEditDwr.modbusSerialScan(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("commPortId"), $get("baudRate"),
+              $get("flowControlIn"), $get("flowControlOut"), $get("dataBits"), $get("stopBits"), $get("parity"), 
+              $get("encoding"), concurrencyValue, scanCB);
+  }
+  
+  function locatorTestImpl(locator) {
+	  ModbusEditDwr.testModbusSerialLocator(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("commPortId"), $get("baudRate"),
+              $get("flowControlIn"), $get("flowControlOut"), $get("dataBits"), $get("stopBits"), $get("parity"), 
+              $get("encoding"), concurrencyValue, locator, locatorTestCB);
+  }
+  
+  function dataTestImpl(slaveId, range, offset, length) {
+	  ModbusEditDwr.testModbusSerialData(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("commPortId"), $get("baudRate"),
+              $get("flowControlIn"), $get("flowControlOut"), $get("dataBits"), $get("stopBits"), $get("parity"), 
+              $get("encoding"), concurrencyValue, slaveId, range, offset, length, dataTestCB);
+  }
+
+  function dataWriteImpl(slaveId, range, offset, modbusDataType, value) {
+      ModbusEditDwr.writeModbusSerialData(dataPointsDataSourceId, $get("timeout"), $get("retries"), $get("commPortId"), $get("baudRate"),
+              $get("flowControlIn"), $get("flowControlOut"), $get("dataBits"), $get("stopBits"), $get("parity"), 
+              $get("encoding"), concurrencyValue, slaveId, range, offset,  modbusDataType, value, dataWriteCB);
+  }
+
+  
+  function saveDataSourceImpl(basic) {
+	  ModbusEditDwr.saveModbusSerialDataSource(basic, $get("updatePeriods"), 
+              $get("updatePeriodType"), $get("quantize"), $get("timeout"), $get("retries"),  $get("multipleWritesOnly"),
+              $get("contiguousBatches"), $get("createSlaveMonitorPoints"), $get("maxReadBitCount"), 
+              $get("maxReadRegisterCount"), $get("maxWriteRegisterCount"), $get("logIO"), $get("ioLogFileSizeMBytes"), $get("maxHistoricalIOLogs"), $get("discardDataDelay"),
+              $get("commPortId"), $get("baudRate"), $get("flowControlIn"), $get("flowControlOut"), $get("dataBits"), 
+              $get("stopBits"), $get("parity"), $get("encoding"), $get("echo"), concurrencyValue, saveDataSourceCB);
+  }
+  
+</script>
+
+<tag:serialSettings/>
+
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.modbusSerial.encoding"/></td>
+  <td class="formField">
+    <sst:select id="encoding" value="${dataSource.encoding}">
+      <sst:option value="<%= ModbusSerialDataSourceVO.EncodingType.RTU.toString() %>"><fmt:message key="dsEdit.modbusSerial.encoding.rtu"/></sst:option>
+      <sst:option value="<%= ModbusSerialDataSourceVO.EncodingType.ASCII.toString() %>"><fmt:message key="dsEdit.modbusSerial.encoding.ascii"/></sst:option>
+    </sst:select>
+  </td>
+</tr>
+
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.modbusSerial.echo"/></td>
+  <td class="formField">
+    <sst:select id="echo" value="${dataSource.echo}">
+      <sst:option value="false"><fmt:message key="dsEdit.modbusSerial.echo.off"/></sst:option>
+      <sst:option value="true"><fmt:message key="dsEdit.modbusSerial.echo.on"/></sst:option>
+    </sst:select>
+  </td>
+</tr>

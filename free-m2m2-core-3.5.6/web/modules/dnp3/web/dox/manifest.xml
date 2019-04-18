@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doxManifest>
+  <item id="dnp3IpDS" key="dox.dnp3IpDS" filename="dnp3IpDS.htm">
+    <relation id="dnp3SerialDS"/>
+    <relation id="dnp3PP"/>
+  </item>
+  
+  <item id="dnp3SerialDS" key="dox.dnp3SerialDS" filename="dnp3SerialDS.htm">
+    <relation id="dnp3IpDS"/>
+    <relation id="dnp3PP"/>
+  </item>
+  
+  <item id="dnp3PP" key="dox.dnp3PP" filename="dnp3PP.htm">
+    <relation id="dnp3SerialDS"/>
+    <relation id="dnp3IpDS"/>
+  </item>
+</doxManifest>

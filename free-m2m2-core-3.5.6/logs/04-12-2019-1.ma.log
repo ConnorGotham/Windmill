@@ -1,0 +1,6 @@
+INFO  2019-04-12T10:28:54,596 (com.serotonin.m2m2.rt.maint.work.BackupWorkItem.execute:101) - Starting backup WorkItem. 
+INFO  2019-04-12T10:28:54,597 (com.serotonin.m2m2.rt.maint.DataPurge.executeImpl:68) - Data purge started 
+INFO  2019-04-12T10:28:54,599 (com.serotonin.m2m2.rt.maint.work.DatabaseBackupWorkItem.execute:108) - Starting database backup WorkItem. 
+INFO  2019-04-12T10:28:54,639 (com.serotonin.m2m2.rt.maint.work.DatabaseBackupWorkItem.createLogOutputStream:224) - Writing backup log to C:\free-m2m2-core-3.5.6\logs\com.serotonin.m2m2.rt.maint.work.DatabaseBackupWorkItem.log 
+INFO  2019-04-12T10:28:54,647 (com.serotonin.m2m2.rt.maint.DataPurge.executeImpl:91) - Data purge ended, 0 point samples deleted 
+INFO  2019-04-12T10:29:00,212 (com.serotonin.m2m2.rt.maint.work.BackupWorkItem.execute:181) - Finished backup WorkItem. 

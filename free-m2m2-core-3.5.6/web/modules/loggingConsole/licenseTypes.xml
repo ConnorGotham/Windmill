@@ -1,0 +1,39 @@
+<licenseTypes>
+	<licenseType id="unrestricted" status="normal">
+        <description>No restrictions.</description>
+        <price>0</price>
+    </licenseType>
+
+    <licenseType id="paid" status="deprecated">
+        <description>No restrictions.</description>
+        <price>50</price>
+    </licenseType>
+    
+    <coreType id="Free">
+    	<ref id="unrestricted"/>
+    </coreType>
+    
+    <coreType id="Gateway">
+    	<ref id="unrestricted"/>
+    </coreType>
+    
+    <coreType id="Commercial">
+    	<ref id="unrestricted"/>
+    </coreType>
+    
+    <coreType id="variableSpecial">
+    	<ref id="unrestricted"/>
+    </coreType>
+    
+    <coreType id="Enterprise">
+    	<ref id="unrestricted"/>
+    </coreType>
+    
+    <coreType id="MangoES">
+    	<ref id="unrestricted"/>
+    </coreType>
+    
+    <coreType id="brewersdashboard">
+    	<ref id="unrestricted"/>
+    </coreType>
+</licenseTypes>

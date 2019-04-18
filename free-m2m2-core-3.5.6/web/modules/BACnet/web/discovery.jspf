@@ -1,0 +1,116 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<td valign="top">
+  <div class="borderDiv marB">
+    <table>
+      <tr><td colspan="2" class="smallTitle"><fmt:message key="mod.bacnet.discovery"/></td></tr>
+      <tr>
+        <td colspan="2">
+          <button id="sendWhoIsBtn" onclick="sendWhoIs();"><fmt:message key="mod.bacnet.sendWhoIs"/></button>
+          <button id="cancelWhoIsBtn" onclick="cancelWhoIs();"><fmt:message key="common.cancel"/></button>
+          &nbsp
+          <select id="useObjectName">
+            <option value="true"><fmt:message key="mod.bacnet.useObjectName"/></option>
+            <option value="false"><fmt:message key="mod.bacnet.useObjectDescription"/></option>
+          </select>
+        </td>
+      </tr>
+      
+      <tr><td colspan="2" id="whoIsMessage" class="formError"></td></tr>
+      
+      <tr>
+        <td colspan="2">
+          <div id="deviceListDiv">
+            <table cellspacing="1">
+              <tr class="rowHeader">
+                <td><fmt:message key="common.name"/></td>
+                <td><fmt:message key="mod.bacnet.modelName"/></td>
+                <td><fmt:message key="mod.bacnet.remoteDeviceInstanceNumber"/></td>
+                <td><fmt:message key="mod.bacnet.address"/></td>
+                <td><fmt:message key="mod.bacnet.systemStatus"/></td>
+                <td></td>
+              </tr>
+              <tbody id="iamsReceived"></tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+      
+      <tbody id="objList0MessageDiv" style="display:none;">
+        <tr><td colspan="2">
+          <div id="objList0Message" class="formError"><fmt:message key="mod.bacnet.gettingDeviceDetails"/></div>
+          <div id="objList0Progress"></div>
+          <button id="objList0CancelBtn" onclick="cancelObjectListRequest(this);"><fmt:message key="common.cancel"/></button>
+        </td></tr>
+      </tbody>
+      <tbody>
+        <tr><td colspan="2">
+          <div id="objList0Div" style="margin-top: 10px;">
+            <div id="objList0Header"></div>
+            <table cellspacing="1">
+              <tr class="rowHeader">
+                <td><fmt:message key="mod.bacnet.objectType"/></td>
+                <td><fmt:message key="mod.bacnet.objectName"/></td>
+                <td><fmt:message key="mod.bacnet.objectDescription"/></td>
+                <td><fmt:message key="mod.bacnet.presentValue"/></td>
+                <td></td>
+                <td><input type="checkbox" onclick="updateSelection('objList0', this.checked)" /></td>
+              </tr>
+              <tbody id="objList0"></tbody>
+            </table>
+            <div style="text-align: right">
+              <a href="javascript:addObjectsAsPoints('objList0')"><fmt:message key="mod.bacnet.addSel"/></a>
+            </div>
+          </div>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="borderDiv marB">
+    <table>
+      <tr><td colspan="2" class="smallTitle"><fmt:message key="mod.bacnet.objectList"/></td></tr>
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnet.remoteDeviceInstanceNumber"/></td>
+        <td class="formField"><input id="objListDevId" type="text" class="formShort"/></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <button id="sendObjListBtn" onclick="sendObjListRequest();"><fmt:message key="mod.bacnet.sendObjList"/></button>
+        </td>
+      </tr>
+      
+      <tbody id="objList1MessageDiv" style="display:none;">
+        <tr><td colspan="2">
+          <div id="objList1Message" class="formError"><fmt:message key="mod.bacnet.gettingDeviceDetails"/></div>
+          <div id="objList1Progress"></div>
+          <button id="objList1CancelBtn" onclick="cancelObjectListRequest(this);"><fmt:message key="common.cancel"/></button>
+        </td></tr>
+      </tbody>
+      
+      <tbody>
+         <tr><td colspan="2">
+          <div id="objList1Div" style="margin-top: 10px;">
+            <div id="objList1Header"></div>
+            <table cellspacing="1">
+              <tr class="rowHeader">
+                <td><fmt:message key="mod.bacnet.objectType"/></td>
+                <td><fmt:message key="mod.bacnet.objectName"/></td>
+                <td><fmt:message key="mod.bacnet.objectDescription"/></td>
+                <td><fmt:message key="mod.bacnet.presentValue"/></td>
+                <td></td>
+                <td><input type="checkbox" onclick="updateSelection('objList1', this.checked)" /></td>
+              </tr>
+              <tbody id="objList1"></tbody>
+            </table>
+            <div style="text-align: right">
+              <a href="javascript:addObjectsAsPoints('objList1')"><fmt:message key="mod.bacnet.addSel"/></a>              
+            </div>
+          </div>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+</td>

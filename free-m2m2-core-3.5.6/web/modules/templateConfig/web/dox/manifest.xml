@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems All rights reserved.
+    @author Phillip Dunlap
+-->
+
+<doxManifest>
+  <item id="templateConfig" key="templateConfig.dox.config" filename="templateConfig.htm">
+    <relation id="templateCreate"/>
+  </item>
+  
+  <item id="templateCreate" key="templateConfig.dox.create" filename="templateCreate.htm">
+    <relation id="templateConfig"/>
+  </item>
+</doxManifest>

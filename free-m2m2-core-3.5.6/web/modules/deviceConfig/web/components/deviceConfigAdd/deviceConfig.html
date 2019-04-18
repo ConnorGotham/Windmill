@@ -1,0 +1,12 @@
+<div layout>
+  <md-button class="md-raised md-primary" ng-click="$ctrl.writeRegisters()" ng-disabled="$ctrl.deviceConfigForm.$invalid || $ctrl.deviceConfigForm.$pristine">
+    <md-icon>save</md-icon> <span ma-tr="deviceConfig.writeToDevice"></span>
+  </md-button>
+  <md-button class="md-raised" ng-click="$ctrl.readRegisters()">
+    <md-icon>refresh</md-icon> <span ma-tr="deviceConfig.readFromDevice"></span>
+  </md-button>
+</div>
+
+<form name="$ctrl.deviceConfigForm">
+  <div ng-if="$ctrl.deviceConfig.configTemplateFile" ng-include="'/modules/deviceConfig/web/devices/' + $ctrl.deviceConfig.configTemplateFile" layout="column"></div>
+</form>

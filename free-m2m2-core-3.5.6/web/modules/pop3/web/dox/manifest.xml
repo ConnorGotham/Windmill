@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="pop3PP" key="dox.pop3PP" filename="pop3PP.htm">
+    <relation id="pop3DS"/>
+  </item>
+  
+  <item id="pop3DS" key="dox.pop3DS" filename="pop3DS.htm">
+    <relation id="pop3PP"/>
+  </item>
+</doxManifest>

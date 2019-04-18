@@ -1,0 +1,34 @@
+<%--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+--%>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<script type="text/javascript">
+
+function saveDataSourceImpl(basic) {
+	PakBusEditDwr.savePakBusIpDataSource(basic, $get("updatePeriods"), 
+			$get("updatePeriodType"), $get("quantize"),
+			$get("networkPollPeriods"), $get("networkPollPeriodType"), dataloggers,
+			$get("inetAddress"), $get("port"), $get("socketTimeout"), saveDataSourceCB);
+}
+
+function connectImpl(loggerAddress, neighborAddress, roundTripTime, securityCode, tableRequestRetryDelay) {
+    PakBusEditDwr.startIpUtility($get("inetAddress"), $get("port"), $get("socketTimeout"), 
+    		$get("networkPollPeriods"), $get("networkPollPeriodType"), $get("nodeAddress"),
+            loggerAddress, neighborAddress, roundTripTime, securityCode, tableRequestRetryDelay, connectCB);
+}
+
+</script>
+ 
+ <tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.ip.host"/></td>
+  <td class="formField"><input id="inetAddress" type="text" value="${dataSource.inetAddress}"/></td>
+</tr>
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.ip.port"/></td>
+  <td class="formField"><input id="port" type="number" value="${dataSource.port}"/></td>
+</tr>
+<tr>
+  <td class="formLabelRequired"><fmt:message key="dsEdit.pakbus.ip.socketTimeout"/></td>
+  <td class="formField"><input type="number" id="socketTimeout" value="${dataSource.socketTimeout}"/></td>
+</tr>

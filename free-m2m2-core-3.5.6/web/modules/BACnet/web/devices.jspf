@@ -1,0 +1,390 @@
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<script type="text/javascript" src="/dwr/interface/LocalDeviceDwr.js"></script>
+
+<div class="borderDiv marR" style="widthxx: 250px; float: left;">
+  <table width="100%">
+    <tr>
+      <td>
+        <span class="smallTitle"><fmt:message key="mod.bacnet.settings.listTitle"/></span>
+        <tag:help id="bacnetDevices"/>
+      </td>
+      <td align="right"><tag:img png="add" onclick="showDevice('')" title="common.add" id="dvImg"/></td>
+    </tr>
+  </table>
+  <table><tbody id="devicesTable"></tbody></table>
+</div>
+
+<div id="deviceConfigDiv" class="borderDiv marR" style="float:left; display:none;">
+  <table width="100%">
+    <tr>
+      <td><span class="smallTitle"><fmt:message key="mod.bacnet.settings.details"/></span></td>
+      <td align="right">
+        <tag:img png="save" onclick="saveDevice();" title="common.save"/>
+        <tag:img id="deleteImg" png="delete" onclick="deleteDevice();" title="common.delete" style="display:none;"/>
+      </td>
+    </tr>
+  </table>
+          
+  <table><tbody id="genericMessages"></tbody></table>
+          
+  <table id="deviceConfigProps">
+    <tr>
+      <td colspan="2" id="deviceMessage" class="formError"></td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.deviceId"/></td>
+      <td class="formField"><input id="deviceId" type="text"/></td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.deviceName"/></td>
+      <td class="formField"><input id="deviceName" type="text" class="property"/></td>
+    </tr>
+  
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.networkType"/></td>
+      <td class="formField">
+        <select id="type" class="property" onchange="typeChanged()">
+          <option value="ip"><fmt:message key="mod.bacnet.networkType.ip"/></option>
+          <option value="mstp"><fmt:message key="mod.bacnet.networkType.mstp"/></option>
+        </select>
+      </td>
+    </tr>
+  
+    <tbody id="ipProperties" class="networkProperties">
+      <tr>
+        <td class="formLabelRequired">
+          <fmt:message key="mod.bacnetIp.localBindAddress"/>
+          <a href="http://developerweb.net/viewtopic.php?id=5722" target="blank"><tag:img png="warn"/></a>
+        </td>
+        <td class="formField">
+          <input id="localBindAddress" type="text" class="property"/><br/>
+          <select id="localBindAddresses">
+            <option>0.0.0.0</option>
+          </select>
+          <img src="/images/arrow-turn-090-left.png" class="ptr" onclick="$set('localBindAddress', $get('localBindAddresses'))"/>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnetIp.broadcastAddress"/></td>
+        <td class="formField"><input id="broadcastAddress" type="text" class="property"/></td>
+      </tr>
+      
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnetIp.subnet"/></td>
+        <td class="formField"><input id="subnet" type="text" class="property"/></td>
+      </tr>
+      
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnetIp.port"/></td>
+        <td class="formField"><input id="port" type="text" class="property"/></td>
+      </tr>
+    </tbody>
+    
+    <tbody id="mstpProperties" class="networkProperties">
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.commPortId"/></td>
+        <td class="formField">
+          <input id="commPortId" type="text" class="property"/><br/>
+          <select id="commPortIds"></select>
+          <tag:img id='commPortsLoadingImg' src="/images/hourglass.png" style='display: none;'/>
+          <img src="/images/arrow-turn-090-left.png" class="ptr" onclick="$set('commPortId', $get('commPortIds'))"/>
+          <tag:img id='commPortRefreshButton' src="/images/arrow_refresh.png" onclick="reloadCommPorts('commPortIds', 'commPortsLoadingImg')" title='common.refreshCommPorts'/>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.baudRate"/></td>
+        <td class="formField">
+          <select id="baudRate" class="property">
+            <option>110</option>
+            <option>300</option>
+            <option>1200</option>
+            <option>2400</option>
+            <option>4800</option>
+            <option>9600</option>
+            <option>19200</option>
+            <option>38400</option>
+            <option>57600</option>
+            <option>76800</option>
+            <option>115200</option>
+            <option>230400</option>
+            <option>460800</option>
+            <option>921600</option>
+          </select>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.thisStation"/></td>
+        <td class="formField"><input id="thisStation" type="text" class="property"/></td>
+      </tr>
+      
+      <tr>
+        <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.retryCount"/></td>
+        <td class="formField"><input id="retryCount" type="text" class="property"/></td>
+      </tr>
+    </tbody>
+  
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.localNetworkNumber"/></td>
+      <td class="formField"><input id="localNetworkNumber" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.timeout"/></td>
+      <td class="formField"><input id="timeout" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.segmentTimeout"/></td>
+      <td class="formField"><input id="segTimeout" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.segmentWindow"/></td>
+      <td class="formField"><input id="segWindow" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.retries"/></td>
+      <td class="formField"><input id="retries" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.maxMaster"/></td>
+      <td class="formField"><input id="maxMaster" type="number" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.maxInfoFrames"/></td>
+      <td class="formField"><input id="maxInfoFrames" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.usageTimeout"/></td>
+      <td class="formField"><input id="usageTimeout" type="number" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.foreignBBMDAddress"/></td>
+      <td class="formField"><input id="foreignBBMDAddress" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.foreignBBMDPort"/></td>
+      <td class="formField"><input id="foreignBBMDPort" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.foreignBBMDTimeToLive"/></td>
+      <td class="formField"><input id="foreignBBMDTimeToLive" type="text" class="property"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.useRealtime"/></td>
+      <td class="formField"><sst:checkbox id="useMstpRealtime" selectedValue="true" onclick="realtimeChanged()"/></td>
+    </tr>
+    <tr class="realtimeProperties">
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.responseTimeoutMs"/></td>
+      <td class="formField"><input id="responseTimeoutMs" type="number" class="property"/></td>
+    </tr>
+    <tr class="realtimeProperties">
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.driverFileLocation"/></td>
+      <td class="formField"><input id="driverFileLocation" type="text" class="property"/></td>
+    </tr>
+    <tr class="realtimeProperties">
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.configProgramLocation"/></td>
+      <td class="formField"><input id="configProgramLocation" type="text" class="property"/></td>
+    </tr>
+  </table>
+</div>
+
+<div id="registerAsForeignDeviceDiv" class="borderDiv" style="float:left; display:none;">
+  <table width="100%">
+    <tr>
+      <td><span class="smallTitle"><fmt:message key="mod.bacnet.settings.registerNow"/></span></td>
+      <td align="right"><tag:help id="foreignDevices"/></td>
+    </tr>
+  </table>
+  
+  <table>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.foreignBBMDAddress"/></td>
+      <td class="formField"><input type="text" id="registerNowAddress"/>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.foreignBBMDPort"/></td>
+      <td class="formField"><input type="text" id="registerNowPort" value="47808"/>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.foreignBBMDTimeToLive"/></td>
+      <td class="formField"><input type="text" id="registerNowTimeToLive" value="300"/>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><button id="sendForeignDeviceRegistrationButton" onclick="sendForeignDeviceRegistration();"><fmt:message key="mod.bacnet.tools.sendNow"/></button></td>
+    </tr>
+  </table>
+  
+  <div id="foreignDeviceRegistrationStatus"></div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<script type="text/javascript">
+var editingDeviceId = null;
+
+dojo.addOnLoad(function() {
+	// Get the devices list from the server and write it out.
+	LocalDeviceDwr.init(function(result) {
+	    dwr.util.addOptions("localBindAddresses", result.data.localBindAddresses, "value", "label");
+	    dwr.util.addOptions("commPortIds", result.data.commPorts, "name", "name");
+		drawDevices(result.data.devices);
+	});
+});
+
+function drawDevices(list) {
+    dwr.util.removeAllRows("devicesTable");
+    dwr.util.addRows("devicesTable", list, [
+            function(d) { return "<img id='dv"+ d.id +"Img' src='/images/item.png'/>"; },
+            function(d) { return "<a class='link ptr localDevice' id='"+ d.id +"'>"+ d.description +"</a>"; }
+    ]);
+    
+    require(["dojo/query", "dojo/on"], function(query, on) {
+        query(".localDevice").forEach(function(e) {
+            on(e, "click", function() { showDevice(e.id); });        	
+        });
+    });
+};
+
+function showDevice(deviceId) {
+	if (editingDeviceId != null)
+        stopImageFader($("dv"+ editingDeviceId +"Img"));
+	editingDeviceId = deviceId;
+    LocalDeviceDwr.getLocalDeviceNotNull(deviceId, function(device) {
+        show("deviceConfigDiv");
+        show("registerAsForeignDeviceDiv");
+        
+        $set("type", device.type);
+        $set("localBindAddress", device.localBindAddress);
+        $set("broadcastAddress", device.broadcastAddress);
+        $set("subnet", device.subnet);
+        $set("port", device.port);
+        $set("commPortId", device.commPortId);
+        $set("baudRate", device.baudRate);
+        $set("thisStation", device.thisStation);
+        $set("retryCount", device.retryCount);
+        $set("deviceId", device.deviceId);
+        $set("deviceName", device.deviceName);
+        $set("localNetworkNumber", device.localNetworkNumber);
+        $set("timeout", device.timeout);
+        $set("segTimeout", device.segTimeout);
+        $set("segWindow", device.segWindow);
+        $set("retries", device.retries);
+        $set("maxMaster", device.maxMaster);
+        $set("maxInfoFrames", device.maxInfoFrames);
+        $set("usageTimeout", device.usageTimeout);
+        $set("foreignBBMDAddress", device.foreignBBMDAddress);
+        $set("foreignBBMDPort", device.foreignBBMDPort);
+        $set("foreignBBMDTimeToLive", device.foreignBBMDTimeToLive);
+     	$set("useMstpRealtime", device.useRealtime);
+     	$set("responseTimeoutMs", device.responseTimeoutMs);
+     	$set("driverFileLocation", device.driverFileLocation);
+     	$set("configProgramLocation", device.configProgramLocation);
+     	
+     	realtimeChanged();
+        typeChanged();
+        if (device.id) {
+            disable("type");
+            show("deleteImg");
+        }
+        else {
+            enable("type");
+            hide("deleteImg");
+        }
+     
+        setMessage();
+    });
+    startImageFader($("dv"+ editingDeviceId +"Img"));
+};
+
+function realtimeChanged(){
+    require(["dojo/query"], function(query) {
+        if($get("useMstpRealtime") == true){
+        	query(".realtimeProperties").forEach(function(e) { show(e); });
+        }else{
+        	query(".realtimeProperties").forEach(function(e) { hide(e); });
+        }
+
+    });
+}
+
+function typeChanged() {
+    require(["dojo/query"], function(query) {
+        query(".networkProperties").forEach(function(e) { hide(e); });
+        show($get("type") +"Properties");
+    });
+};
+
+function saveDevice() {
+    setMessage();
+    LocalDeviceDwr.saveLocalDevice(editingDeviceId, $get("deviceId"), $get("deviceName"), $get("type"),
+    		$get("localBindAddress"), $get("broadcastAddress"), $get("subnet"), $get("port"), $get("commPortId"), $get("baudRate"),
+            $get("thisStation"), $get("retryCount"), $get("localNetworkNumber"), $get("timeout"), $get("segTimeout"),
+            $get("segWindow"), $get("retries"), $get("maxMaster"), $get("maxInfoFrames"), $get("usageTimeout"), 
+            $get("useMstpRealtime"), $get("responseTimeoutMs"), $get("driverFileLocation"), $get("configProgramLocation"),
+            $get("foreignBBMDAddress"), $get("foreignBBMDPort"), $get("foreignBBMDTimeToLive"), function(result) {
+        if (result.hasMessages)
+            showDwrMessages(result.messages, "genericMessages");
+        else {
+        	if (editingDeviceId == "") {
+                stopImageFader($("dv"+ editingDeviceId +"Img"));
+                editingDeviceId = result.data.device.id;
+        	}
+        	
+            drawDevices(result.data.devices);
+            startImageFader($("dv"+ editingDeviceId +"Img"));
+            setMessage("<fmt:message key="mod.bacnet.settings.saved"/>");
+        }
+    });
+}
+
+function setMessage(message) {
+    if (message)
+        $set("deviceMessage", message);
+    else {
+    	$set("deviceMessage");
+        $set("genericMessages");
+        hideContextualMessages("deviceConfigProps");
+    }
+}
+
+function deleteDevice() {
+    if (confirm("<m2m2:translate key="mod.bacnet.settings.deleteConfirm" escapeDQuotes="true"/>")) {
+        var deviceId = editingDeviceId;
+        startImageFader("deleteImg");
+        LocalDeviceDwr.deleteLocalDevice(deviceId, function(response) {
+            stopImageFader("deleteImg");
+            
+            if (response.hasMessages)
+                setMessage(response.messages[0].genericMessage);
+            else {
+                stopImageFader("dv"+ deviceId +"Img");
+                hide("deviceConfigDiv");
+                editingDeviceId = null;
+                drawDevices(response.data.devices);
+            }
+        });
+    }
+}
+
+function sendForeignDeviceRegistration() {
+	setDisabled("sendForeignDeviceRegistrationButton", true);
+	if(editingDeviceId != null) {
+		LocalDeviceDwr.sendForeignDeviceRegistration(editingDeviceId, $get("registerNowAddress"),  
+				$get("registerNowPort"), $get("registerNowTimeToLive"), sendForeignDeviceRegistrationCB);
+	} else {
+		alert("<m2m2:translate key="mod.bacnet.settings.selectDevice" escapeDQuotes="true"/>");
+	}
+}
+
+function sendForeignDeviceRegistrationCB(result) {
+	if(result.hasMessages)
+		showDwrMessages(result.messages, "foreignDeviceRegistrationStatus");
+	else
+		$set("foreignDeviceRegistrationStatus", "<fmt:message key="mod.bacnet.tools.registeredAsForeign"/>");
+	setDisabled("sendForeignDeviceRegistrationButton", false);
+}
+</script>

@@ -1,0 +1,16 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+<h1>Overview</h1>
+<p>
+  The Log4j data source is used to store log messages from the Log4j logging system. When the data source starts an asynchronous
+  logging appender is added to the root logger to intercept messages.  This happens in a separate thread as to not slow down the system.
+</p>
+
+<h1>Configuration</h1>
+<p>
+  Every data source requires a <b>Name</b>, which can be any description. The <b>Message repeat interval (ms)</b> is a delay on handling the same
+  log message as the preceding within the interval. If a different log message occurs or the interval elapses after the first message, the second
+  identical message will be handled by any points it matches. This is primarily to prevent the simplest log message infinite loops.
+</p>

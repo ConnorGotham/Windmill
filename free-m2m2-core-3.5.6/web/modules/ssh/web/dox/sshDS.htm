@@ -1,0 +1,19 @@
+<h1>SSH Data Source Help</h1>
+
+
+<h2>Configuring your system for SSH Public Key Based Authentication</h2>
+<h3>Linux Example (OpenSSH)</h3>
+<ul>
+
+    <li>login to the mango server</li>
+    <li>execute <b>ssh-keygen -t rsa</b> Do <b>not</b> enter a passphrase</li>
+    <li>Copy the generated <b>public</b> key to the server you wish to login to at ./ssh/name_of_public_keyfile Example: scp ~/.ssh/id_rsa.pub user@host.org:.ssh/authorized_mango_keys</li>
+    <li>login to the server you plan to ssh into with Mango</li>
+    <li>if the file ~/.ssh/authorized_keys does not exist create it</li>
+    <li>Concatenate the newly copied public key to the list of authorized keys by: cat ~/.ssh/authorized_mango_keys >> ~/.ssh/authorized_keys</li>
+    <li>ensure correct permissions on all files by executing chmod 600 on them
+    <li>if you need to change the passphrase on the public key workstation use <b>ssh-keygen -p</b></li>
+</ul>
+
+<p>The default location of the authorized keys if you're running OpenSSH should be /root/.ssh/authorized_keys, Dropbear should be /home/root/.ssh/authorized_keys, 
+but your distribution may vary.</p>

@@ -1,0 +1,25 @@
+<h1 ma-tr="header.snmpPointImport"></h1>
+
+<div layout layout-align="start center">
+	<md-input-container flex>
+		<label ma-tr="snmp.ui.chooseDs"></label>
+		<ma-data-source-list ng-model="dataSource" query="'dataSourceType=SNMP'"></ma-data-source-list>
+	</md-input-container>
+	<md-button class="md-raised md-accent" ui-sref="ui.settings.snmp.scan">
+		<md-icon>add</md-icon>&nbsp;<span ma-tr="snmp.ui.newDataSource"></span>
+	</md-button>
+</div>
+
+<md-checkbox ng-model="$ctrl.showTools"><span ma-tr="snmp.ui.showTools"></span></md-checkbox>
+
+<md-card ng-if="$ctrl.showTools">
+    <md-card-content>
+        <ma-snmp-read-write data-source-xid="{{dataSource.xid}}" show-oid-input="true"></ma-snmp-read-write>
+    </md-card-content>
+</md-card>
+
+<md-card>
+	<md-card-content class="ma-no-padding">
+		<ma-snmp-point-import data-source-xid="{{dataSource.xid}}"></ma-snmp-point-import>
+	</md-card-content>
+</md-card>

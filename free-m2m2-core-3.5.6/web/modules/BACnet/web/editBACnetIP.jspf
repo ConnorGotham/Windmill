@@ -1,0 +1,51 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<%@page import="com.serotonin.bacnet4j.type.enumerated.ObjectType"%>
+
+<script type="text/javascript" src="${modulePath}/web/bacnet.js"></script>
+
+<script type="text/javascript">
+bndwr = BACnetIPEditDwr;
+<jsp:include page="bacnet.jspf"/>
+
+function saveBACnetPointLocator(id, xid, name, locator, cb) {
+    bndwr.saveBACnetIPPointLocator(id, xid, name, locator, savePointCB);
+}
+</script>
+    
+<tag:dataSourceAttrs descriptionKey="mod.bacnetIp.desc" helpId="bacnetIpDS">
+  <jsp:attribute name="extraPanels">
+    <jsp:include page="discovery.jspf"/>
+  </jsp:attribute>
+  
+  <jsp:body>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="dsEdit.updatePeriod"/></td>
+      <td class="formField">
+        <input type="text" id="updatePeriods" value="${dataSource.updatePeriods}" class="formShort"/>
+        <tag:timePeriods id="updatePeriodType" value="${dataSource.updatePeriodType}" s="true" min="true" h="true"/>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.localDeviceConfig"/></td>
+      <td class="formField">
+        <sst:select id="localDeviceConfig" value="${dataSource.localDeviceConfig}">
+          <c:forEach items="${configs}" var="config">
+            <sst:option value="${config.key}"><m2m2:translate message="${config.value}"/></sst:option>
+          </c:forEach>
+        </sst:select>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.covLease"/></td>
+      <td class="formField"><input id="covSubscriptionTimeoutMinutes" type="text" 
+              value="${dataSource.covSubscriptionTimeoutMinutes}"/></td>
+    </tr>
+  </jsp:body>
+</tag:dataSourceAttrs>
+
+<jsp:include page="points.jspf"/>

@@ -1,0 +1,127 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@page import="com.serotonin.m2m2.Common"%>
+<%@page import="com.infiniteautomation.mango.excelreports.ExcelReportPurgeDefinition"%>
+<%@page import="com.infiniteautomation.mango.excelreports.rt.ExcelReportWorkItem"%>
+<%@page import="com.serotonin.m2m2.rt.maint.work.WorkItem" %>
+<%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+
+<c:set var="excelreportPurgePeriods"><%= ExcelReportPurgeDefinition.REPORT_PURGE_PERIODS %></c:set>
+<c:set var="excelreportPurgePeriodType"><%= ExcelReportPurgeDefinition.REPORT_PURGE_PERIOD_TYPE %></c:set>
+<c:set var="excelreportWorkItemPriority"><%=ExcelReportWorkItem.REPORT_WORK_ITEM_PRIORITY %></c:set>
+<c:set var="reportWorkItemHighPriority"><%=WorkItem.PRIORITY_HIGH %></c:set>
+<c:set var="reportWorkItemMediumPriority"><%=WorkItem.PRIORITY_MEDIUM %></c:set>
+<c:set var="reportWorkItemLowPriority"><%=WorkItem.PRIORITY_LOW %></c:set>
+
+<script type="text/javascript">
+  
+var purgeAllExcelReportsNow,purgeExcelReportsNow;
+
+require(["dojo/request/xhr"], function(xhr){
+	
+	purgeAllExcelReportsNow = function(){
+		  if(confirm('<fmt:message key="systemSettings.excelreports.purgeAll"/>')){
+	    	  setUserMessage("excelreportsMessage", "<fmt:message key='systemSettings.excelreports.purging'/>");
+
+        	  xhr('/rest/v2/excel-reports/purge/all', {
+        		  method: 'DELETE',
+        	      handleAs: 'JSON',
+        	      headers: {"X-Xsrf-Token": /XSRF-TOKEN=([^ ;]+)/.exec(document.cookie)[1], "Accept":"application/json"}
+        	  }).then(function(data){
+        		  setUserMessage("excelreportsMessage","Purged " + data + " reports");
+        	  }, function(err){
+        	    // Handle the error condition
+        		  setUserMessage("excelreportsMessage",err);
+        	  }, function(evt){
+        	    // Handle a progress event from the request if the
+        	    // browser supports XHR2
+        	  });
+		  }
+	}
+	
+	purgeExcelReportsNow = function(){
+		  if(confirm('<fmt:message key="systemSettings.excelreports.purgeUsingSettings"/>')){
+	    	  setUserMessage("excelreportsMessage", "<fmt:message key='systemSettings.excelreports.purging'/>");
+          	  xhr('/rest/v2/excel-reports/purge/use-settings', {
+        		  method: 'DELETE',
+        	      handleAs: 'JSON',
+        	      headers: {"X-Xsrf-Token": /XSRF-TOKEN=([^ ;]+)/.exec(document.cookie)[1], "Accept":"application/json"}
+        	  }).then(function(data){
+        		  setUserMessage("excelreportsMessage","Purged " + data + " reports");
+        	  }, function(err){
+        		  setUserMessage("excelreportsMessage",err);
+        	  }, function(evt){
+        	    // Handle a progress event from the request if the
+        	    // browser supports XHR2
+        	  });
+		}
+	}
+	
+});
+
+  function saveExcelReportSettings() {
+      setUserMessage("excelreportsMessage");
+      setDisabled("saveExcelReportSettingsBtn", true);
+      
+	  var settings = {};
+      settings["${excelreportPurgePeriods}"] = $get("${excelreportPurgePeriods}");
+      settings["${excelreportPurgePeriodType}"] = $get("${excelreportPurgePeriodType}");
+      settings["${excelreportWorkItemPriority}"] = $get("${excelreportWorkItemPriority}");
+      
+	  SystemSettingsDwr.saveSettings(settings, function() {
+          setDisabled("saveExcelReportSettingsBtn", false);
+          setUserMessage("excelreportsMessage", "<fmt:message key='systemSettings.excelreports.reportsSettingsSaved'/>");
+	  });
+  }
+
+</script>
+<table>
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="systemSettings.excelreports.purgeReports"/></td>
+    <td class="formField">
+      <input id="${excelreportPurgePeriods}" type="number" value="<m2m2:systemSetting key="${excelreportPurgePeriods}" defaultValue="1"/>" class="formShort"/>
+      <c:set var="type"><%= Common.TimePeriods.MONTHS %></c:set>
+      <c:set var="periods"><m2m2:systemSetting key="${excelreportPurgePeriodType}" defaultValue="${type}"/></c:set>
+      <tag:timePeriods id="${excelreportPurgePeriodType}" d="true" w="true" mon="true" y="true" value="${periods}"/>
+      <button type="button" onclick="purgeExcelReportsNow()"><fmt:message key="dsEdit.purge.purgeNow"/></button>
+      <button type="button" onclick="purgeAllExcelReportsNow()"><fmt:message key="systemSettings.excelreports.purgeAllNow"/></button>
+    </td>
+  </tr>
+  <tr>
+    <td class="formLabelRequired"><fmt:message key="systemSettings.excelreports.workItemPriority"/></td>
+    <td class="formField">
+      <c:set var="excelreportWorkItemPriorityValue"><m2m2:systemSetting key="${excelreportWorkItemPriority}" defaultValue="${reportWorkItemLowPriority}"/></c:set>
+      <select id="${excelreportWorkItemPriority}">
+      <c:choose>
+      <c:when test="${excelreportWorkItemPriorityValue == reportWorkItemLowPriority}">
+        <option value="${reportWorkItemHighPriority}"><fmt:message key="systemSettings.excelreports.highPriority"/></option>
+        <option value="${reportWorkItemMediumPriority}"><fmt:message key="systemSettings.excelreports.mediumPriority"/></option>
+        <option value="${reportWorkItemLowPriority}" selected="selected"><fmt:message key="systemSettings.excelreports.lowPriority"/></option>
+      </c:when>
+      <c:when test="${excelreportWorkItemPriorityValue == reportWorkItemHighPriority}">
+        <option value="${reportWorkItemHighPriority}" selected="selected"><fmt:message key="systemSettings.excelreports.highPriority"/></option>
+        <option value="${reportWorkItemMediumPriority}"><fmt:message key="systemSettings.excelreports.mediumPriority"/></option>
+        <option value="${reportWorkItemLowPriority}" ><fmt:message key="systemSettings.excelreports.lowPriority"/></option>
+      </c:when>
+      <c:when test="${excelreportWorkItemPriorityValue == reportWorkItemMediumPriority}">
+        <option value="${reportWorkItemHighPriority}"><fmt:message key="systemSettings.excelreports.highPriority"/></option>
+        <option value="${reportWorkItemMediumPriority}"  selected="selected"><fmt:message key="systemSettings.excelreports.mediumPriority"/></option>
+        <option value="${reportWorkItemLowPriority}"><fmt:message key="systemSettings.excelreports.lowPriority"/></option>
+      </c:when>
+      
+      </c:choose>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input id="saveExcelReportSettingsBtn" type="button" value="<fmt:message key="common.save"/>" onclick="saveExcelReportSettings()"/>
+      <tag:help id="excelreports-settings"/>
+    </td>
+  </tr>
+  
+
+  
+  <tr><td colspan="2" id="excelreportsMessage" class="formError"></td></tr>
+</table>

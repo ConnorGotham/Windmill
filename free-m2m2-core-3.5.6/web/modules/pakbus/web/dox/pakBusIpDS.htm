@@ -1,0 +1,42 @@
+<p><b>PakBus I/P Data Source Help</b></p>
+<p>The PakBus data source can connect to dataloggers on a PakBus network and collect historical and real-time data.  When enabled a PakBus data source will 
+first attempt to gather the table definitions for all loggers being used.  No data collection will happen until the table definitions are received.</p>
+
+<h2>Data Collection</h2>
+<p>Data collection is based on 2 methods, Historical and Realtime.  Historical collection is table based such that historical data is gathered and filled 
+forward based on the starting record requested.  Realtime collection retrieves the current value for the point on each poll.
+</p>
+<h2><b>Settings</b></h2>
+<ul>
+    <li>The <b>Name</b> is a user defined label for the data source.</li>
+    <li>The <b>Export ID</b> is a unique value used when exporting/importing the datasource between Mango Instances</li>
+    <li>The <b>Purge</b> settings define how the data stored by this source is periodically deleted.</li>
+    <li>The <b>Update period</b> is the rate at which the requests are sent to the Dataloggers.</li>
+    <li><b>Quantize</b> forces the data source to start its first poll on a round number corresponding to the Update Period</li>
+    <li>The <b>Node Address</b> is the address that this data source will have on the PakBus network.</li>
+    <li>The <b>Network update period</b> is the rate at which the network is polled for responses and sends requests.</li>
+    <li>The <b>Host</b> is the hostname/ip address of the PakBus network's gateway.</li>
+    <li>The <b>Port</b> is the port of the PakBus network's gateway.</li>
+    <li>The <b>Socket Timeout</b> allows the data source to throw alarms if it time's out during a connection.  A value of 0 is no timeout.</li>
+</ul>
+
+<h2>Dataloggers</h2>
+<p>Dataloggers exist as nodes on the PakBus network.  There must be a datalogger defined in the table for every datalogger that you wish to connect to.</p>
+<p>Dataloggers are added via the discovery tool by clicking the Add datalogger to data source button.  Dataloggers in the table can copy their settings into the tool 
+by clicking the play button in the table.</p>
+
+<h2>Alarms</h2>
+<ul>
+    <li><b>Data source exception</b> alarms are any general errors with the data source and include general PakBus Network errors.</li>
+    <li><b>Poll aborted</b> alarms will happen if the data source is polling faster than it can do all of its work per poll.</li>
+    <li><b>Logger table definition request failed</b> alarms happen if a logger fails to provide its table definitions, in this condition we are unable to collect data from it.</li>
+    <li><b>Logger initialization failed</b> alarms will happen to any dataloggers that have been misconfigured for the data source.</li>
+    <li><b>Data collection failed</b> alarms will happen if a Historical point cannot collect its data.  These alarms will fire for every Historical data point that is requesting data from the table.</li>
+    <li><b>Get value failed</b> alarms will happen if a Realtime point cannot collect its data.  These alarms will fire individually for each Realtime data point.</li>
+</ul>
+
+<h2>Network Timing</h2>
+<p>Dataloggers collect and store their own data, so polling them faster than they are collecting will give you the same value until it changes.  
+Changes in the Network can only be detected every data source poll so it is important to realize that slower poll periods will reduce 
+the speed at which changes in the Network are detected. It is important to combine the logging properties of the points and the poll period of the data source to give the desired results.  
+For example, polling frequently can be counteracted by only logging a value <b>on change</b></p>

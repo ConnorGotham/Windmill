@@ -1,0 +1,6 @@
+<h1>Overview</h1>
+<p>The point properties of TCP/IP data points contains information about how to receive and parse values of interest. 
+If a point is <b>queryable</b>, its <b>read command</b> is issued every poll period. Any response received is searched by 
+the <b>value regex</b> and extracted at the <b>value index</b> if enough groups were captured in the regex. If a point is <b>settable</b> 
+the <b>write command</b> is issued upon setting, with the special string %VALUE% replaced by the value the point was set to. For instance, 
+'Hello %VALUE%' would output the popular hello when set to "World"</p>

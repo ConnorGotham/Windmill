@@ -1,0 +1,91 @@
+<!--
+    Copyright (C) 2015 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+<h1>Overview</h1>
+<p>
+  Report templates provide the definition of how to create report instances. Templates are used hold all the settings for generating a report.  
+  The only variation on this is when a report is run from the page where dates and rollups can be set when it is run.
+</p>
+
+<h1>Editing report template</h1>
+<p>
+  The template's <b>name</b> is used to visually reference the template. It is recommended that a unique name be used 
+  for each report, but it is not required.  The report template's name will be used as the name for all generated reports.
+</p>
+<p>
+  Use the <b>Template</b> is the Excel file that will be used to determine the available named ranges that will be filled 
+  in with data by Mango.
+</p>
+<p>
+  <b>Prevent purge</b> setting will prevent any generated reports from being purged.
+</p>
+<p>
+  <b>Edit permission</b> is a list of user groups that define which users can edit this template.
+</p>
+<p>
+  <b>Report read permission</b> is a list of user groups that define who can view any generated reports.
+</p>
+<h2>Time Periods</h2>
+<p>Time periods are groups of points linked to time ranges and rollups.  Each time range will generate statistics and extract point values over this time range using the rollup (if provided).</p>
+<p>
+  <b>Name</b> each time period is given a name to help identify it on the <b>Run now</b> popup.
+</p>
+<p>
+  The <b>Time Period</b> is used to determine what values to select for the report. The range can be relative or 
+  absolute. In most cases a relative range is appropriate. Relative date ranges can be either based upon "previous" 
+  data or "past" data. A <b>Past</b> range includes the given time period ending now. A <b>Previous</b> range also 
+  includes the given time period, but its end time is quantized to correspond to the period type. For example, if the 
+  period type is "Hour(s)" and number of periods is 1, and the report runs at 18:05, the time span that will be used is 
+  from 17:00 (inclusive) to 18:00 (exclusive). If the number of periods were, say, 3, the time span would be from 15:00 
+  to 18:00. Similarly, "Month(s)" starts the time span at midnight on the first day of the previous month and ends it 
+  on the last day of the previous month (when the number of periods is 1). Other period types work the same. A week 
+  starts on Monday at midnight in accordance with ISO standards. A <b>Current</b> range quantizes the time to the start of the 
+  selected period type until the moment the report is run. An <b>Ago</b> range quantizes the time to the start of the selected 
+  period which is that many periods ago and quantizes the to the end of that period.  So for example you can query on the entire 
+  month that was 2 months ago, so if today is in January 2 months ago would be the entire month of November last year.
+</p>
+
+<p>The <b>Rollup</b> is a way to group point data into discrete intervals.  This is useful for many purposes including reducing the amount 
+of data that the report will generate</p>
+
+<p><b>Location for time values</b> is the named range into which the timestamps will be placed.  This range must be a group of contiguous cells (ie. part of a column or row).  
+Mango will expand or reduce this named range to fit all the data for the report.  This is not required and if not present no timestamps will be inserted into the spreadsheet.</p>
+
+<p>When you <b>Add a point</b> the point will appear in the table for that time range.  (If <b>Add to all time periods</b> is checked the point will end up in all created time periods).
+After adding the point the named range must be set.  This range must be a contiguous set of cells (ie. part of a row or column).  
+It is worth noting that additional ranges can be created based on the assigned range.  For example assiging the range: 'last_month_voltage' to a point in a Time Series 
+will make the statistics for that point available in any ranges defined like 'last_month_voltage.average' or 'last_month_voltage.sum' See the Excel Template File setup help for more information.
+</p>
+
+<h1>Post processing script</h1>
+<p>
+  The post processing script exposes the processed Workbook to a script for any further modification. Cells can be read or written from the script,
+  and the workbook is directly accessible for more advanced actions. See the help for the ExcelReportUtility or print(ExcelReportUtility) in a script
+  body for a list of available functions. 
+</p>
+
+<h1>Report scheduling</h1>
+<p>
+  Reports can be <b>scheduled</b> to run automatically. Enter a custom Cron expression or use the Cron builder tool 
+  to generate the appropriate pattern.
+</p>
+<p>
+  Scheduled reports for disabled users do not run.
+</p>
+
+<h1>Report emailing</h1>
+<p>
+ Reports can be emailed and will contain the generated Excel file (optionally compressed).</p>
+<p>
+  Select the <b>Email recipients</b> to which to send the report email. Recipients can be mailing lists, system users, 
+  or free-form email addresses.
+</p>
+
+<h1>Email Templates</h1>
+<p>
+  Email templates are user defined Freemarker templates.  These templates can be customized by using the provided template as an example.  Any templates 
+  placed in the module's web/ftl directory will show up in the Template drop down list. Before processing the email template, the model that will be passed
+  to the template processor is passed to the email model script, as with email event handlers, under the variable name 'model'. This means the script can
+  add anything to the model via model.put(key, value) and then refer to that in the email template.
+</p>

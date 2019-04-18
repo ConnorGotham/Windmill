@@ -1,0 +1,81 @@
+*Version 3.5.0*
+* Upgraded to work with core version 3.5.x
+* Allowing multiple data points to link to an event
+* Allowing multiple data sources to link to an event 
+* Adding timeout for Manual type events
+* Adding toggle permission to allow toggling the event if not admin
+* Adding REST endpoints and websockets to manage events
+* Adding monitor point to track count of created Maintenance event configurations
+* Adding custom query for events endpoint to return Maintenance events based on RQL query of Maintenance Event configurations
+* Adding maintenanceEventsUtility to javascript context to allow manipulation of Maintenance Events
+* Adding custom query for events endpoint to return events based on linked data point or data source xids
+* Adding endpoint to set the state of the event /v2/maintenance-events/active/{xid}?active=[true|false]
+* Provide validation feedback when trying to save a maintenance event with a data point or data source XID that doesn't exist
+
+*Version 3.4.0*
+* Upgraded to work with core version 3.4.x
+* Change events to be viewable by anyone with edit permission to the data source for the event
+
+*Version 3.3.1*
+* Fix delete from eventHandlersMapping table instead of old style from eventHandlers
+
+*Version 3.3.0*
+* Upgraded to work with core version 3.3.x
+
+*Version 3.2.0*
+* Upgraded to work with core version 3.2.x
+
+*Version 3.1.0*
+* Upgraded to work with core version 3.1.x
+
+*Version 3.0.0*
+* Upgraded to work with core version 3.0.x
+
+*Version 1.6.0*
+* Upgraded to work with core version 2.8.x
+
+*Version 1.5.1*
+* Upgraded to work with core version 2.7.x
+
+*Version 1.5.0*
+* Upgraded to work with core version 2.6.x
+
+*Version 1.4.8*
+* Upgraded to work with core version 2.5.x
+
+*Version 1.4.7*
+* Upgraded to work with core version 2.4.x
+
+*Version 1.4.6*
+* Added H2 Support
+
+*Version 1.4.5*
+* Upgraded to work with core version 2.3.x
+
+*Version 1.4.4*
+* Fixed broken month options for active/inactive times on the Schedule Once type Events.
+
+*Version 1.4.3*
+* Added Conversion definition for Maintenance Event Type to be viewable on the Events Report page
+* Fixed broken image link on event creation page
+
+*Version 1.4.2*
+*Modified for Core 2.2
+
+*Version 1.4.1*
+*Modified for Core 2.1
+
+*Release notes for 1.4.0*
+
+* Create a new maintenance event if the XID on import is not provided
+* Updated to work with core 2.0
+
+
+*Release notes for 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Release notes for 1.0.1*
+
+* Added documentation

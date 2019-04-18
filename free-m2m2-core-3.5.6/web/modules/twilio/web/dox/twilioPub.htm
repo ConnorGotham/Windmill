@@ -1,0 +1,41 @@
+<!--
+    Copyright (C) 2013 Infinite Automation Systems All rights reserved.
+    @author Phillip Dunlap
+-->
+<h1>Publisher Overview</h1>
+<p>The Twilio publisher is used to send messages through the Twilio service to your phone.</p>
+
+<p>
+  Twilio publishers can be useful in a number of ways:
+</p>
+<ul>
+  <li>Post a singular piece of data to any phone number.</li>
+  <li>Send out collections of data formatted into a given string.</li>
+</ul>
+
+<p>
+  The publisher configuration requires you to have a Twilio account. It requires you to know the <b>Twilio URL</b> you post to, your <b>Twilio account SID</b>, 
+  your <b>Twilio account authentication token</b>, and your <b>Twilio phone number</b>.  Because the publisher is not currently checking for a notification that its message was recieved,
+  the caching and snapshot features are unreliable in version 1.0.0.
+</p>
+
+<h1>Points Overview</h1>
+<p>Twilio published points allow you to format your information meaningfully and send it on to multiple phone numbers.</p>
+
+<p>
+  Attributes common to all published points are:
+</p>
+<ul>
+  <li><b>Name</b>: the name of the point from its original data source</li>
+  <li><b>Status</b>: whether publishing this point is enabled or not</li>
+  <li><b>Type</b>: the data type of the point, inherited from the data source. Formatting treats all data as strings.</li>
+  <li><b>Format String</b>: The format string for your message. The value of the data point will replace every '~' in the format string</li>
+  <li><b>To Phone Number</b>: The phone number you wish to message.</li>
+</ul>
+
+<h1>Advanced Formatting</h1>
+<p>If your data is more complex, there is a second formatting option. If the point being published is of the form (val1`val2`val3) (accent, `, is the delimiter) it will be interpreted as permitting
+ multiple replacements. A format string can have multiple replacement characters ('~') which will be replaced sequentially. For instance, if point p has format string
+ "Chiller is at usage ~ with five-minute valve proportion ~", and were set with the value (CRITICAL`.95) the resulting text should read "Chiller is at usage CRITICAL with five-minute
+ valve proportion .95". This means you can publish a meta point, using its capability to build your data, and perform the data transformations required to get you the
+ information you want conveniently.</p>

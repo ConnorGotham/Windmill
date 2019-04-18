@@ -1,0 +1,9 @@
+<h1>Overview</h1>
+<p>The TCP/IP data source communicates over a socket and parses the responses into meaningful data. The <b>host</b> is the IP 
+you are connecting to. The <b>port</b> is the port open by whatever you're communicating with. The <b>delimiter</b> is a message termnicator 
+for the protocol spoken, and is appended after every read command. Delimiters are unescaped before sending, so "\r" translates to carrriage 
+return. The <b>timeout</b> determines when to abandon listening for a completed response, a timeout of 0 means no timeout.  When using a timeout 
+if a message is recieved with no EOF (end of file) or connection close, then the message will not be processed until after the timeout has been reached.
+The <b>Configuration is in hex</b> setting allows use of 2 digit hex ASCII characters to be interpreted as bytes.  This is generally only applicable to String data type points as 
+the HEX codes are converted from their 2 digit character code (such as 0F) into a byte value from 0-255 when sent along the wire.
+</p>

@@ -1,0 +1,12 @@
+<h3>Overview</h3>
+<p>Data file data points can serve two functions. The first is to represent the imported data for the rest of the functions provided 
+by Mango, as with a typical data point. The second maps a particular column header string to the XID of another data point, so as to 
+import the history as the target's.</p>
+<h2>Configuration</h2>
+<p>Import points are returned from the import class to the data file data source with identifiers attached. The <b>Identifier in import document</b>
+must match the identifier in the returned import point. If two points on the same data source have the same identifier, only one will get the update.
+If the point <b>Maps to external point</b> then <b>Point to import values to</b> must be selected. This appears in the point's JSON as the "toXid"</p>
+
+<p>If the point is <b>Settable</b> and the data source has a poll class defined, then setting values to this point will pass that value into
+the poll class setPointValueImpl(DataPointRT dataPoint, PointValueTime valueTime, SetPointSource source) method. If the point is a mapping point,
+it is not required that it's data type be the same as the point it maps to.</p>

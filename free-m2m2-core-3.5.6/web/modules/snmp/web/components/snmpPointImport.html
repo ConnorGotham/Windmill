@@ -1,0 +1,257 @@
+<md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.activeTab">
+	<md-tab ng-disabled="$ctrl.hasResults">
+		<md-tab-label>
+			<span ma-tr="snmp.ui.selectSNMPPoints"></span>
+		</md-tab-label>
+		<md-tab-body>
+			<div class="md-padding">
+				<div layout layout-align="start center">
+					<md-input-container flex="100" flex-gt-sm="50">
+						<label ma-tr="snmp.ui.rootOid"></label>
+						<input ng-model="$ctrl.rootOid">
+					</md-input-container>
+				</div>
+
+				<em ma-tr="snmp.ui.xMIBFilesSelected" ma-tr-args="[$ctrl.mibFileNames.length || 0]"></em>
+				<div>
+					<md-button class="md-raised md-primary"
+							ma-choose-file="$ctrl.setMibFiles($urls)"
+							ma-choose-file-selected="$ctrl.mibFileUrls"
+							ma-choose-file-options="{store: 'SNMP_MIB_STORE', extensions:'txt,mib', mimeTypes:'text/plain', multiple: true}"
+							ng-disabled="$ctrl.snmpWalkPromise">
+						<span ma-tr="snmp.ui.selectMIBFiles"></span>
+					</md-button>
+					
+					<md-button class="md-raised md-accent" ng-click="$ctrl.startSNMPWalk($event)"
+							ng-disabled="!$ctrl.dataSourceXid || $ctrl.snmpWalkPromise">
+						<span ma-tr="snmp.ui.startSNMPWalk"></span>
+					</md-button>
+                    <md-button class="md-raised md-warn" ng-click="$ctrl.walkResource.cancel()"
+                            ng-disabled="!$ctrl.walkResource">
+                        <span ma-tr="snmp.ui.cancelSNMPWalk"></span>
+                    </md-button>
+					
+					<md-checkbox ng-model="$ctrl.hideExistingOids" ng-change="$ctrl.filterWalkResults()">
+						<span ma-tr="snmp.ui.hideExistingOids"></span>
+					</md-checkbox>
+				</div>
+
+                <div ng-if="$ctrl.snmpWalkPromise" layout="column">
+                    <div class="ma-text-centered">
+                        <em ma-tr="snmp.ui.foundXOids" ma-tr-args="[$ctrl.walkResults.length || 0]"></em>
+                    </div>
+				    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                </div>
+				
+				<div layout layout-align="start center" layout-wrap class="oid-filters">
+                    <md-input-container flex="50" flex-gt-md="25">
+                        <label ma-tr="snmp.ui.oidFilter"></label>
+                        <input ng-model="$ctrl.oidFilter" ng-change="$ctrl.filterWalkResults()" ng-model-options="{debounce: 1000}">
+                    </md-input-container>
+					<md-input-container flex="50" flex-gt-md="25">
+						<label ma-tr="snmp.ui.symbolFilter"></label>
+						<input ng-model="$ctrl.symbolFilter" ng-change="$ctrl.filterWalkResults()" ng-model-options="{debounce: 1000}">
+					</md-input-container>
+					<md-input-container flex="50" flex-gt-md="25">
+						<label ma-tr="snmp.ui.descriptionFilter"></label>
+						<input ng-model="$ctrl.descriptionFilter" ng-change="$ctrl.filterWalkResults()" ng-model-options="{debounce: 1000}">
+					</md-input-container>
+                    <md-input-container flex="50" flex-gt-md="25">
+                        <label ma-tr="snmp.ui.valueFilter"></label>
+                        <input ng-model="$ctrl.valueFilter" ng-change="$ctrl.filterWalkResults()" ng-model-options="{debounce: 1000}">
+                    </md-input-container>
+				</div>
+				
+				<div>
+					<span ma-tr="snmp.ui.xOidsSelected" ma-tr-args="[$ctrl.selectedOids.length]"></span>
+				    <span ng-if="$ctrl.selectedOids.length"> &mdash; <a ng-click="$ctrl.selectedOids = []; $ctrl.generatePoints()">Deselect all</a></span>
+				</div>
+
+				<md-table-container>
+				  <table md-table md-row-select="true" multiple="true" ng-model="$ctrl.selectedOids">
+				    <thead md-head md-order="$ctrl.walkResultTable.order" md-on-reorder="$ctrl.filterWalkResults">
+				      <tr md-row>
+				      	<th md-column ng-if="!$ctrl.hideExistingOids" ma-tr="snmp.ui.cols.existingXid"></th>
+				      	<th md-column md-order-by="oid" ma-tr="snmp.ui.cols.oid"></th>
+				      	<th md-column md-order-by="variableSyntax" ma-tr="snmp.ui.cols.variableSyntax"></th>
+				      	<th md-column md-order-by="currentValue" ma-tr="snmp.ui.cols.currentValue"></th>
+				      	<th md-column md-order-by="accessible" ma-tr="snmp.ui.cols.accessible"></th>
+				      	<th md-column md-order-by="symbol" ma-tr="snmp.ui.cols.symbol"></th>
+				      	<th md-column md-order-by="description" ma-tr="snmp.ui.cols.description"></th>
+				      </tr>
+				    </thead>
+				    <tbody md-body>
+				      <tr class="ma-text-centered" ng-if="!$ctrl.filteredWalkResults.length">
+				      	<td colspan="{{7 + ($ctrl.hideExistingOids ? 0 : 1)}}">
+				      		<em ma-tr="snmp.ui.noRowsToDisplay"></em>
+				      	</td>
+				      </tr>
+				      <tr md-row md-select="row" md-on-select="$ctrl.generatePoints" md-on-deselect="$ctrl.generatePoints" md-select-id="oid"
+				      		ng-repeat="row in $ctrl.filteredWalkResults track by row.oid">
+				        <td md-cell ng-if="!$ctrl.hideExistingOids" ng-bind="row.existingXid"></td>
+				      	<td md-cell ng-bind="row.oid"></td>
+				      	<td md-cell ng-bind="row.variableSyntax"></td>
+				      	<td md-cell ng-bind="row.currentValue"></td>
+				      	<td md-cell ng-bind="row.accessible"></td>
+				      	<td md-cell ng-bind="row.symbol"></td>
+				      	<td md-cell ng-bind="row.description"></td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</md-table-container>
+                
+                <md-table-pagination md-limit="$ctrl.walkResultTable.limit" md-limit-options="[5, 10, 20, 50, 100]"
+                    md-page="$ctrl.walkResultTable.page" md-total="{{$ctrl.walkResultTable.total}}"
+                    md-page-select md-on-paginate="$ctrl.filterWalkResults">
+                </md-table-pagination>
+			</div>
+		</md-tab-body>
+	</md-tab>
+	<md-tab ng-disabled="$ctrl.hasResults">
+		<md-tab-label>
+			<span ma-tr="snmp.ui.mapPointProperties"></span>
+		</md-tab-label>
+		<md-tab-body>
+			<div class="md-padding">
+				<div layout="column">
+					<div layout ng-repeat="(colName, colProps) in $ctrl.columns">
+						<md-input-container flex="25">
+							<label ma-tr="snmp.ui.columnFor.{{colName}}"></label>
+							<md-select ng-model="$ctrl.columns[colName].column" ng-change="$ctrl.generatePoints()">
+								<md-option ng-value="null" md-option-empty>
+									<em ma-tr="snmp.ui.noneFixedValue"></em>
+								</md-option>
+								<md-option value="oid" ma-tr="snmp.ui.cols.oid"></md-option>
+								<md-option value="variableSyntax" ma-tr="snmp.ui.cols.variableSyntax"></md-option>
+								<md-option value="accessible" ma-tr="snmp.ui.cols.accessible"></md-option>
+								<md-option value="symbol" ma-tr="snmp.ui.cols.symbol"></md-option>
+                                <md-option value="symbolWithIndex" ma-tr="snmp.ui.cols.symbolWithIndex"></md-option>
+								<md-option value="description" ma-tr="snmp.ui.cols.description"></md-option>
+							</md-select>
+						</md-input-container>
+						<md-input-container flex ng-if="$ctrl.columns[colName].column">
+							<label ma-tr="snmp.ui.regex"></label>
+							<input ng-model="$ctrl.columns[colName].regex" ng-trim="false" ng-change="$ctrl.generatePoints()">
+						</md-input-container>
+						<md-input-container flex>
+							<label ma-tr="{{$ctrl.columns[colName].column ? 'snmp.ui.replace' : 'snmp.ui.fixedValue'}}"></label>
+							<input ng-if="!(colName === 'dataType' && !$ctrl.columns[colName].column)" ng-model="$ctrl.columns[colName].replace" ng-trim="false" ng-change="$ctrl.generatePoints()">
+							<md-select ng-if="colName === 'dataType' && !$ctrl.columns[colName].column" ng-model="$ctrl.columns[colName].replace" ng-change="$ctrl.generatePoints()">
+								<md-option ng-value="undefined">
+									<em ma-tr="snmp.ui.autoDetect"></em>
+								</md-option>
+								<md-option ng-value="'NUMERIC'">NUMERIC</md-option>
+								<md-option ng-value="'BINARY'">BINARY</md-option>
+								<md-option ng-value="'MULTISTATE'">MULTISTATE</md-option>
+								<md-option ng-value="'ALPHANUMERIC'">ALPHANUMERIC</md-option>
+							</md-select>
+						</md-input-container>
+						<md-input-container>
+							<label ma-tr="snmp.ui.previewOfFirstPoint"></label>
+							<input ng-model="$ctrl.mangoPoints[0][colName]" ng-trim="false" ng-disabled="true">
+						</md-input-container>
+					</div>
+				</div>
+			</div>
+		</md-tab-body>
+	</md-tab>
+	<md-tab md-on-select="!$ctrl.hasResults && $ctrl.checkExistingPoints()" ng-disabled="!$ctrl.mangoPoints.length">
+		<md-tab-label>
+			<span ma-tr="snmp.ui.previewAndCreatePoints"></span>
+		</md-tab-label>
+		<md-tab-body>
+			<div class="md-padding">
+				<div layout layout-wrap layout-align="start center">
+					<md-input-container flex flex-gt-sm="50" flex-gt-md="25">
+						<label ma-tr="snmp.ui.existingOidStrategy"></label>
+						<md-select ng-model="$ctrl.existingIdStrategy" ng-change="!$ctrl.hasResults && $ctrl.checkExistingPoints()" ng-disabled="$ctrl.createPointsPromise || $ctrl.hasResults">
+							<md-option value="SKIP" ma-tr="snmp.ui.skip"></md-option>
+							<md-option value="UPDATE_KEEP_XID" ma-tr="snmp.ui.updateKeepXid"></md-option>
+							<md-option value="UPDATE" ma-tr="snmp.ui.update"></md-option>
+						</md-select>
+					</md-input-container>
+					<md-button class="md-raised md-primary" ng-click="$ctrl.createPoints($event)" ng-disabled="$ctrl.createPointsPromise || !$ctrl.existingPointsChecked || $ctrl.hasResults">
+						<md-icon>forward</md-icon>&nbsp;<span ma-tr="snmp.ui.createPoints"></span>
+					</md-button>
+					<md-button class="md-raised md-warn" ng-click="$ctrl.cancelCreatePoints = true" ng-if="$ctrl.createPointsPromise">
+						<md-icon>cancel</md-icon>&nbsp;<span ma-tr="common.cancel"></span>
+					</md-button>
+					<md-button class="md-raised" ng-click="$ctrl.startOver()" ng-if="$ctrl.hasResults && !$ctrl.createPointsPromise">
+						<md-icon>undo</md-icon>&nbsp;<span ma-tr="snmp.ui.startOver"></span>
+					</md-button>
+				</div>
+
+				<md-progress-linear ng-if="$ctrl.createPointsPromise" md-mode="determinate" ng-value="$ctrl.progress / $ctrl.mangoPoints.length * 100"></md-progress-linear>
+
+				<md-table-container>
+				  <table md-table>
+				    <thead md-head md-order="$ctrl.pointOrder" md-on-reorder="$ctrl.orderPoints">
+				      <tr md-row>
+				        <th md-column md-order-by="oid" ma-tr="snmp.ui.cols.oid"></th>
+				        <th md-column md-order-by="originalXid" ma-tr="snmp.ui.existingXid"></th>
+				        <th md-column md-order-by="xid" ma-tr="snmp.ui.newXid"></th>
+				        <th md-column md-order-by="deviceName" ma-tr="common.deviceName"></th>
+				        <th md-column md-order-by="name" ma-tr="common.name"></th>
+				        <th md-column md-order-by="currentValue" ma-tr="snmp.ui.cols.currentValue"></th>
+				        <th md-column md-order-by="dataType" ma-tr="dsEdit.pointDataType"></th>
+				        <th md-column md-order-by="settable" ma-tr="dsEdit.settable"></th>
+				        <th md-column md-order-by="unit" ma-tr="snmp.ui.unit"></th>
+				        <th md-column md-order-by="statusText" ma-tr="snmp.ui.importStatus"></th>
+				      </tr>
+				    </thead>
+				    <tbody md-body>
+				      <tr md-row ng-repeat="point in $ctrl.orderedMangoPoints track by point.oid">
+				        <td md-cell ng-bind="point.oid"></td>
+				        <td md-cell>
+				        	<span ng-if="point.originalXid" ng-bind="point.originalXid"></span>
+				        	<span ng-if="!point.originalXid">&mdash;</span>
+				        </td>
+                        <td md-cell>
+                            <span ng-if="point.skip"><em ma-tr="snmp.ui.willBeSkipped"></em></span>
+                            <md-input-container ng-if="!point.skip" md-no-float="true" class="ma-no-margin">
+                                <input ng-model="point.newXid" ng-disabled="point.skip || $ctrl.hasResults">
+                            </md-input-container>
+                        </td>
+				        <td md-cell>
+                            <md-input-container md-no-float="true" class="ma-no-margin">
+                                <input ng-model="point.deviceName" ng-disabled="point.skip || $ctrl.hasResults">
+                            </md-input-container>
+                        </td>
+				        <td md-cell>
+                            <md-input-container md-no-float="true" class="ma-full-width ma-no-margin">
+                                <input ng-model="point.name" ng-disabled="point.skip || $ctrl.hasResults">
+                            </md-input-container>
+                        </td>
+				        <td md-cell ng-bind="point.currentValue"></td>
+				        <td md-cell>
+				        	<md-input-container md-no-float="true" class="ma-no-margin">
+                                <md-select ng-model="point.dataType" ng-disabled="point.skip || $ctrl.hasResults">
+                                    <md-option value="NUMERIC"><span ma-tr="common.dataTypes.numeric"></span></md-option>
+                                    <md-option value="BINARY"><span ma-tr="common.dataTypes.binary"></span></md-option>
+                                    <md-option value="MULTISTATE"><span ma-tr="common.dataTypes.multistate"></span></md-option>
+                                    <md-option value="ALPHANUMERIC"><span ma-tr="common.dataTypes.alphanumeric"></span></md-option>
+                                </md-select>
+				        	</md-input-container>
+				        </td>
+                        <td md-cell>
+                            <md-checkbox ng-model="point.settable" ng-disabled="point.skip || $ctrl.hasResults"></md-checkbox>
+                        </td>
+				        <td md-cell>
+				        	<md-input-container md-no-float="true" class="ma-no-margin">
+				        		<input ng-model="point.unit" ng-disabled="point.skip || $ctrl.hasResults">
+				        	</md-input-container>
+				        </td>
+				        <td md-cell>
+				        	<span ng-if="point.status.error" md-colors="{color: 'warn'}" ng-bind="point.status.error"></span>
+				        	<span ng-if="point.status.created" ma-tr="snmp.ui.created"></span>
+				        	<span ng-if="point.status.updated" ma-tr="snmp.ui.updated"></span>
+				        	<span ng-if="point.status.skipped" ma-tr="snmp.ui.skipped"></span>
+				        </td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</md-table-container>
+			</div>
+		</md-tab-body>
+	</md-tab>
+</md-tabs>

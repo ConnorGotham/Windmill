@@ -1,0 +1,67 @@
+<h1>Overview</h1>
+<p>
+  BACnet data sources and publishers require local device instances to operate. Local devices are shared among data
+  sources and publishers. In order for settings changed to come into effect, all data sources and publishers using the
+  local device must be stopped such that nothing is using the old local device, then they may be started again.
+</p>
+<h1>Configuration</h1>
+<p>
+  The <b>Device ID</b> is the identifier that the local device will provide to other equipment in its IAm message. An 
+  IAm message is automatically sent upon startup of the data source to declare its presence to the network, and is also 
+  sent in response to appropriate WhoIs requests.
+</p>
+<p>
+  The <b>Network Type</b> determines the type of network that the local device uses for communication. Once the local
+  device is saved, this value can no longer be edited.
+</p>
+<h1>I/P Configuration</h1>
+<p>
+  The <b>Broadcast address</b> is the IP address for broadcast messages. The <b>Subnet</b> is the length of the network 
+  segment of the IP address. Your network administrator will provide you with appropriate values to use. The <b>Port</b> 
+  is the port number upon which the local device will listen for incoming messages. See 
+  <a href="http://infiniteautomation.com/wiki/doku.php?id=datasources:bacnet:configuring_local_devices" target="blank">here</a>
+  for additional details.
+</p>
+<p>
+  If the <b>BBMD address</b> is not empty, the Local Device will register with with it as a foreign device when the local 
+  device is initialized. This local device will act as though it belongs to that network, and will use the BBMD for discovery.
+  If you have BACnet devices on the local network and a BBMD connection, you can create a second local device on a different
+  local port to register with the BBMD, then gather that data in its own data source. The local device will resend the foreign
+  device registration to the <b>BBMD address</b> and <b>BBMD port</b> every <b>BBMD registration interval</b> seconds. Because
+  all users of a local device must be stopped for changes to take effect, there is a utility to send a BBMD registration from the
+  local device currently being edited, which does update the running device.
+</p>
+<h1>MS/TP Configuration</h1>
+<p>
+  MS/TP uses serial communication, and so requires the setting of a <b>Comm port ID</b> and <b>Baud rate</b>.
+</p>
+<p>
+  The <b>This station ID</b> is the MS/TP id the local device. This ID must be distinct from all other IDs on the 
+  network. The <b>Frame error retry count</b> determines the MS/TP-level number of retries for failed frame sends. This 
+  is distinct from the transport-level retry count.
+</p>
+<p>
+The <b>Max master</b> setting is used to limit the Token passing to iterate up to master's with this Station ID.
+The <b>Max info frames</b> setting is used to limit the number of messages the device can send while it holds the token.
+The <b>usageTimeout</b> setting is used to set the time the device will wait between polls for the master frame.  Lower settings avoid long poll intervals.
+</p>
+<h2>Realtime Linux Driver</h2>
+<p>The system is capable of using a non-free 3rd party realtime linux kernel driver for systems that have stricter timing requirements than
+the JVM can provide for.  Contact IAS for more information.  The <b>driver file location</b> must point to the location of the compiled linux kernel driver.
+The <b>config program location</b> must point to the location of the specifically designed program that is used to configure the kernel driver. The <b>Response timeout</b> is used 
+to determine how long to wait (in ms) before the device assumes no response will be sent.
+</p>
+<h1>Common Configuration</h1>
+<p>
+  The <b>Local network number</b> is the ID of the local network. It is typically sufficient to set this value to 0.
+</p>
+<p>
+  The <b>Strict device comparisons</b> setting determines if devices are compared for equality by comparing only the 
+  device's address (unchecked), or if the device instance number is used (checked). This allows BACnet internetworks 
+  that reuse device instance numbers (although this is not proper usage) to still operate.   
+</p>
+<p>
+  The <b>Timeout</b>, <b>Segment timeout</b>, <b>Segment window</b>, and <b>Retries</b> values are BACnet messaging 
+  attributes. In most cases the given default values should be appropriate. Consult the BACnet I/P documentation or your 
+  network administrator to determine if other values should be used for your network.
+</p>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+ 
+<doxManifest>
+  <item id="bacnetIpDS" key="dox.bacnetIpDS" filename="bacnetIpDS.htm"/>
+  <item id="bacnetMstpDS" key="dox.bacnetMstpDS" filename="bacnetMstpDS.htm"/>
+  <item id="bacnetPP" key="dox.bacnetPP" filename="bacnetPP.htm"/>
+  <item id="bacnetDevices" key="dox.bacnetDevices" filename="bacnetDevices.htm"/>
+  <item id="bacnetPublisher" key="dox.bacnetPublisher" filename="bacnetPublisher.htm"/>
+  <item id="foreignDevices" key="dox.foreignDevices" filename="foreignDevices.htm"/>
+</doxManifest>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems. All rights reserved.
+    @author Phillip Dunlap
+-->
+
+<doxManifest>
+  <item id="sshDS" key="ssh.dox.sshDS" filename="sshDS.htm">
+    <relation id="sshPP"/>
+  </item>
+  
+  <item id="sshPP" key="ssh.dox.sshPP" filename="sshPP.htm">
+    <relation id="sshDS"/>
+  </item>
+ 
+</doxManifest>

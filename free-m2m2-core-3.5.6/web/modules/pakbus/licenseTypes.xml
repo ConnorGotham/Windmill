@@ -1,0 +1,14 @@
+<licenseTypes>
+    <licenseType id="Free">
+    	<description>Restricted to ten serial and IP data points.</description>
+    	<price>0</price>
+    	<features>
+    		<dataPointLimit>10</dataPointLimit>
+    	</features>
+    </licenseType>
+    <!-- for Data Source -->
+    <licenseType id="paid">
+        <description>No restrictions.</description>
+        <price>500</price>
+    </licenseType>
+</licenseTypes>

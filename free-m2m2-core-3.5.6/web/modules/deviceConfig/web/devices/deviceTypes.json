@@ -1,0 +1,72 @@
+[
+   {
+      "name": "Measurlogic DTS 305",
+      "description": "Three Phase Power Meter / Transducer",
+      "jsonTemplateFile": "measurlogic/dtsAc.json",
+      "configTemplateFile": "measurlogic/dtsAc.html",
+      "image": "measurlogic/dts-305.jpeg",
+      "modelId": 305,
+      "folderName": "Meters",
+      "deviceInterface": "measurlogic"
+   },
+   {
+      "name": "Measurlogic DTS 307",
+      "description": "Compact line Powered 3 Phase Energy Sub-meter",
+      "jsonTemplateFile": "measurlogic/dtsAc.json",
+      "configTemplateFile": "measurlogic/dtsAc.html",
+      "image": "measurlogic/dts-310.jpeg",
+      "modelId": 307,
+      "folderName": "Meters",
+      "deviceInterface": "measurlogic"
+   },
+   {
+      "name": "Measurlogic DTS 310",
+      "description": "Line Powered 3 Phase Energy Sub-meter",
+      "jsonTemplateFile": "measurlogic/dtsAc.json",
+      "configTemplateFile": "measurlogic/dtsAc.html",
+      "image": "measurlogic/dts-310.jpeg",
+      "modelId": 310,
+      "folderName": "Meters",
+      "deviceInterface": "measurlogic"
+   },
+   {
+      "name": "Measurlogic DTS SMX",
+      "description": "Surface Mount 3 Phase Energy Sub-meter",
+      "jsonTemplateFile": "measurlogic/dtsAc.json",
+      "configTemplateFile": "measurlogic/dtsAc.html",
+      "image": "measurlogic/dts-smx.jpeg",
+      "modelId": 222,
+      "folderName": "Meters",
+      "deviceInterface": "measurlogic"
+   },
+   {
+      "name": "Measurlogic DTS SKT",
+      "description": "Socket Energy Meter with Modbus Communications and Multiple Form Factors",
+      "jsonTemplateFile": "measurlogic/dtsAc.json",
+      "configTemplateFile": "measurlogic/dtsAc.html",
+      "image": "measurlogic/dts-skt.jpeg",
+      "modelId": 333,
+      "folderName": "Meters",
+      "deviceInterface": "measurlogic"
+   },
+   {
+      "name": "DENT PowerScout 24",
+      "description": "Multi-Circuit Power Submeter",
+      "jsonTemplateFile": "dent/powerScout.json",
+      "configTemplateFile": "dent/powerScout24.html",
+      "image": "dent/ps24-d-s_large.jpg",
+      "modelId": "PS24",
+      "folderName": "Meters",
+      "deviceInterface": "dent"
+   },
+   {
+      "name": "DENT PowerScout 3037",
+      "description": "Multi-Circuit Power Submeter",
+      "jsonTemplateFile": "dent/powerScout.json",
+      "configTemplateFile": "dent/powerScout3037.html",
+      "image": "dent/ps3037-e-d_large.png",
+      "modelId": "PS3037",
+      "folderName": "Meters",
+      "deviceInterface": "dent"
+   }
+]

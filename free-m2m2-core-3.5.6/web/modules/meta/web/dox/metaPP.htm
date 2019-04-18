@@ -1,0 +1,38 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<h1>Overview</h1>
+<p>Meta points are configured by creating a "context" of existing points, which become available for access within the script when it executes. These context points can be any point saved in Mango at the time, including the current point being edited. (The current point must be saved&mdash;i.e. cannot be "new"&mdash;before it will appear in the context point list.)</p>
+
+<h1>Point configuration</h1>
+<p>The <b>Data type</b> determines the type that will be expected to be returned from the script. The point attempts to convert the returned value to this type.</p>
+<p><b>Settable</b> is whether the point can be manually set or not.</p>
+<p><b>Variable name</b> is the name given to this point which is always available in the Script context.</p>
+<p>The <b>Script context</b> defines the points that will be available to the script when it executes. Each point that is added must be given a <b>Var</b>, which is the variable name the point data will be assigned to in the script. These script var names must be valid ECMAScript variable names: they must start with either a letter or an underscore, 
+and may not contain spaces. Other constraints may apply. You will receive validation or script execution exceptions if script var names are not correctly defined. 
+To add a point to the context, select it from the list and click the <img src="images/add.png"/> icon. 
+To delete an existing point from the context click the <img src="images/bullet_delete.png"/> icon associated with the point. 
+Points that are not needed in the script should not be added to the context since some overhead is involved in preparing 
+the data for the script. Also, unnecessary script vars may cause unintended script executions. (See "Script execution" below.) 
+However, the contrary may also be true: it may be useful to include a script var in a context in order to cause script execution.  
+If a point <b>updates context</b> it will force the value of the Meta point to be computed when that point is updated.  This is only used when the update event is context update</p>
+
+<h1>Scripts</h1>
+<p>See the Relevent Script Engine Help file link below.
+In addition to the general guide for Mango Javascript the Meta Data Points have the feature of allowing the user to set a custom timestamp for the value by setting a 
+variable named TIMESTAMP to some timestamp.  The timestamp is in ms since java epoch.</p>
+
+<p>If the Object in context named "UNCHANGED" is returned, then the meta point doesn't update its value.</p>
+
+
+<h1>Generate History</h1>
+<p>When creating a new Meta Point sometimes it is helpful to backfill values for it.  This can be done by the generate history link in the Data Points table.</p>
+
+<ul>
+<li>The most recent saved value for all Context Points is found and that date is used for the Starting date for the simulation.  (If any context point has no saved values the Generation will fail here)</li>
+<li>The oldest saved value for the Meta Point is found and that is used as the Ending date for the simulation. (If no values exist the current time is used)</li>
+<li>The simulation is run from Starting to Ending times and a values are created and saved according to the Meta Point settings.</li>
+<li><b>This means that a history can only be generated for times before the earliest Meta Point value.</b></li>
+<li>Calls to set() tell the database to <b>save this value regardless of logging type</b> and <b>do not send it</b> out through the data source</li>
+</ul> 

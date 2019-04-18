@@ -1,0 +1,31 @@
+<p><b>PakBus Discovery Tool Help</b></p>
+<p>The PakBus Discovery Tool is useful to configure dataloggers and points as well as explore the tables of a datalogger.</p>
+
+<h2><b>Configuration</b></h2>
+<ul>
+    <li>The <b>Logger Address</b> is the address of the datalogger to connect to.</li>
+    <li>The <b>Neighbor Address</b> is a known neighbor address for the datalogger, leave as 0 if no neighbor is known.</li>
+    <li>The <b>Round trip time (ms)</b> is expected duration of a round trip request.  Too small a value may result in lost comms due to too many retries.</li>
+    <li>The <b>Security code</b> is the datalogger's security code, leave as 0 if no code is required.</li>
+    <li><b>Table request retry delay</b> is used in the data source to retry failed table configuration requests.</li>
+</ul>
+
+<h2>Useage</h2>
+<p>Once the above information is properly entered in the fields click the <b>Connect to logger</b> button.  This will attempt to connect to the datalogger using the above settings as well as 
+the data source specific connection settings from the data source panel.  After a successful connection the tool will request the table definitions from the datalogger and report that the tool is ready.</p>
+
+<h3>Logger Tables Panel</h3>
+<p>When the logger table definitions are ready a panel with all the tables is shown.  By clicking on the play button for a table the column definitions are shown for that table.</p>
+
+<h3>Logger Table Panel</h3>
+<p>When viewing a single table the columns and thier types are displayed.  It is possible to request the latest values by clicking the play button at the top of the table.  To add a column as 
+a data point click the play button to the right of the desired column.</p>
+
+<h3>Setting Logger Time</h3>
+<p>The datalogger's current time can be requested by clicking the <b>Get time</b> button.  To set the time of the logger, enter a valid time into the <b>Datalogger time</b> input and click the 
+<b>Set time</b> button.  To set the datalogger to the Mango server's current time click the <b>Set to server time</b> button.  Note that the time input will reference datalogger local time.</p>
+
+<h3>File Explorer</h3>
+<p>The files for a datalogger can be displayed by clicking the <b>Request files</b> button.  When the file list has been retrieved the datalogger files panel will be shown.  
+The current running program will be displayed with a gear icon in the Running column.  All other files will have a gear with green plus icon that can be clicked to set that file as the current running program. 
+The green down arrow downloads the file.</p>

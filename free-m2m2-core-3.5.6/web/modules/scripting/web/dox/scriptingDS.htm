@@ -1,0 +1,141 @@
+<!--
+    Mango - Open Source M2M - http://mango.serotoninsoftware.com
+    Copyright (C) 2006-2011 Serotonin Software Technologies Inc.
+    @author Matthew Lohbihler
+    
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/.
+ -->
+<h1>Overview</h1>
+<p>
+  The Scripting allows users to use ECMA scripts to determine point values. It is similar to the Meta data source, 
+  but allows the setting of multiple point values within a single script rather than setting the point using the output 
+  of a per point.
+</p>
+
+<h1>JavaScript / ECMAScript</h1>
+<p>
+  This data source requires some knowledge of JavaScript, also known as ECMAScript. (The full specification for 
+  ECMAScript is available <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank">here</a>.) JavaScript is arguably the most popular scripting language in use today, it being the only language available for use in every popular web browser. The result is that, by far the common usage of JavaScript is in web pages. The context within the Meta data source is of course different, there being no "window" or "document" objects, among other more subtle differences. Contextual differences aside, a full and complete implementation of ECMAScript is available within this data source. Specifically, the <a href="http://www.mozilla.org/rhino/" target="_blank">Rhino</a> 
+  implementation is used.
+</p>
+<p>
+  More information on scripting in Mango can be found in Meta point properties below.
+  And the additional <b>Mango Java Script</b> help link below.
+</p>
+
+<h1>Configuration</h1>
+<p>
+  Every data source requires a <b>Name</b>, which can be any description, and an <b>XID</b>, which must be unique among
+  all data sources. The <b>Cron pattern</b> determines when the script will be executed. A number of example patterns
+  are provided for convenience. To use one, select it and click the <img src="images/bullet_go_left.png"/> icon.
+</p>
+<p>
+  The <b>Execution delay</b> is the number of seconds to delay the script execution after the firing of the cron 
+  pattern. This delay can allow for external context points to be updated in case of network or processing latency. It
+  is important to note that the script with be executed with the timestamp of the moment the cron pattern fired. It 
+  will <b>not</b> include the execution delay seconds.
+</p>
+<p>
+  The <b>Sets Historical</b> checkbox determines if this script has permission to execute all 'set' directives, even
+  if the point being set has a more recent value.
+</p>
+<p>
+  The <b>External context</b> is a set of points external to the data source that are to be included in the script
+  context. The point will be available with the <b>Variable name</b> that is provided. Variable names must be unique.
+</p>
+<p>
+  The <b>Script</b> is an arbitrary ECMAScript. The context will include the external context points, and all the 
+  points in this data source (at the variable names that were provided for each). In addition, there are several 
+  constants that are defined, including all of those defined for Meta data sources, as well as the following:
+</p>
+<ul>
+  <li>
+    <b>POINTS</b>: A list of all point names that were included in the context, including data source and external 
+    points. This allows for dynamic lookup of points at runtime.
+  </li>
+  <li>
+    <b>LOG</b>: A reference to a logging object. This allows the script to write to the Mango log at runtime, which can 
+    provide valuable troubleshooting data. Functions available are trace, debug, info, warn, error, and fatal, which 
+    correspond to the log levels provided by Log4J. 
+  </li>
+</ul>
+<p>
+  Global scripts are automatically included in the script execution, such that functions and variables defined there 
+  are available. Note that if global scripts are changed, the scripting data source must be restarted to reload them.
+</p>
+<p>
+  Scripts can be executed for testing purposes by clicking the <img src="images/accept.png"/> icon. The script will be
+  executed, but no points will be set. (The values to which they would have been set appear in the resulting messages
+  below the script).
+</p>
+<p>
+  The <b>Log level</b> property allows the user to set the level of log messages which will be written to the log. If
+  'None', no messages will be written (although a log file may still be created). 
+</p>
+<p>
+  Users can also use the 'print' and 'println' functions as a form of logging. This is effective during testing only.
+  During data source runtime, such messages are discarded.
+</p>
+
+<h1>Setting point values</h1>
+<p>
+  The most important difference between this data source and the Meta data source is that point values can be set from
+  within the script using the point's 'set(value, timestamp)' function. The value to which the point is to be set can
+  be any value; Mango will attempt to coerce it to the correct data type where possible, otherwise a data type error
+  event will be raised. The optional 'timestamp' parameter is an epoch value. If omitted it will be set to the execution 
+  time of the script. Local points that are set will be updated, while external points will be set and annotated.
+  (External points can only be set if they are settable.)  
+</p>
+<p>
+  Another important difference between this data source and the Meta data source is that inactive points, either in this
+  data source or external to it, will not cause 'missing point' events to be raised. It could, however, cause script
+  exceptions if the script executes while the point is disabled, and if the script does not handle the condition.
+</p>
+<p>
+  Finally, scripts in the scripting data source maintain their context states for the lifecycle of the data source 
+  runtime. So, variables that are defined will still exist at the next execution time unless the data source was 
+  restarted.
+</p>
+
+<h1>Example</h1>
+<p>
+  The following is a script that implements the Lorenz equations. Three numeric points must be defined, with variable
+  names of x, y, and z. A cron pattern of '0/2 * * * * ?' causes the script to be run every 2 seconds, which allows
+  the data source to produce a fair amount of readings in a relatively short time.
+</p>
+<pre>if (x.value == 0 && y.value == 0 && z.value == 0) {
+    // Initial point values
+    y.set(1);
+}
+
+if (typeof(rho) == "undefined") {
+    rho = 28;
+    sigma = 10;
+    beta = 8/3;
+    dt = 0.01;
+}
+
+dx = sigma * (y.value - x.value);
+dy = x.value * (rho - z.value) - y.value;
+dz = x.value * y.value - beta * z.value;
+
+x.set(x.value + dx * dt);
+y.set(y.value + dy * dt);
+z.set(z.value + dz * dt);
+</pre>
+
+<p>
+  Note how the typeof function is used to determine if constants need to be defined. This is an effective way of 
+  initializing the script context upon startup of the data source.
+</p>

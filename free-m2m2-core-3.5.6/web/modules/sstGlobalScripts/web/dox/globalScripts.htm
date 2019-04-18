@@ -1,0 +1,29 @@
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+<h1>Overview</h1>
+<p>
+  Global scripts are added to the scripts specified for meta points, point links, and anywhere else that scripts are
+  used. This allows users to declare code such as functions or general initializations in a single place. Multiple
+  global scripts can be added to simplify code management, but a single script can contain an arbitrary amount of 
+  declarations. Scripts are applied in alphabetical order by their names.
+</p>
+<p>Modifying an existing global script does <b>not</b> update the script in running Scripting or Meta Data sources,
+ to pick up changes you must restart the data sources.  Point Links will pickup any changes to global scripts the next time they are run.</p>
+<p>
+  Global scripts must be independently executable, i.e. they cannot reference variables from other scripts.
+</p>
+<p>
+  Scripts are written in JavaScript, also known as ECMAScript. (The full specification for ECMAScript is available 
+  <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_blank">here</a>.) JavaScript 
+  is arguably the most popular scripting language in use today, it being the only language available for use in every 
+  popular web browser. The result is that, by far the common usage of JavaScript is in web pages. The context within 
+  the Meta data source is of course different, there being no "window" or "document" objects, among other more subtle 
+  differences. Contextual differences aside, a full and complete implementation of ECMAScript is available. 
+  Specifically, the <a href="http://www.mozilla.org/rhino/" target="_blank">Rhino</a> implementation is used.
+</p>
+
+<h1>Examples</h1>
+<p>Examples for Global scripts can be found here: <a href="http://infiniteautomation.com/wiki/doku.php?id=automation:global_scripts">http://infiniteautomation.com/wiki/doku.php?id=automation:global_scripts</a>
+

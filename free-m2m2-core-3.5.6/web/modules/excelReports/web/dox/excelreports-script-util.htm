@@ -1,0 +1,20 @@
+<h1>ExcelReportUtility</h1>
+<p>
+  The ExcelReportUtility is available in the post processing script of an Excel report. It enables one to read or write values to
+  cells, and to write values into named ranges. One can "print(ExcelReportUtility);" from the post processing script entry to see
+  a list of functions available. They are, 
+</p>
+
+<ul>
+  <li>String getString(int sheet, int column, int row) - get a String representation of the value of the cell</li>
+  <li>String getString(String sheetName, int column, int row) - get a String representation of the value of the cell</li>
+  <li>void setString(int sheet, int column, int row, String value) - set a cell to string type and with a string value</li>
+  <li>void setString(String sheet, int column, int row, String value) - set a cell to string type and with a string value</li>
+  <li>void setNumeric(int sheet, int column, int row, double value) - set a cell to numeric type and with a double value</li>
+  <li>void setNumeric(String sheet, int column, int row, double value) - set a cell to numeric type and with a double value</li>
+  <li>void setDate(int sheet, int column, int row, long value) - set a cell to date type and with a long value</li>
+  <li>void setDate(String sheet, int column, int row, long value) - set a cell to date type and with a long value</li>
+  <li>void openNamedRange(String namedRange, boolean append) - open a named range, optionally begin at its last cell</li>
+  <li>void writeStringToNamedRange(String namedRange, value) - write a string value into the next cell of the named range</li>
+  <li>void writeNumericToNamedRange(String namedRange, value) - write a numeric value into the next cell of the named range</li>
+</ul>

@@ -1,0 +1,26 @@
+<!--
+    Copyright (C) 2017 Infinite Automation Systems Inc. All rights reserved.
+    @author Terry Packer
+-->
+<h1>Overview</h1>
+<p>
+  Configure access to a Haystack tagging database and poll the data via a Watch.  One watch is 
+  created for all the data points on this data source.  The lease time is automatically configured to 
+  be 10x the poll period.  Each poll of the data source updates the watch and will retrieve the latest
+  value for each of the data points.  Polling too slow will result in missed data, polling too fast is ok as 
+  the watch will not return duplicate values.  Note that the timestamp of the returned data is the time of the Mango poll.
+</p>
+
+<h1>Configuration</h1>
+<ul>
+	<li>quantize - align poll start to a round number of seconds</li>
+	<li>uri - http://host/path-to-haystack/ (Can be http or https)</li>
+	<li>username - username for Haystack user</li>
+	<li>password - password for Haystack user</li>
+	<li>connectTimeout - timeout for connection requests in ms (0 for none)</li>
+	<li>readTimeout - timeout for read requests in ms (0 for none)</li>
+</ul>
+
+<p><b>Quantize</b> will cause the data source startup to be delayed
+  so that pollings occur at a "rounded" point in time (e.g. if polling is every 10 seconds, polls will occur on the 10th 
+  second, the 20th second, etc). Otherwise, polling will begin immediately.</p>
