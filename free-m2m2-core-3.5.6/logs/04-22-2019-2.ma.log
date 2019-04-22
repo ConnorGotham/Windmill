@@ -1,0 +1,83 @@
+INFO  2019-04-22T14:10:50,754 (com.serotonin.m2m2.Main.main:101) - Starting Mango 3.5.6 with Schema Version: 26 
+INFO  2019-04-22T14:10:51,419 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'asciiFile', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,443 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'BACnet', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,451 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'cloudConnect', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,454 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\Users\USER\Documents\GitHub\Windmill\free-m2m2-core-3.5.6\web\modules\cloudConnect\web\dox\manifest.xml 
+INFO  2019-04-22T14:10:51,457 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'controlcore', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,466 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dashboardDesigner', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,469 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\Users\USER\Documents\GitHub\Windmill\free-m2m2-core-3.5.6\web\modules\dashboardDesigner\web\dox\manifest.xml 
+INFO  2019-04-22T14:10:51,474 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dataFile', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,492 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dataImport', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,500 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'deviceConfig', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,504 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\Users\USER\Documents\GitHub\Windmill\free-m2m2-core-3.5.6\web\modules\deviceConfig\web\dox\manifest.xml 
+INFO  2019-04-22T14:10:51,512 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'dnp3', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,519 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'egauge', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,529 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'envcands', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,536 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'excelReports', v3.5.3 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,556 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'graphicalViews', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,589 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'Haystack', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,602 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'http', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,612 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'jsonFileImport', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,620 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'log4jDS', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,627 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'log4JReset', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,631 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'loggingConsole', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,638 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'maintenanceEvents', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,650 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mangoApi', v3.5.2 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,662 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mangoUI', v3.5.5 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,665 (com.serotonin.m2m2.util.DocumentationManifest.parseManifestFile:60) - Documentation manifest file not found: C:\Users\USER\Documents\GitHub\Windmill\free-m2m2-core-3.5.6\web\modules\mangoUI\web\dox\manifest.xml 
+INFO  2019-04-22T14:10:51,714 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'mbus', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,723 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'meta', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,730 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'modbus', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,738 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'onewire', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,746 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'opcda', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,749 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pakbus', v3.5.4 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,758 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pointLinks', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,768 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'pop3', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,775 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'reports', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,785 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'scheduledEvents', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,795 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'scripting', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,800 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'serial', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,806 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'snmp', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,817 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sqlConsole', v3.5.1 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,824 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sqlds', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,831 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'ssh', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,838 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sstGlobalScripts', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,846 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'sstGraphics', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,877 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'TCPIP', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,884 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'templateConfig', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,890 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'twilio', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,899 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'virtualDS', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,906 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'vmstat', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,914 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'watchlists', v3.5.0 by Infinite Automation Systems Inc. 
+INFO  2019-04-22T14:10:51,931 (com.serotonin.m2m2.Main.loadModules:588) - Loading module 'internal', v3.5.0 by Infinite Automation Systems Inc. 
+ERROR 2019-04-22T14:10:54,277 (com.serotonin.m2m2.Main.main:142) - Error during initialization 
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:1.8.0_201]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[?:1.8.0_201]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[?:1.8.0_201]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[?:1.8.0_201]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[?:1.8.0_201]
+	at org.eclipse.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:339) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:307) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.ServerConnector.doStart(ServerConnector.java:235) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:395) ~[jetty-server-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.4.12.v20180830.jar:9.4.12.v20180830]
+	at com.serotonin.m2m2.Lifecycle.webServerInitialize(Lifecycle.java:999) ~[ma-priv-3.5.6.jar:?]
+	at com.serotonin.m2m2.Lifecycle.initialize(Lifecycle.java:244) ~[ma-priv-3.5.6.jar:?]
+	at com.serotonin.m2m2.Main.main(Main.java:138) ~[ma-priv-3.5.6.jar:?]
+INFO  2019-04-22T14:10:54,277 (com.serotonin.m2m2.Lifecycle.terminate:422) - Mango Lifecycle terminating... 
+ERROR 2019-04-22T14:10:54,290 (com.serotonin.m2m2.Lifecycle.terminate:501) - com.serotonin.provider.InputStreamEPollProvider 
+com.serotonin.provider.ProviderNotFoundException: com.serotonin.provider.InputStreamEPollProvider
+	at com.serotonin.provider.Providers.get(Providers.java:30) ~[mango-3.5.6.jar:?]
+	at com.serotonin.provider.Providers.get(Providers.java:20) ~[mango-3.5.6.jar:?]
+	at com.serotonin.m2m2.Lifecycle.terminate(Lifecycle.java:496) ~[ma-priv-3.5.6.jar:?]
+	at com.serotonin.m2m2.Main.main(Main.java:143) ~[ma-priv-3.5.6.jar:?]
+ERROR 2019-04-22T14:10:54,291 (com.serotonin.m2m2.Lifecycle.terminate:509) - com.serotonin.provider.ProcessEPollProvider 
+com.serotonin.provider.ProviderNotFoundException: com.serotonin.provider.ProcessEPollProvider
+	at com.serotonin.provider.Providers.get(Providers.java:30) ~[mango-3.5.6.jar:?]
+	at com.serotonin.provider.Providers.get(Providers.java:20) ~[mango-3.5.6.jar:?]
+	at com.serotonin.m2m2.Lifecycle.terminate(Lifecycle.java:504) ~[ma-priv-3.5.6.jar:?]
+	at com.serotonin.m2m2.Main.main(Main.java:143) ~[ma-priv-3.5.6.jar:?]
+INFO  2019-04-22T14:10:54,306 (com.serotonin.m2m2.Lifecycle.terminate:571) - Mango Lifecycle terminated. 
